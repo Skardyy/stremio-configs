@@ -93,6 +93,113 @@
       "enabled": true
     }
   ],
+  "rankedStreamExpressions": [
+    {
+      "expression": "/* English/Dubbed/Dual/Multi */ language(streams, 'English', 'Dubbed', 'Dual Audio', 'Multi')",
+      "score": 30,
+      "enabled": true
+    },
+    {
+      "expression": "/* Japanese or untagged */ negate(language(streams, 'English', 'Dubbed', 'Dual Audio', 'Multi'), language(streams, 'Japanese', 'Unknown'))",
+      "score": 15,
+      "enabled": true
+    },
+    {
+      "expression": "/* Chinese */ negate(language(streams, 'English', 'Dubbed', 'Dual Audio', 'Multi', 'Japanese', 'Unknown'), language(streams, 'Chinese'))",
+      "score": 8,
+      "enabled": true
+    },
+    {
+      "expression": "/* 1000+ seeders */ seeders(streams, 1000)",
+      "score": 40,
+      "enabled": true
+    },
+    {
+      "expression": "/* 500-999 seeders */ seeders(streams, 500, 999)",
+      "score": 32,
+      "enabled": true
+    },
+    {
+      "expression": "/* 100-499 seeders */ seeders(streams, 100, 499)",
+      "score": 24,
+      "enabled": true
+    },
+    {
+      "expression": "/* 50-99 seeders */ seeders(streams, 50, 99)",
+      "score": 16,
+      "enabled": true
+    },
+    {
+      "expression": "/* 20-49 seeders */ seeders(streams, 20, 49)",
+      "score": 10,
+      "enabled": true
+    },
+    {
+      "expression": "/* 5-19 seeders */ seeders(streams, 5, 19)",
+      "score": 5,
+      "enabled": true
+    },
+    {
+      "expression": "/* DV */ visualTag(streams, 'DV')",
+      "score": 15,
+      "enabled": true
+    },
+    {
+      "expression": "/* HDR10+ */ negate(visualTag(streams, 'DV'), visualTag(streams, 'HDR10+'))",
+      "score": 13,
+      "enabled": true
+    },
+    {
+      "expression": "/* HDR */ negate(visualTag(streams, 'DV', 'HDR10+'), visualTag(streams, 'HDR'))",
+      "score": 10,
+      "enabled": true
+    },
+    {
+      "expression": "/* Atmos */ audioTag(streams, 'Atmos')",
+      "score": 10,
+      "enabled": true
+    },
+    {
+      "expression": "/* TrueHD */ negate(audioTag(streams, 'Atmos'), audioTag(streams, 'TrueHD'))",
+      "score": 9,
+      "enabled": true
+    },
+    {
+      "expression": "/* DTS-HD MA */ negate(audioTag(streams, 'Atmos', 'TrueHD'), audioTag(streams, 'DTS-HD MA'))",
+      "score": 8,
+      "enabled": true
+    },
+    {
+      "expression": "/* DTS-X */ negate(audioTag(streams, 'Atmos', 'TrueHD', 'DTS-HD MA'), audioTag(streams, 'DTS-X'))",
+      "score": 8,
+      "enabled": true
+    },
+    {
+      "expression": "/* FLAC */ negate(audioTag(streams, 'Atmos', 'TrueHD', 'DTS-HD MA', 'DTS-X'), audioTag(streams, 'FLAC'))",
+      "score": 6,
+      "enabled": true
+    },
+    {
+      "expression": "/* DTS */ negate(audioTag(streams, 'Atmos', 'TrueHD', 'DTS-HD MA', 'DTS-X', 'FLAC'), audioTag(streams, 'DTS'))",
+      "score": 4,
+      "enabled": true
+    },
+    {
+      "expression": "/* DD+ */ negate(audioTag(streams, 'Atmos', 'TrueHD', 'DTS-HD MA', 'DTS-X', 'FLAC', 'DTS'), audioTag(streams, 'DD+'))",
+      "score": 3,
+      "enabled": true
+    },
+    {
+      "expression": "/* HEVC */ encode(streams, 'HEVC', 'H.265', 'x265')",
+      "score": 5,
+      "enabled": true
+    },
+    {
+      "expression": "/* AVC */ encode(streams, 'H.264', 'x264')",
+      "score": 2,
+      "enabled": true
+    }
+  ],
   "regexOverrides": [],
   "sortCriteria": {
     "global": [
@@ -135,7 +242,7 @@
       },
       "overrides": {
         "prism": {
-          "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','4K')::replace('1440p','2K')}\"||\"Unknown\"]}{service.cached::istrue[\" ⚡️\"||\"\"]}{stream.upscaled::istrue[\" 🤮\"||\"\"]}\n{stream.quality::exists[\"{stream.quality}\"||\"\"]}{stream.visualTags::~DV[\" • Dolby Vision\"||\"\"]}{stream.visualTags::~HDR[\" • HDR\"||\"\"]}\n{stream.encode::exists[\"{stream.encode}\"||\"\"]}\n{stream.nSeScore::exists[\"{stream.nSeScore::pstar}\"||\"\"]}",
+          "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','4K')::replace('1440p','2K')}\"||\"Unknown\"]}{service.cached::istrue[\" ⚡️\"||\"\"]}{stream.upscaled::istrue[\" 🤮\"||\"\"]}\n{stream.quality::exists[\"{stream.quality}\"||\"\"]}{stream.visualTags::~DV[\" • Dolby Vision\"||\"\"]}{stream.visualTags::~HDR[\" • HDR\"||\"\"]}\n{stream.encode::exists[\"{stream.encode}\"||\"\"]}\n{stream.nSeScore::>=80[\"★★★★★\"||\"\"]}{stream.nSeScore::>=60::and::stream.nSeScore::<80[\"★★★★\"||\"\"]}{stream.nSeScore::>=40::and::stream.nSeScore::<60[\"★★★\"||\"\"]}{stream.nSeScore::>=20::and::stream.nSeScore::<40[\"★★\"||\"\"]}{stream.nSeScore::<20[\"★\"||\"\"]}",
           "description": "[❖] {stream.title} {stream.year::exists[\"({stream.year})\"||\"\"]}{stream.editions::exists[\" · {stream.editions::join(' · ')}\"||\"\"]}\n\n{stream.audioTags::exists[\"[∿] {stream.audioTags::join(' ')::replace('DTS-HD MA','⭐ DTS-HD MA')::replace('Atmos','⭐ Atmos')::replace('TrueHD','⭐ TrueHD')::replace('FLAC','⭐ FLAC')}\"||\"\"]}\n\n{stream.size::>0[\"[⛁] {stream.size::sbytes}\"||\"\"]}{stream.seeders::>0[\" · 🌱 {stream.seeders}\"||\"\"]}\n{stream.releaseGroup::exists[\"[@] {stream.releaseGroup} · {addon.name}\"||\"\"]}\n\n{stream.languages::exists[\"🌐 {stream.languages::join(' · ')}\"||\"\"]}\n{stream.subtitles::exists[\"📙 {stream.subtitles::join(' · ')}\"||\"\"]}"
         }
       }
@@ -352,6 +459,25 @@
         "mediaTypes": [],
         "useMultipleInstances": false
       }
+    },
+    {
+      "type": "mediafusion",
+      "instanceId": "fcb",
+      "enabled": false,
+      "options": {
+        "name": "MediaFusion",
+        "timeout": 7000,
+        "resources": [
+          "stream",
+          "catalog",
+          "meta"
+        ],
+        "useCachedResultsOnly": true,
+        "enableWatchlistCatalogs": false,
+        "downloadViaBrowser": false,
+        "contributorStreams": false,
+        "mediaTypes": []
+      }
     }
   ],
   "catalogModifications": [],
@@ -361,112 +487,5 @@
       "usenet"
     ]
   },
-  "checkOwned": true,
-  "rankedStreamExpressions": [
-    {
-      "expression": "/* English/Dubbed/Dual/Multi */ language(streams, 'English', 'Dubbed', 'Dual Audio', 'Multi')",
-      "score": 30,
-      "enabled": true
-    },
-    {
-      "expression": "/* Japanese or untagged */ negate(language(streams, 'English', 'Dubbed', 'Dual Audio', 'Multi'), language(streams, 'Japanese', 'Unknown'))",
-      "score": 15,
-      "enabled": true
-    },
-    {
-      "expression": "/* Chinese */ negate(language(streams, 'English', 'Dubbed', 'Dual Audio', 'Multi', 'Japanese', 'Unknown'), language(streams, 'Chinese'))",
-      "score": 8,
-      "enabled": true
-    },
-    {
-      "expression": "/* 1000+ seeders */ seeders(streams, 1000)",
-      "score": 40,
-      "enabled": true
-    },
-    {
-      "expression": "/* 500-999 seeders */ seeders(streams, 500, 999)",
-      "score": 32,
-      "enabled": true
-    },
-    {
-      "expression": "/* 100-499 seeders */ seeders(streams, 100, 499)",
-      "score": 24,
-      "enabled": true
-    },
-    {
-      "expression": "/* 50-99 seeders */ seeders(streams, 50, 99)",
-      "score": 16,
-      "enabled": true
-    },
-    {
-      "expression": "/* 20-49 seeders */ seeders(streams, 20, 49)",
-      "score": 10,
-      "enabled": true
-    },
-    {
-      "expression": "/* 5-19 seeders */ seeders(streams, 5, 19)",
-      "score": 5,
-      "enabled": true
-    },
-    {
-      "expression": "/* DV */ visualTag(streams, 'DV')",
-      "score": 15,
-      "enabled": true
-    },
-    {
-      "expression": "/* HDR10+ */ negate(visualTag(streams, 'DV'), visualTag(streams, 'HDR10+'))",
-      "score": 13,
-      "enabled": true
-    },
-    {
-      "expression": "/* HDR */ negate(visualTag(streams, 'DV', 'HDR10+'), visualTag(streams, 'HDR'))",
-      "score": 10,
-      "enabled": true
-    },
-    {
-      "expression": "/* Atmos */ audioTag(streams, 'Atmos')",
-      "score": 10,
-      "enabled": true
-    },
-    {
-      "expression": "/* TrueHD */ negate(audioTag(streams, 'Atmos'), audioTag(streams, 'TrueHD'))",
-      "score": 9,
-      "enabled": true
-    },
-    {
-      "expression": "/* DTS-HD MA */ negate(audioTag(streams, 'Atmos', 'TrueHD'), audioTag(streams, 'DTS-HD MA'))",
-      "score": 8,
-      "enabled": true
-    },
-    {
-      "expression": "/* DTS-X */ negate(audioTag(streams, 'Atmos', 'TrueHD', 'DTS-HD MA'), audioTag(streams, 'DTS-X'))",
-      "score": 8,
-      "enabled": true
-    },
-    {
-      "expression": "/* FLAC */ negate(audioTag(streams, 'Atmos', 'TrueHD', 'DTS-HD MA', 'DTS-X'), audioTag(streams, 'FLAC'))",
-      "score": 6,
-      "enabled": true
-    },
-    {
-      "expression": "/* DTS */ negate(audioTag(streams, 'Atmos', 'TrueHD', 'DTS-HD MA', 'DTS-X', 'FLAC'), audioTag(streams, 'DTS'))",
-      "score": 4,
-      "enabled": true
-    },
-    {
-      "expression": "/* DD+ */ negate(audioTag(streams, 'Atmos', 'TrueHD', 'DTS-HD MA', 'DTS-X', 'FLAC', 'DTS'), audioTag(streams, 'DD+'))",
-      "score": 3,
-      "enabled": true
-    },
-    {
-      "expression": "/* HEVC */ encode(streams, 'HEVC', 'H.265', 'x265')",
-      "score": 5,
-      "enabled": true
-    },
-    {
-      "expression": "/* AVC */ encode(streams, 'H.264', 'x264')",
-      "score": 2,
-      "enabled": true
-    }
-  ]
+  "checkOwned": true
 }
