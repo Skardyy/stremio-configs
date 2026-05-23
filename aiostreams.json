@@ -75,7 +75,7 @@
     "usenet"
   ],
   "digitalReleaseFilter": {
-    "enabled": true,
+    "enabled": false,
     "tolerance": 0,
     "requestTypes": [],
     "addons": []
@@ -306,9 +306,9 @@
       "releaseGroup"
     ]
   },
-  "precacheNextEpisode": true,
+  "precacheNextEpisode": false,
   "precacheSelector": "count(cached(streams)) == 0 ? uncached(streams) : []",
-  "precacheSingleStream": true,
+  "precacheSingleStream": false,
   "services": [
     {
       "id": "torbox",
