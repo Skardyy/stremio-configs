@@ -243,7 +243,7 @@
       "overrides": {
         "prism": {
           "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','4K')::replace('1440p','2K')}\"||\"Unknown\"]}{service.cached::istrue[\" ⚡️\"||\"\"]}{stream.upscaled::istrue[\" 🤮\"||\"\"]}\n{stream.quality::exists[\"{stream.quality}\"||\"\"]}{stream.visualTags::~DV[\" • Dolby Vision\"||\"\"]}{stream.visualTags::~HDR[\" • HDR\"||\"\"]}\n{stream.encode::exists[\"{stream.encode}\"||\"\"]}\n{stream.nSeScore::>=80[\"★★★★★\"||\"\"]}{stream.nSeScore::>=60::and::stream.nSeScore::<80[\"★★★★\"||\"\"]}{stream.nSeScore::>=40::and::stream.nSeScore::<60[\"★★★\"||\"\"]}{stream.nSeScore::>=20::and::stream.nSeScore::<40[\"★★\"||\"\"]}{stream.nSeScore::<20[\"★\"||\"\"]}",
-          "description": "[❖] {stream.title} {stream.year::exists[\"({stream.year})\"||\"\"]}{stream.editions::exists[\" · {stream.editions::join(' · ')}\"||\"\"]}\n\n{stream.audioTags::exists[\"[∿] {stream.audioTags::join(' ')::replace('DTS-HD MA','⭐ DTS-HD MA')::replace('Atmos','⭐ Atmos')::replace('TrueHD','⭐ TrueHD')::replace('FLAC','⭐ FLAC')}\"||\"\"]}\n\n{stream.size::>0[\"[⛁] {stream.size::sbytes}\"||\"\"]}{stream.seeders::>0[\" · 🌱 {stream.seeders}\"||\"\"]}\n{stream.releaseGroup::exists[\"[@] {stream.releaseGroup} · {addon.name}\"||\"\"]}\n\n{stream.languages::exists[\"🌐 {stream.languages::join(' · ')}\"||\"\"]}\n{stream.subtitles::exists[\"📙 {stream.subtitles::join(' · ')}\"||\"\"]}"
+          "description": "[❖] {stream.title} {stream.year::exists[\"({stream.year})\"||\"\"]}{stream.editions::exists[\" · {stream.editions::join(' · ')}\"||\"\"]}\n\n{stream.audioTags::exists[\"[∿] {stream.audioTags::join(' ')::replace('DTS-HD MA','⭐ DTS-HD MA')::replace('Atmos','⭐ Atmos')::replace('TrueHD','⭐ TrueHD')::replace('FLAC','⭐ FLAC')}\"||\"\"]}\n\n{stream.size::>0[\"[⛁] {stream.size::sbytes}\"||\"\"]}{stream.seeders::>0[\" · 🌱 {stream.seeders}\"||\"\"]}\n[@] {stream.releaseGroup::exists[\"{stream.releaseGroup} · \"||\"\"]}{addon.name}\n\n{stream.languages::exists[\"🌐 {stream.languages::join(' · ')}\"||\"\"]}\n{stream.subtitles::exists[\"📙 {stream.subtitles::join(' · ')}\"||\"\"]}"
         }
       }
     }
@@ -256,9 +256,10 @@
   "hideErrorsForResources": [],
   "statistics": {
     "statsToShow": [
-      "addon",
-      "filter"
-    ]
+      "addon"
+    ],
+    "enabled": false,
+    "position": "top"
   },
   "yearMatching": {
     "enabled": true,
@@ -393,20 +394,6 @@
   ],
   "presets": [
     {
-      "type": "torrentio",
-      "instanceId": "80c",
-      "enabled": true,
-      "options": {
-        "name": "Torrentio",
-        "timeout": 5000,
-        "resources": [
-          "stream"
-        ],
-        "providers": [],
-        "useMultipleInstances": false
-      }
-    },
-    {
       "type": "comet",
       "instanceId": "c9f",
       "enabled": true,
@@ -423,7 +410,7 @@
     },
     {
       "type": "stremthruTorz",
-      "instanceId": "29d",
+      "instanceId": "16f",
       "enabled": true,
       "options": {
         "name": "StremThru Torz",
@@ -434,49 +421,6 @@
         "mediaTypes": [],
         "includeP2P": false,
         "useMultipleInstances": false
-      }
-    },
-    {
-      "type": "animetosho",
-      "instanceId": "137",
-      "enabled": true,
-      "options": {
-        "name": "AnimeTosho",
-        "timeout": 7000,
-        "mediaTypes": [
-          "anime"
-        ],
-        "useMultipleInstances": false
-      }
-    },
-    {
-      "type": "knaben",
-      "instanceId": "534",
-      "enabled": true,
-      "options": {
-        "name": "Knaben",
-        "timeout": 7000,
-        "mediaTypes": [],
-        "useMultipleInstances": false
-      }
-    },
-    {
-      "type": "mediafusion",
-      "instanceId": "fcb",
-      "enabled": false,
-      "options": {
-        "name": "MediaFusion",
-        "timeout": 7000,
-        "resources": [
-          "stream",
-          "catalog",
-          "meta"
-        ],
-        "useCachedResultsOnly": true,
-        "enableWatchlistCatalogs": false,
-        "downloadViaBrowser": false,
-        "contributorStreams": false,
-        "mediaTypes": []
       }
     }
   ],
