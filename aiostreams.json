@@ -70,6 +70,13 @@
   "includedEncodes": [],
   "requiredEncodes": [],
   "preferredEncodes": [],
+  "excludedRegexPatterns": [],
+  "excludedKeywords": [
+    "NCED",
+    "NCOP",
+    "Creditless",
+    "Textless"
+  ],
   "seederRangeTypes": [],
   "ageRangeTypes": [
     "usenet"
@@ -202,6 +209,14 @@
     }
   ],
   "regexOverrides": [],
+  "dynamicAddonFetching": {
+    "enabled": false
+  },
+  "groups": {
+    "enabled": false,
+    "groupings": [],
+    "behaviour": "parallel"
+  },
   "sortCriteria": {
     "global": [
       {
@@ -395,6 +410,37 @@
   ],
   "presets": [
     {
+      "type": "torrentio",
+      "instanceId": "ee1",
+      "enabled": true,
+      "options": {
+        "name": "Torrentio",
+        "timeout": 5000,
+        "resources": [
+          "stream"
+        ],
+        "providers": [
+          "yts",
+          "eztv",
+          "rarbg",
+          "1337x",
+          "thepiratebay",
+          "kickasstorrents",
+          "torrentgalaxy",
+          "magnetdl",
+          "horriblesubs",
+          "nyaasi",
+          "tokyotosho",
+          "anidex",
+          "nekobt"
+        ],
+        "mediaTypes": [
+          "anime"
+        ],
+        "useMultipleInstances": false
+      }
+    },
+    {
       "type": "stremthruTorz",
       "instanceId": "16f",
       "enabled": true,
@@ -433,20 +479,5 @@
       "usenet"
     ]
   },
-  "checkOwned": true,
-  "excludedRegexPatterns": [],
-  "excludedKeywords": [
-    "NCED",
-    "NCOP",
-    "Creditless",
-    "Textless"
-  ],
-  "groups": {
-    "enabled": false,
-    "behaviour": "parallel",
-    "groupings": []
-  },
-  "dynamicAddonFetching": {
-    "enabled": false
-  }
+  "checkOwned": true
 }
