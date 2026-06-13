@@ -84,6 +84,7 @@
   "excludeCachedFromAddons": [],
   "excludeCachedFromServices": [],
   "excludeCachedFromStreamTypes": [],
+  "excludeUncached": true,
   "excludeUncachedFromAddons": [],
   "excludeUncachedFromServices": [],
   "excludeUncachedFromStreamTypes": [],
@@ -242,7 +243,7 @@
       },
       "overrides": {
         "prism": {
-          "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','4K')::replace('1440p','2K')}\"||\"Unknown\"]}{service.cached::istrue[\" ⚡️\"||\"\"]}{stream.upscaled::istrue[\" 🤮\"||\"\"]}\n{stream.quality::exists[\"{stream.quality}\"||\"\"]}{stream.visualTags::~DV[\" • Dolby Vision\"||\"\"]}{stream.visualTags::~HDR[\" • HDR\"||\"\"]}\n{stream.encode::exists[\"{stream.encode}\"||\"\"]}\n{stream.nSeScore::>=80[\"★★★★★\"||\"\"]}{stream.nSeScore::>=60::and::stream.nSeScore::<80[\"★★★★\"||\"\"]}{stream.nSeScore::>=40::and::stream.nSeScore::<60[\"★★★\"||\"\"]}{stream.nSeScore::>=20::and::stream.nSeScore::<40[\"★★\"||\"\"]}{stream.nSeScore::<20[\"★\"||\"\"]}",
+          "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','4K')::replace('1440p','2K')}\"||\"Unknown\"]}{service.cached::istrue[\" ⚡️\"||\"\"]}{stream.upscaled::istrue[\" 🤮\"||\"\"]}\n{stream.quality::exists[\"{stream.quality::replace('BluRay REMUX','REMUX')::replace('Bluray REMUX','REMUX')}\"||\"\"]}{stream.visualTags::~DV[\" • Dolby Vision\"||\"\"]}{stream.visualTags::~HDR[\" • HDR\"||\"\"]}\n{stream.encode::exists[\"{stream.encode}\"||\"\"]}\n{stream.nSeScore::>=80[\"★★★★★\"||\"\"]}{stream.nSeScore::>=60::and::stream.nSeScore::<80[\"★★★★\"||\"\"]}{stream.nSeScore::>=40::and::stream.nSeScore::<60[\"★★★\"||\"\"]}{stream.nSeScore::>=20::and::stream.nSeScore::<40[\"★★\"||\"\"]}{stream.nSeScore::<20[\"★\"||\"\"]}",
           "description": "[❖] {stream.title} {stream.year::exists[\"({stream.year})\"||\"\"]}{stream.editions::exists[\" · {stream.editions::join(' · ')}\"||\"\"]}\n\n{stream.audioTags::exists[\"[∿] {stream.audioTags::join(' ')::replace('DTS-HD MA','⭐ DTS-HD MA')::replace('Atmos','⭐ Atmos')::replace('TrueHD','⭐ TrueHD')::replace('FLAC','⭐ FLAC')}\"||\"\"]}\n\n{stream.size::>0[\"[⛁] {stream.size::sbytes}\"||\"\"]}{stream.seeders::>0[\" · 🌱 {stream.seeders}\"||\"\"]}\n[@] {stream.releaseGroup::exists[\"{stream.releaseGroup} · \"||\"\"]}{addon.name}\n\n{stream.languages::exists[\"🌐 {stream.languages::join(' · ')}\"||\"\"]}\n{stream.subtitles::exists[\"📙 {stream.subtitles::join(' · ')}\"||\"\"]}"
         }
       }
@@ -255,11 +256,11 @@
   },
   "hideErrorsForResources": [],
   "statistics": {
+    "enabled": false,
+    "position": "top",
     "statsToShow": [
       "addon"
-    ],
-    "enabled": false,
-    "position": "top"
+    ]
   },
   "yearMatching": {
     "enabled": true,
@@ -394,21 +395,6 @@
   ],
   "presets": [
     {
-      "type": "comet",
-      "instanceId": "c9f",
-      "enabled": true,
-      "options": {
-        "name": "Comet",
-        "timeout": 7000,
-        "resources": [
-          "stream"
-        ],
-        "includeP2P": false,
-        "removeTrash": true,
-        "mediaTypes": []
-      }
-    },
-    {
       "type": "stremthruTorz",
       "instanceId": "16f",
       "enabled": true,
@@ -422,6 +408,22 @@
         "includeP2P": false,
         "useMultipleInstances": false
       }
+    },
+    {
+      "type": "comet",
+      "instanceId": "c9f",
+      "enabled": true,
+      "options": {
+        "name": "Comet",
+        "timeout": 7000,
+        "resources": [
+          "stream"
+        ],
+        "includeP2P": false,
+        "removeTrash": true,
+        "mediaTypes": [],
+        "scrapeDebridAccountTorrents": false
+      }
     }
   ],
   "catalogModifications": [],
@@ -431,5 +433,20 @@
       "usenet"
     ]
   },
-  "checkOwned": true
+  "checkOwned": true,
+  "excludedRegexPatterns": [],
+  "excludedKeywords": [
+    "NCED",
+    "NCOP",
+    "Creditless",
+    "Textless"
+  ],
+  "groups": {
+    "enabled": false,
+    "behaviour": "parallel",
+    "groupings": []
+  },
+  "dynamicAddonFetching": {
+    "enabled": false
+  }
 }
