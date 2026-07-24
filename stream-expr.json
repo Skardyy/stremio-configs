@@ -45,53 +45,13 @@
     "enabled": true
   },
   {
-    "expression": "/* DV */ visualTag(streams, 'DV')",
-    "score": 15,
-    "enabled": true
-  },
-  {
-    "expression": "/* HDR10+ */ negate(visualTag(streams, 'DV'), visualTag(streams, 'HDR10+'))",
-    "score": 13,
-    "enabled": true
-  },
-  {
-    "expression": "/* HDR */ negate(visualTag(streams, 'DV', 'HDR10+'), visualTag(streams, 'HDR'))",
+    "expression": "/* Lossless audio */ audioTag(streams, 'Atmos', 'TrueHD', 'DTS-HD MA', 'DTS-X', 'FLAC')",
     "score": 10,
     "enabled": true
   },
   {
-    "expression": "/* Atmos */ audioTag(streams, 'Atmos')",
-    "score": 10,
-    "enabled": true
-  },
-  {
-    "expression": "/* TrueHD */ negate(audioTag(streams, 'Atmos'), audioTag(streams, 'TrueHD'))",
-    "score": 9,
-    "enabled": true
-  },
-  {
-    "expression": "/* DTS-HD MA */ negate(audioTag(streams, 'Atmos', 'TrueHD'), audioTag(streams, 'DTS-HD MA'))",
-    "score": 8,
-    "enabled": true
-  },
-  {
-    "expression": "/* DTS-X */ negate(audioTag(streams, 'Atmos', 'TrueHD', 'DTS-HD MA'), audioTag(streams, 'DTS-X'))",
-    "score": 8,
-    "enabled": true
-  },
-  {
-    "expression": "/* FLAC */ negate(audioTag(streams, 'Atmos', 'TrueHD', 'DTS-HD MA', 'DTS-X'), audioTag(streams, 'FLAC'))",
-    "score": 6,
-    "enabled": true
-  },
-  {
-    "expression": "/* DTS */ negate(audioTag(streams, 'Atmos', 'TrueHD', 'DTS-HD MA', 'DTS-X', 'FLAC'), audioTag(streams, 'DTS'))",
+    "expression": "/* Lossy audio */ negate(audioTag(streams, 'Atmos', 'TrueHD', 'DTS-HD MA', 'DTS-X', 'FLAC'), audioTag(streams, 'DTS', 'DD+', 'DD', 'AC3', 'AAC'))",
     "score": 4,
-    "enabled": true
-  },
-  {
-    "expression": "/* DD+ */ negate(audioTag(streams, 'Atmos', 'TrueHD', 'DTS-HD MA', 'DTS-X', 'FLAC', 'DTS'), audioTag(streams, 'DD+'))",
-    "score": 3,
     "enabled": true
   },
   {

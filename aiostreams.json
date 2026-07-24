@@ -148,53 +148,13 @@
       "enabled": true
     },
     {
-      "expression": "/* DV */ visualTag(streams, 'DV')",
-      "score": 15,
-      "enabled": true
-    },
-    {
-      "expression": "/* HDR10+ */ negate(visualTag(streams, 'DV'), visualTag(streams, 'HDR10+'))",
-      "score": 13,
-      "enabled": true
-    },
-    {
-      "expression": "/* HDR */ negate(visualTag(streams, 'DV', 'HDR10+'), visualTag(streams, 'HDR'))",
+      "expression": "/* Lossless audio */ audioTag(streams, 'Atmos', 'TrueHD', 'DTS-HD MA', 'DTS-X', 'FLAC')",
       "score": 10,
       "enabled": true
     },
     {
-      "expression": "/* Atmos */ audioTag(streams, 'Atmos')",
-      "score": 10,
-      "enabled": true
-    },
-    {
-      "expression": "/* TrueHD */ negate(audioTag(streams, 'Atmos'), audioTag(streams, 'TrueHD'))",
-      "score": 9,
-      "enabled": true
-    },
-    {
-      "expression": "/* DTS-HD MA */ negate(audioTag(streams, 'Atmos', 'TrueHD'), audioTag(streams, 'DTS-HD MA'))",
-      "score": 8,
-      "enabled": true
-    },
-    {
-      "expression": "/* DTS-X */ negate(audioTag(streams, 'Atmos', 'TrueHD', 'DTS-HD MA'), audioTag(streams, 'DTS-X'))",
-      "score": 8,
-      "enabled": true
-    },
-    {
-      "expression": "/* FLAC */ negate(audioTag(streams, 'Atmos', 'TrueHD', 'DTS-HD MA', 'DTS-X'), audioTag(streams, 'FLAC'))",
-      "score": 6,
-      "enabled": true
-    },
-    {
-      "expression": "/* DTS */ negate(audioTag(streams, 'Atmos', 'TrueHD', 'DTS-HD MA', 'DTS-X', 'FLAC'), audioTag(streams, 'DTS'))",
+      "expression": "/* Lossy audio */ negate(audioTag(streams, 'Atmos', 'TrueHD', 'DTS-HD MA', 'DTS-X', 'FLAC'), audioTag(streams, 'DTS', 'DD+', 'DD', 'AC3', 'AAC'))",
       "score": 4,
-      "enabled": true
-    },
-    {
-      "expression": "/* DD+ */ negate(audioTag(streams, 'Atmos', 'TrueHD', 'DTS-HD MA', 'DTS-X', 'FLAC', 'DTS'), audioTag(streams, 'DD+'))",
-      "score": 3,
       "enabled": true
     },
     {
@@ -259,7 +219,7 @@
       "overrides": {
         "prism": {
           "name": "{stream.resolution::exists[\"{stream.resolution::replace('2160p','4K')::replace('1440p','2K')}\"||\"Unknown\"]}{service.cached::istrue[\" ⚡️\"||\"\"]}{stream.upscaled::istrue[\" 🤮\"||\"\"]}\n{stream.quality::exists[\"{stream.quality::replace('BluRay REMUX','REMUX')::replace('Bluray REMUX','REMUX')}\"||\"\"]}{stream.visualTags::~DV[\" • Dolby Vision\"||\"\"]}{stream.visualTags::~HDR[\" • HDR\"||\"\"]}\n{stream.encode::exists[\"{stream.encode}\"||\"\"]}\n{stream.nSeScore::>=80[\"★★★★★\"||\"\"]}{stream.nSeScore::>=60::and::stream.nSeScore::<80[\"★★★★\"||\"\"]}{stream.nSeScore::>=40::and::stream.nSeScore::<60[\"★★★\"||\"\"]}{stream.nSeScore::>=20::and::stream.nSeScore::<40[\"★★\"||\"\"]}{stream.nSeScore::<20[\"★\"||\"\"]}",
-          "description": "{stream.seasonPack::istrue[\"[❖]\"||\"[◈]\"]} {stream.season::exists[\"S{stream.season}\"||\"\"]}{stream.episode::exists[\"E{stream.episode} · \"||\"\"]}{stream.title}{stream.editions::exists[\" · {stream.editions::join(' · ')}\"||\"\"]}\n\n{stream.audioTags::exists[\"[∿] {stream.audioTags::join(' ')::replace('DTS-HD MA','⭐ DTS-HD MA')::replace('Atmos','⭐ Atmos')::replace('TrueHD','⭐ TrueHD')::replace('FLAC','⭐ FLAC')}\"||\"\"]}\n\n{stream.size::>0[\"[⛁] {stream.size::sbytes}\"||\"\"]}{stream.bitrate::>0[\" · {stream.bitrate::sbitrate}\"||\"\"]}{stream.seeders::>0[\" 🌱 {stream.seeders}\"||\"\"]}\n\n[@] {stream.indexer::exists[\"{stream.indexer} · \"||\"\"]}{addon.name}\n\n{stream.languages::exists[\"🌐 {stream.languages::join(' · ')}\"||\"\"]}\n\n{stream.subtitles::exists[\"📙 {stream.subtitles::join(' · ')}\"||\"\"]}"
+          "description": "{stream.seasonPack::istrue[\"[❖]\"||\"[◈]\"]} {stream.season::exists[\"S{stream.season}\"||\"\"]}{stream.episode::exists[\"E{stream.episode} · \"||\"\"]}{stream.title}{stream.editions::exists[\" · {stream.editions::join(' · ')}\"||\"\"]}\n\n{stream.audioTags::exists[\"[∿] {stream.audioTags::join(' ')::replace('DTS-HD MA','⭐ DTS-HD MA')::replace('DTS-X','⭐ DTS-X')::replace('Atmos','⭐ Atmos')::replace('TrueHD','⭐ TrueHD')::replace('FLAC','⭐ FLAC')}\"||\"\"]}\n\n{stream.size::>0[\"[⛁] {stream.size::sbytes}\"||\"\"]}{stream.bitrate::>0[\" · {stream.bitrate::sbitrate}\"||\"\"]}{stream.seeders::>0[\" 🌱 {stream.seeders}\"||\"\"]}\n\n[@] {stream.indexer::exists[\"{stream.indexer} · \"||\"\"]}{addon.name}\n\n{stream.languages::exists[\"🌐 {stream.languages::join(' · ')}\"||\"\"]}\n\n{stream.subtitles::exists[\"📙 {stream.subtitles::join(' · ')}\"||\"\"]}"
         }
       }
     }
@@ -408,6 +368,11 @@
       "id": "stremthru_newz",
       "enabled": false,
       "credentials": {}
+    },
+    {
+      "id": "aiostreams",
+      "enabled": false,
+      "credentials": {}
     }
   ],
   "presets": [
@@ -458,19 +423,36 @@
       }
     },
     {
+      "type": "meteor",
+      "instanceId": "9c5",
+      "enabled": true,
+      "options": {
+        "name": "Meteor",
+        "timeout": 5000,
+        "resources": [
+          "stream"
+        ],
+        "mediaTypes": [],
+        "includeP2P": false,
+        "removeTrash": false,
+        "useMultipleInstances": false
+      }
+    },
+    {
       "type": "comet",
-      "instanceId": "c9f",
+      "instanceId": "a60",
       "enabled": true,
       "options": {
         "name": "Comet",
-        "timeout": 7000,
+        "timeout": 5000,
         "resources": [
           "stream"
         ],
         "includeP2P": false,
         "removeTrash": true,
-        "mediaTypes": [],
-        "scrapeDebridAccountTorrents": false
+        "scrapeDebridAccountTorrents": false,
+        "useMultipleInstances": false,
+        "mediaTypes": []
       }
     }
   ],
@@ -481,5 +463,10 @@
       "usenet"
     ]
   },
-  "checkOwned": true
+  "checkOwned": true,
+  "failover": {
+    "contentTypes": [
+      "usenet"
+    ]
+  }
 }
