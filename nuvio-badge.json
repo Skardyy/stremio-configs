@@ -27,6 +27,13 @@
       "id": "gs",
       "isExpanded": true,
       "name": "Streaming"
+    },
+    {
+      "id": "language",
+      "name": "Language",
+      "color": "#FFCC00",
+      "borderColor": "#00000000",
+      "isExpanded": false
     }
   ],
   "filters": [
@@ -302,6 +309,18 @@
       "textColor": "#FFFFFF",
       "tagStyle": "bordered",
       "type": "filter"
+    },
+    {
+      "id": "l-en",
+      "name": "EN",
+      "groupId": "language",
+      "imageURL": "https://github.com/Skardyy/stremio-configs/blob/master/assets/en-globe.png?raw=true",
+      "isEnabled": true,
+      "pattern": "(?i)🌐[^\\n]*?\\b(?:english|dual[\\s._-]?audio)\\b",
+      "tagColor": "#000000",
+      "textColor": "#FFFFFF",
+      "borderColor": "#FFFFFF",
+      "tagStyle": "bordered"
     }
   ]
 }
