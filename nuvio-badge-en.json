@@ -27,6 +27,13 @@
       "id": "gs",
       "isExpanded": true,
       "name": "Streaming"
+    },
+    {
+      "id": "language",
+      "name": "Language",
+      "color": "#FFCC00",
+      "borderColor": "#00000000",
+      "isExpanded": false
     }
   ],
   "filters": [
@@ -302,6 +309,18 @@
       "textColor": "#FFFFFF",
       "tagStyle": "bordered",
       "type": "filter"
+    },
+    {
+      "id": "l-en",
+      "name": "EN",
+      "groupId": "language",
+      "imageURL": "https://github.com/Skardyy/stremio-configs/blob/master/assets/en-globe.png?raw=true",
+      "isEnabled": true,
+      "pattern": "(?is)^(?=.*?(?:(?<![a-z0-9])(?:dual[-_. ]?(?:audio|lang(?:uage)?s?)?|multi[-_. ]?(?:audio|lang(?:uage)?s?)?|eng(?:lish)?[-_. ]?(?:dub(?:bed)?|audio|dual)|(?:dub(?:bed)?)[-_. ]?eng(?:lish)?|en[-_. ]?dub|engdub)(?![a-z0-9])))(?:(?=.*\\.(?:mkv|mp4|avi|m2ts|webm|mov|m4v)\\s+\\S)|(?=(?:.*(?:2160|1440|1080|720|576|480)[pi]?){2})|(?=.*[\\r\\n])|(?=^[a-f0-9]{40,64}\\s+\\S))",
+      "tagColor": "#000000",
+      "textColor": "#FFFFFF",
+      "borderColor": "#FFFFFF",
+      "tagStyle": "bordered"
     }
   ]
 }
