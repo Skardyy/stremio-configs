@@ -1,6 +1,6 @@
 {
   "version": "2.9.1",
-  "exportedAt": "2026-08-01T11:26:44.754Z",
+  "exportedAt": "2026-08-01T11:39:40.543Z",
   "config": {
     "mal": {
       "skipRecap": false,
@@ -2419,8 +2419,8 @@
         "poster": "meta",
         "background": "fanart"
       },
-      "englishArtOnly": false,
-      "originalLangFallback": false
+      "englishArtOnly": true,
+      "originalLangFallback": true
     },
     "includeAdult": false,
     "lastModified": 1785543636882,
