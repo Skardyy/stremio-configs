@@ -1,6 +1,6 @@
 {
   "version": "2.9.1",
-  "exportedAt": "2026-08-01T00:05:37.520Z",
+  "exportedAt": "2026-08-01T00:29:05.897Z",
   "config": {
     "mal": {
       "skipRecap": false,
@@ -66,7 +66,7 @@
     },
     "catalogs": [
       {
-        "id": "tmdb.discover.series.new_shows",
+        "id": "tmdb.discover.series.new_releases",
         "name": "New Releases",
         "type": "series",
         "source": "tmdb",
@@ -81,31 +81,32 @@
             "source": "tmdb",
             "mediaType": "tv",
             "params": {
-              "sort_by": "popularity.desc",
+              "sort_by": "first_air_date.desc",
               "include_adult": false,
-              "first_air_date.gte": "2025-08-01",
-              "first_air_date.lte": "2026-08-01",
-              "vote_count.gte": 40,
+              "vote_count.gte": 50,
+              "first_air_date.gte": "__tmdb_date__:last_year:from",
+              "first_air_date.lte": "__tmdb_date__:last_year:to",
               "with_original_language": "en",
               "without_genres": "10762,10763,10764,10766,10767"
             },
             "formState": {
               "catalogName": "New Releases",
               "discoverSource": "tmdb",
-              "sortBy": "popularity.desc",
+              "sortBy": "first_air_date.desc",
               "catalogType": "series",
+              "tmdbMediaType": "tv",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "tv",
               "providerJoinMode": "or",
-              "voteCountMin": 40,
+              "seriesDatePreset": "last_year",
+              "voteCountMin": 50,
               "originalLanguage": "en"
             }
           }
         }
       },
       {
-        "id": "tmdb.discover.movie.new_digital",
+        "id": "tmdb.discover.movie.new_releases",
         "name": "New Releases",
         "type": "movie",
         "source": "tmdb",
@@ -120,25 +121,25 @@
             "source": "tmdb",
             "mediaType": "movie",
             "params": {
-              "sort_by": "popularity.desc",
+              "sort_by": "primary_release_date.desc",
               "include_adult": false,
-              "with_release_type": "4",
-              "release_date.gte": "2026-05-03",
-              "release_date.lte": "2026-08-01",
-              "vote_count.gte": 30,
+              "vote_count.gte": 100,
+              "primary_release_date.gte": "__tmdb_date__:last_year:from",
+              "primary_release_date.lte": "__tmdb_date__:last_year:to",
               "with_original_language": "en",
               "without_genres": "10770"
             },
             "formState": {
               "catalogName": "New Releases",
               "discoverSource": "tmdb",
-              "sortBy": "popularity.desc",
+              "sortBy": "primary_release_date.desc",
               "catalogType": "movie",
+              "tmdbMediaType": "movie",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "movie",
               "providerJoinMode": "or",
-              "voteCountMin": 30,
+              "movieDatePreset": "last_year",
+              "voteCountMin": 100,
               "originalLanguage": "en"
             }
           }
@@ -160,26 +161,30 @@
             "source": "tmdb",
             "mediaType": "tv",
             "params": {
-              "sort_by": "vote_average.desc",
+              "sort_by": "popularity.desc",
               "include_adult": false,
-              "first_air_date.gte": "2025-02-07",
-              "first_air_date.lte": "2026-08-01",
-              "vote_count.gte": 250,
+              "vote_count.gte": 300,
               "vote_average.gte": 7,
+              "first_air_date.gte": "__tmdb_date__:last_year:from",
+              "first_air_date.lte": "__tmdb_date__:last_year:to",
               "with_original_language": "en",
               "without_genres": "10762,10763,10764,10766,10767"
             },
             "formState": {
               "catalogName": "Best New",
               "discoverSource": "tmdb",
-              "sortBy": "vote_average.desc",
+              "sortBy": "popularity.desc",
               "catalogType": "series",
+              "tmdbMediaType": "tv",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "tv",
               "providerJoinMode": "or",
-              "voteCountMin": 250,
-              "voteAverageRange": [7, 10],
+              "seriesDatePreset": "last_year",
+              "voteCountMin": 300,
+              "voteAverageRange": [
+                7,
+                10
+              ],
               "originalLanguage": "en"
             }
           }
@@ -201,26 +206,30 @@
             "source": "tmdb",
             "mediaType": "movie",
             "params": {
-              "sort_by": "vote_average.desc",
+              "sort_by": "popularity.desc",
               "include_adult": false,
-              "primary_release_date.gte": "2025-08-01",
-              "primary_release_date.lte": "2026-08-01",
-              "vote_count.gte": 300,
-              "vote_average.gte": 6.5,
+              "vote_count.gte": 500,
+              "vote_average.gte": 6.8,
+              "primary_release_date.gte": "__tmdb_date__:last_year:from",
+              "primary_release_date.lte": "__tmdb_date__:last_year:to",
               "with_original_language": "en",
               "without_genres": "10770"
             },
             "formState": {
               "catalogName": "Best New",
               "discoverSource": "tmdb",
-              "sortBy": "vote_average.desc",
+              "sortBy": "popularity.desc",
               "catalogType": "movie",
+              "tmdbMediaType": "movie",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "movie",
               "providerJoinMode": "or",
-              "voteCountMin": 300,
-              "voteAverageRange": [6.5, 10],
+              "movieDatePreset": "last_year",
+              "voteCountMin": 500,
+              "voteAverageRange": [
+                6.8,
+                10
+              ],
               "originalLanguage": "en"
             }
           }
@@ -266,9 +275,10 @@
               "include_adult": false,
               "watch_region": "US",
               "with_watch_providers": "8|1796",
-              "first_air_date.gte": "2025-02-07",
-              "first_air_date.lte": "2026-08-01",
               "vote_count.gte": 25,
+              "vote_average.gte": 6,
+              "first_air_date.gte": "__tmdb_date__:last_year:from",
+              "first_air_date.lte": "__tmdb_date__:last_year:to",
               "with_original_language": "en",
               "without_genres": "10762,10763,10764,10766,10767"
             },
@@ -277,11 +287,16 @@
               "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
               "catalogType": "series",
+              "tmdbMediaType": "tv",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "tv",
               "providerJoinMode": "or",
+              "seriesDatePreset": "last_year",
               "voteCountMin": 25,
+              "voteAverageRange": [
+                6,
+                10
+              ],
               "watchRegion": "US",
               "originalLanguage": "en",
               "watchProviders": [
@@ -318,9 +333,10 @@
               "include_adult": false,
               "watch_region": "US",
               "with_watch_providers": "8|1796",
-              "primary_release_date.gte": "2025-02-07",
-              "primary_release_date.lte": "2026-08-01",
               "vote_count.gte": 50,
+              "vote_average.gte": 6,
+              "primary_release_date.gte": "__tmdb_date__:last_year:from",
+              "primary_release_date.lte": "__tmdb_date__:last_year:to",
               "with_original_language": "en",
               "without_genres": "10770"
             },
@@ -329,11 +345,16 @@
               "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
               "catalogType": "movie",
+              "tmdbMediaType": "movie",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "movie",
               "providerJoinMode": "or",
+              "movieDatePreset": "last_year",
               "voteCountMin": 50,
+              "voteAverageRange": [
+                6,
+                10
+              ],
               "watchRegion": "US",
               "originalLanguage": "en",
               "watchProviders": [
@@ -370,9 +391,10 @@
               "include_adult": false,
               "watch_region": "US",
               "with_watch_providers": "350|2243",
-              "first_air_date.gte": "2025-02-07",
-              "first_air_date.lte": "2026-08-01",
               "vote_count.gte": 25,
+              "vote_average.gte": 6,
+              "first_air_date.gte": "__tmdb_date__:last_year:from",
+              "first_air_date.lte": "__tmdb_date__:last_year:to",
               "with_original_language": "en",
               "without_genres": "10762,10763,10764,10766,10767"
             },
@@ -381,11 +403,16 @@
               "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
               "catalogType": "series",
+              "tmdbMediaType": "tv",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "tv",
               "providerJoinMode": "or",
+              "seriesDatePreset": "last_year",
               "voteCountMin": 25,
+              "voteAverageRange": [
+                6,
+                10
+              ],
               "watchRegion": "US",
               "originalLanguage": "en",
               "watchProviders": [
@@ -422,9 +449,10 @@
               "include_adult": false,
               "watch_region": "US",
               "with_watch_providers": "350|2243",
-              "primary_release_date.gte": "2025-02-07",
-              "primary_release_date.lte": "2026-08-01",
               "vote_count.gte": 50,
+              "vote_average.gte": 6,
+              "primary_release_date.gte": "__tmdb_date__:last_year:from",
+              "primary_release_date.lte": "__tmdb_date__:last_year:to",
               "with_original_language": "en",
               "without_genres": "10770"
             },
@@ -433,11 +461,16 @@
               "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
               "catalogType": "movie",
+              "tmdbMediaType": "movie",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "movie",
               "providerJoinMode": "or",
+              "movieDatePreset": "last_year",
               "voteCountMin": 50,
+              "voteAverageRange": [
+                6,
+                10
+              ],
               "watchRegion": "US",
               "originalLanguage": "en",
               "watchProviders": [
@@ -474,9 +507,10 @@
               "include_adult": false,
               "watch_region": "US",
               "with_watch_providers": "1899|1825",
-              "first_air_date.gte": "2025-02-07",
-              "first_air_date.lte": "2026-08-01",
               "vote_count.gte": 25,
+              "vote_average.gte": 6,
+              "first_air_date.gte": "__tmdb_date__:last_year:from",
+              "first_air_date.lte": "__tmdb_date__:last_year:to",
               "with_original_language": "en",
               "without_genres": "10762,10763,10764,10766,10767"
             },
@@ -485,11 +519,16 @@
               "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
               "catalogType": "series",
+              "tmdbMediaType": "tv",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "tv",
               "providerJoinMode": "or",
+              "seriesDatePreset": "last_year",
               "voteCountMin": 25,
+              "voteAverageRange": [
+                6,
+                10
+              ],
               "watchRegion": "US",
               "originalLanguage": "en",
               "watchProviders": [
@@ -526,9 +565,10 @@
               "include_adult": false,
               "watch_region": "US",
               "with_watch_providers": "1899|1825",
-              "primary_release_date.gte": "2025-02-07",
-              "primary_release_date.lte": "2026-08-01",
               "vote_count.gte": 50,
+              "vote_average.gte": 6,
+              "primary_release_date.gte": "__tmdb_date__:last_year:from",
+              "primary_release_date.lte": "__tmdb_date__:last_year:to",
               "with_original_language": "en",
               "without_genres": "10770"
             },
@@ -537,11 +577,16 @@
               "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
               "catalogType": "movie",
+              "tmdbMediaType": "movie",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "movie",
               "providerJoinMode": "or",
+              "movieDatePreset": "last_year",
               "voteCountMin": 50,
+              "voteAverageRange": [
+                6,
+                10
+              ],
               "watchRegion": "US",
               "originalLanguage": "en",
               "watchProviders": [
@@ -578,9 +623,10 @@
               "include_adult": false,
               "watch_region": "US",
               "with_watch_providers": "337",
-              "first_air_date.gte": "2025-02-07",
-              "first_air_date.lte": "2026-08-01",
               "vote_count.gte": 25,
+              "vote_average.gte": 6,
+              "first_air_date.gte": "__tmdb_date__:last_year:from",
+              "first_air_date.lte": "__tmdb_date__:last_year:to",
               "with_original_language": "en",
               "without_genres": "10762,10763,10764,10766,10767"
             },
@@ -589,11 +635,16 @@
               "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
               "catalogType": "series",
+              "tmdbMediaType": "tv",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "tv",
               "providerJoinMode": "or",
+              "seriesDatePreset": "last_year",
               "voteCountMin": 25,
+              "voteAverageRange": [
+                6,
+                10
+              ],
               "watchRegion": "US",
               "originalLanguage": "en",
               "watchProviders": [
@@ -626,9 +677,10 @@
               "include_adult": false,
               "watch_region": "US",
               "with_watch_providers": "337",
-              "primary_release_date.gte": "2025-02-07",
-              "primary_release_date.lte": "2026-08-01",
               "vote_count.gte": 50,
+              "vote_average.gte": 6,
+              "primary_release_date.gte": "__tmdb_date__:last_year:from",
+              "primary_release_date.lte": "__tmdb_date__:last_year:to",
               "with_original_language": "en",
               "without_genres": "10770"
             },
@@ -637,11 +689,16 @@
               "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
               "catalogType": "movie",
+              "tmdbMediaType": "movie",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "movie",
               "providerJoinMode": "or",
+              "movieDatePreset": "last_year",
               "voteCountMin": 50,
+              "voteAverageRange": [
+                6,
+                10
+              ],
               "watchRegion": "US",
               "originalLanguage": "en",
               "watchProviders": [
@@ -674,9 +731,10 @@
               "include_adult": false,
               "watch_region": "US",
               "with_watch_providers": "9|2100",
-              "first_air_date.gte": "2025-02-07",
-              "first_air_date.lte": "2026-08-01",
               "vote_count.gte": 25,
+              "vote_average.gte": 6,
+              "first_air_date.gte": "__tmdb_date__:last_year:from",
+              "first_air_date.lte": "__tmdb_date__:last_year:to",
               "with_original_language": "en",
               "without_genres": "10762,10763,10764,10766,10767"
             },
@@ -685,11 +743,16 @@
               "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
               "catalogType": "series",
+              "tmdbMediaType": "tv",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "tv",
               "providerJoinMode": "or",
+              "seriesDatePreset": "last_year",
               "voteCountMin": 25,
+              "voteAverageRange": [
+                6,
+                10
+              ],
               "watchRegion": "US",
               "originalLanguage": "en",
               "watchProviders": [
@@ -726,9 +789,10 @@
               "include_adult": false,
               "watch_region": "US",
               "with_watch_providers": "9|2100",
-              "primary_release_date.gte": "2025-02-07",
-              "primary_release_date.lte": "2026-08-01",
               "vote_count.gte": 50,
+              "vote_average.gte": 6,
+              "primary_release_date.gte": "__tmdb_date__:last_year:from",
+              "primary_release_date.lte": "__tmdb_date__:last_year:to",
               "with_original_language": "en",
               "without_genres": "10770"
             },
@@ -737,11 +801,16 @@
               "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
               "catalogType": "movie",
+              "tmdbMediaType": "movie",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "movie",
               "providerJoinMode": "or",
+              "movieDatePreset": "last_year",
               "voteCountMin": 50,
+              "voteAverageRange": [
+                6,
+                10
+              ],
               "watchRegion": "US",
               "originalLanguage": "en",
               "watchProviders": [
@@ -777,9 +846,10 @@
               "sort_by": "popularity.desc",
               "include_adult": false,
               "with_genres": "80,9648",
-              "first_air_date.gte": "2025-02-07",
-              "first_air_date.lte": "2026-08-01",
               "vote_count.gte": 40,
+              "vote_average.gte": 6.5,
+              "first_air_date.gte": "__tmdb_date__:last_year:from",
+              "first_air_date.lte": "__tmdb_date__:last_year:to",
               "with_original_language": "en",
               "without_genres": "10762,10763,10764,10766,10767"
             },
@@ -788,11 +858,16 @@
               "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
               "catalogType": "series",
+              "tmdbMediaType": "tv",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "tv",
               "providerJoinMode": "or",
+              "seriesDatePreset": "last_year",
               "voteCountMin": 40,
+              "voteAverageRange": [
+                6.5,
+                10
+              ],
               "originalLanguage": "en",
               "includeGenres": [
                 {
@@ -827,9 +902,10 @@
               "sort_by": "popularity.desc",
               "include_adult": false,
               "with_genres": "35",
-              "primary_release_date.gte": "2025-02-07",
-              "primary_release_date.lte": "2026-08-01",
-              "vote_count.gte": 60,
+              "vote_count.gte": 50,
+              "vote_average.gte": 6,
+              "primary_release_date.gte": "__tmdb_date__:last_year:from",
+              "primary_release_date.lte": "__tmdb_date__:last_year:to",
               "with_original_language": "en",
               "without_genres": "10770"
             },
@@ -838,11 +914,16 @@
               "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
               "catalogType": "movie",
+              "tmdbMediaType": "movie",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "movie",
               "providerJoinMode": "or",
-              "voteCountMin": 60,
+              "movieDatePreset": "last_year",
+              "voteCountMin": 50,
+              "voteAverageRange": [
+                6,
+                10
+              ],
               "originalLanguage": "en",
               "includeGenres": [
                 {
@@ -873,9 +954,10 @@
               "sort_by": "popularity.desc",
               "include_adult": false,
               "with_genres": "99",
-              "primary_release_date.gte": "2025-02-07",
-              "primary_release_date.lte": "2026-08-01",
               "vote_count.gte": 15,
+              "vote_average.gte": 6.5,
+              "primary_release_date.gte": "__tmdb_date__:last_year:from",
+              "primary_release_date.lte": "__tmdb_date__:last_year:to",
               "with_original_language": "en",
               "without_genres": "10770"
             },
@@ -884,11 +966,16 @@
               "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
               "catalogType": "movie",
+              "tmdbMediaType": "movie",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "movie",
               "providerJoinMode": "or",
+              "movieDatePreset": "last_year",
               "voteCountMin": 15,
+              "voteAverageRange": [
+                6.5,
+                10
+              ],
               "originalLanguage": "en",
               "includeGenres": [
                 {
@@ -2063,4 +2150,3 @@
     "enabledCatalogs": 34
   }
 }
-
