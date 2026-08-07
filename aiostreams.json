@@ -183,20 +183,21 @@
     "groupings": [
       {
         "addons": [
+          "493"
+        ],
+        "condition": "true"
+      },
+      {
+        "addons": [
+          "a9d",
           "16f"
         ],
         "condition": "true"
       },
       {
         "addons": [
-          "a9d"
-        ],
-        "condition": "true"
-      },
-      {
-        "addons": [
-          "60f",
           "497",
+          "60f",
           "1e9"
         ],
         "condition": "count(previousStreams) == 0"
@@ -451,7 +452,37 @@
       "options": {
         "name": "Knaben",
         "timeout": 5000,
-        "mediaTypes": [],
+        "mediaTypes": [
+          "anime"
+        ],
+        "useMultipleInstances": false
+      }
+    },
+    {
+      "type": "neko-bt",
+      "instanceId": "493",
+      "enabled": true,
+      "options": {
+        "name": "nekoBT",
+        "timeout": 5000,
+        "mediaTypes": [
+          "anime"
+        ],
+        "searchMode": "both",
+        "useMultipleInstances": false,
+        "leaveAutoTitleTagsInFilename": false
+      }
+    },
+    {
+      "type": "animetosho",
+      "instanceId": "1e9",
+      "enabled": true,
+      "options": {
+        "name": "AnimeTosho",
+        "timeout": 5000,
+        "mediaTypes": [
+          "anime"
+        ],
         "useMultipleInstances": false
       }
     },
@@ -465,7 +496,10 @@
         "resources": [
           "stream"
         ],
-        "mediaTypes": [],
+        "mediaTypes": [
+          "series",
+          "movie"
+        ],
         "includeP2P": false,
         "useMultipleInstances": false
       }
@@ -486,19 +520,6 @@
         ],
         "includeP2P": false,
         "removeTrash": true,
-        "useMultipleInstances": false
-      }
-    },
-    {
-      "type": "animetosho",
-      "instanceId": "1e9",
-      "enabled": true,
-      "options": {
-        "name": "AnimeTosho",
-        "timeout": 5000,
-        "mediaTypes": [
-          "anime"
-        ],
         "useMultipleInstances": false
       }
     },
