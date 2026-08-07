@@ -173,8 +173,29 @@
     "enabled": false
   },
   "groups": {
-    "enabled": false,
-    "groupings": [],
+    "enabled": true,
+    "groupings": [
+      {
+        "addons": [
+          "16f"
+        ],
+        "condition": "true"
+      },
+      {
+        "addons": [
+          "a9d"
+        ],
+        "condition": "true"
+      },
+      {
+        "addons": [
+          "60f",
+          "497",
+          "1e9"
+        ],
+        "condition": "count(previousStreams) == 0"
+      }
+    ],
     "behaviour": "parallel"
   },
   "sortCriteria": {
@@ -239,6 +260,9 @@
   },
   "yearMatching": {
     "enabled": true,
+    "strictTypes": [
+      "movie"
+    ],
     "requestTypes": [],
     "addons": []
   },
@@ -263,14 +287,34 @@
   },
   "deduplicator": {
     "enabled": true,
+    "excludeAddons": [],
     "multiGroupBehaviour": "aggressive",
     "keys": [
       "filename",
-      "infoHash"
+      "infoHash",
+      "smartDetect"
     ],
     "cached": "single_result",
     "uncached": "per_service",
-    "p2p": "single_result"
+    "p2p": "single_result",
+    "smartDetectAttributes": [
+      "size",
+      "resolution",
+      "quality",
+      "visualTags",
+      "audioTags",
+      "audioChannels",
+      "languages",
+      "encode",
+      "edition",
+      "network",
+      "remastered",
+      "releaseGroup",
+      "bitrate"
+    ],
+    "merge": {
+      "fields": []
+    }
   },
   "autoPlay": {
     "attributes": [
@@ -289,6 +333,11 @@
   "precacheSelector": "count(cached(streams)) == 0 ? uncached(streams) : []",
   "precacheSingleStream": false,
   "services": [
+    {
+      "id": "debridge",
+      "enabled": false,
+      "credentials": {}
+    },
     {
       "id": "torbox",
       "enabled": true,
@@ -373,37 +422,22 @@
       "id": "aiostreams",
       "enabled": false,
       "credentials": {}
+    },
+    {
+      "id": "torrin",
+      "enabled": false,
+      "credentials": {}
     }
   ],
   "presets": [
     {
-      "type": "torrentio",
-      "instanceId": "ee1",
+      "type": "knaben",
+      "instanceId": "a9d",
       "enabled": true,
       "options": {
-        "name": "Torrentio",
+        "name": "Knaben",
         "timeout": 5000,
-        "resources": [
-          "stream"
-        ],
-        "providers": [
-          "yts",
-          "eztv",
-          "rarbg",
-          "1337x",
-          "thepiratebay",
-          "kickasstorrents",
-          "torrentgalaxy",
-          "magnetdl",
-          "horriblesubs",
-          "nyaasi",
-          "tokyotosho",
-          "anidex",
-          "nekobt"
-        ],
-        "mediaTypes": [
-          "anime"
-        ],
+        "mediaTypes": [],
         "useMultipleInstances": false
       }
     },
@@ -413,7 +447,7 @@
       "enabled": true,
       "options": {
         "name": "StremThru Torz",
-        "timeout": 7000,
+        "timeout": 5000,
         "resources": [
           "stream"
         ],
@@ -424,7 +458,7 @@
     },
     {
       "type": "meteor",
-      "instanceId": "9c5",
+      "instanceId": "60f",
       "enabled": true,
       "options": {
         "name": "Meteor",
@@ -432,15 +466,31 @@
         "resources": [
           "stream"
         ],
-        "mediaTypes": [],
+        "mediaTypes": [
+          "movie",
+          "series"
+        ],
         "includeP2P": false,
-        "removeTrash": false,
+        "removeTrash": true,
+        "useMultipleInstances": false
+      }
+    },
+    {
+      "type": "animetosho",
+      "instanceId": "1e9",
+      "enabled": true,
+      "options": {
+        "name": "AnimeTosho",
+        "timeout": 5000,
+        "mediaTypes": [
+          "anime"
+        ],
         "useMultipleInstances": false
       }
     },
     {
       "type": "comet",
-      "instanceId": "a60",
+      "instanceId": "497",
       "enabled": true,
       "options": {
         "name": "Comet",
@@ -452,7 +502,10 @@
         "removeTrash": true,
         "scrapeDebridAccountTorrents": false,
         "useMultipleInstances": false,
-        "mediaTypes": []
+        "mediaTypes": [
+          "movie",
+          "series"
+        ]
       }
     }
   ],
@@ -463,7 +516,21 @@
       "usenet"
     ]
   },
-  "checkOwned": true,
+  "checkOwned": false,
+  "includedSubtitles": [],
+  "requiredSubtitles": [],
+  "excludedAudioChannels": [],
+  "includedAudioChannels": [],
+  "requiredAudioChannels": [],
+  "preferredAudioChannels": [],
+  "episodeTitleMatching": {
+    "requestTypes": [],
+    "addons": []
+  },
+  "languageInference": {
+    "enabled": true,
+    "sources": []
+  },
   "failover": {
     "contentTypes": [
       "usenet"
