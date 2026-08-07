@@ -21,41 +21,41 @@
   },
   {
     "expression": "/* 500-999 seeders */ seeders(streams, 500, 999)",
-    "score": 32,
+    "score": 38,
     "enabled": true
   },
   {
     "expression": "/* 100-499 seeders */ seeders(streams, 100, 499)",
-    "score": 24,
+    "score": 36,
     "enabled": true
   },
   {
     "expression": "/* 50-99 seeders */ seeders(streams, 50, 99)",
-    "score": 16,
+    "score": 34,
     "enabled": true
   },
   {
     "expression": "/* 20-49 seeders */ seeders(streams, 20, 49)",
-    "score": 10,
+    "score": 20,
     "enabled": true
   },
   {
     "expression": "/* 5-19 seeders */ seeders(streams, 5, 19)",
-    "score": 5,
+    "score": 8,
     "enabled": true
   },
   {
     "expression": "/* Lossless audio */ audioTag(streams, 'Atmos', 'TrueHD', 'DTS-HD MA', 'DTS-X', 'FLAC')",
-    "score": 10,
-    "enabled": true
-  },
-  {
-    "expression": "/* Lossy audio */ negate(audioTag(streams, 'Atmos', 'TrueHD', 'DTS-HD MA', 'DTS-X', 'FLAC'), audioTag(streams, 'DTS', 'DD+', 'DD', 'AC3', 'AAC'))",
-    "score": 4,
+    "score": 7,
     "enabled": true
   },
   {
     "expression": "/* HEVC */ encode(streams, 'HEVC', 'H.265', 'x265')",
+    "score": 5,
+    "enabled": true
+  },
+  {
+    "expression": "/* AV1 */ encode(streams, 'AV1', 'av01')",
     "score": 5,
     "enabled": true
   },
