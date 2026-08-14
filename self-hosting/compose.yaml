@@ -47,6 +47,9 @@ services:
     init: true
     tty: true
     env_file: [.env]
+    environment:
+      - HOST_NAME=https://${AIOMETADATA_HOST?}
+      - REDIS_URL=redis://aiometadata_redis:6379
     volumes:
       - ./data/aiometadata/data:/app/addon/data
     depends_on:
