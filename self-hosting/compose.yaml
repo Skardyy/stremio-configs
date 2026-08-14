@@ -13,10 +13,19 @@ services:
       - "--entryPoints.web.http.redirections.entryPoint.to=websecure"
       - "--entryPoints.web.http.redirections.entryPoint.scheme=https"
       - "--entryPoints.websecure.address=:443"
-      - "--certificatesresolvers.letsencrypt.acme.httpchallenge=true"
-      - "--certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web"
+      # DNS-01 instead of HTTP-01: required when Cloudflare proxies (orange
+      # cloud), since Let's Encrypt can't reach the origin directly. Also
+      # allows a wildcard cert.
+      - "--certificatesresolvers.letsencrypt.acme.dnschallenge=true"
+      - "--certificatesresolvers.letsencrypt.acme.dnschallenge.provider=cloudflare"
+      - "--certificatesresolvers.letsencrypt.acme.dnschallenge.resolvers=1.1.1.1:53,8.8.8.8:53"
       - "--certificatesresolvers.letsencrypt.acme.email=${ACME_EMAIL?}"
       - "--certificatesresolvers.letsencrypt.acme.storage=/config/acme.json"
+      # Trust Cloudflare's forwarded client IPs so logs and rate limits see
+      # the real visitor rather than the edge.
+      - "--entryPoints.websecure.forwardedHeaders.trustedIPs=173.245.48.0/20,103.21.244.0/22,103.22.200.0/22,103.31.4.0/22,141.101.64.0/18,108.162.192.0/18,190.93.240.0/20,188.114.96.0/20,197.234.240.0/22,198.41.128.0/17,162.158.0.0/15,104.16.0.0/13,104.24.0.0/14,172.64.0.0/13,131.0.72.0/22"
+    environment:
+      - CF_DNS_API_TOKEN=${CF_DNS_API_TOKEN?}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./traefik:/config

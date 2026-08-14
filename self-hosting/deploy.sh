@@ -93,6 +93,7 @@ AIOSTREAMS_BASICAUTH=$(get_remote AIOSTREAMS_BASICAUTH)
 AIOMETADATA_AUTH=$(get_remote AIOMETADATA_AUTH)
 BESZEL_KEY=$(get_remote BESZEL_KEY)
 BESZEL_TOKEN=$(get_remote BESZEL_TOKEN)
+CF_DNS_API_TOKEN=$(get_remote CF_DNS_API_TOKEN)
 
 if [[ -z $SECRET_KEY ]]; then
   SECRET_KEY=$(openssl rand -hex 32)
@@ -174,6 +175,20 @@ else
   fi
 fi
 
+# Cloudflare token for the DNS-01 challenge. Needed because the domain is
+# proxied (orange cloud); HTTP-01 cannot reach the origin.
+if [[ -n $CF_DNS_API_TOKEN && $ROTATE == 0 ]]; then
+  inf "Cloudflare DNS token kept"
+else
+  echo
+  inf "Cloudflare API token (Edit zone DNS, scoped to your zone)"
+  read -rsp "  CF_DNS_API_TOKEN: " in_cf; echo
+  [[ -n $in_cf ]] || die "token required for the DNS-01 challenge"
+  CF_DNS_API_TOKEN=$in_cf
+  unset in_cf
+  ok "Cloudflare token set"
+fi
+
 # ------------------------------------------------------------------ run
 c "Bootstrapping host"
 ssh "$TARGET" "SKIP_UPGRADE=$SKIP_UPGRADE bash -s" < bootstrap.sh
@@ -185,7 +200,7 @@ scp -q compose.yaml "$TARGET:$STACK_DIR/compose.yaml"
 # Assemble the remote .env: non-secret config + secrets, piped over stdin so
 # it is never written to a local file.
 {
-  grep -vE '^(SECRET_KEY|AIOSTREAMS_AUTH|AIOSTREAMS_BASICAUTH|AIOMETADATA_AUTH|BESZEL_KEY|BESZEL_TOKEN)=' "$LOCAL_ENV"
+  grep -vE '^(SECRET_KEY|AIOSTREAMS_AUTH|AIOSTREAMS_BASICAUTH|AIOMETADATA_AUTH|BESZEL_KEY|BESZEL_TOKEN|CF_DNS_API_TOKEN)=' "$LOCAL_ENV"
   echo
   echo "SECRET_KEY=$SECRET_KEY"
   echo "AIOSTREAMS_AUTH=$AIOSTREAMS_AUTH"
@@ -193,6 +208,7 @@ scp -q compose.yaml "$TARGET:$STACK_DIR/compose.yaml"
   echo "AIOMETADATA_AUTH=$AIOMETADATA_AUTH"
   echo "BESZEL_KEY=$BESZEL_KEY"
   echo "BESZEL_TOKEN=$BESZEL_TOKEN"
+  echo "CF_DNS_API_TOKEN=$CF_DNS_API_TOKEN"
 } | ssh "$TARGET" "umask 077 && cat > $STACK_DIR/.env"
 ok "compose.yaml + .env written (.env is 600, server-only)"
 
