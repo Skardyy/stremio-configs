@@ -1,4 +1,5 @@
 .env
+env.local
 .deploy.conf
 data/
 traefik/

@@ -50,6 +50,7 @@ services:
     environment:
       - HOST_NAME=https://${AIOMETADATA_HOST?}
       - REDIS_URL=redis://aiometadata_redis:6379
+      - DATABASE_URI=sqlite://addon/data/db.sqlite
     volumes:
       - ./data/aiometadata/data:/app/addon/data
     depends_on:
@@ -57,10 +58,25 @@ services:
         condition: service_healthy
     labels:
       - "traefik.enable=true"
+      - "traefik.http.services.aiometadata.loadbalancer.server.port=3232"
+
+      # Public: the endpoints Nuvio/Stremio must reach without credentials.
+      # Higher priority so these win over the catch-all router below.
+      - "traefik.http.routers.aiometadata-pub.rule=Host(`${AIOMETADATA_HOST?}`) && (PathPrefix(`/stremio`) || PathPrefix(`/poster`) || PathPrefix(`/resize-image`) || PathPrefix(`/api/image`) || PathPrefix(`/api/cache/health`))"
+      - "traefik.http.routers.aiometadata-pub.priority=100"
+      - "traefik.http.routers.aiometadata-pub.entrypoints=websecure"
+      - "traefik.http.routers.aiometadata-pub.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.aiometadata-pub.service=aiometadata"
+
+      # Everything else (/, /configure, /api/config/*, /dashboard) needs the
+      # master password. AIOMetadata has no instance-level gate of its own.
       - "traefik.http.routers.aiometadata.rule=Host(`${AIOMETADATA_HOST?}`)"
+      - "traefik.http.routers.aiometadata.priority=1"
       - "traefik.http.routers.aiometadata.entrypoints=websecure"
       - "traefik.http.routers.aiometadata.tls.certresolver=letsencrypt"
-      - "traefik.http.services.aiometadata.loadbalancer.server.port=3232"
+      - "traefik.http.routers.aiometadata.service=aiometadata"
+      - "traefik.http.routers.aiometadata.middlewares=aiometadata-auth"
+      - "traefik.http.middlewares.aiometadata-auth.basicauth.users=${AIOMETADATA_AUTH?}"
     healthcheck:
       test:
         [

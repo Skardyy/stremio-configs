@@ -6,27 +6,25 @@ Get your SSH key onto the box first - `bootstrap.sh` disables password auth
 ssh-copy-id root@HOST
 ```
 
-Create your `.env`:
+Create your local config. Holds **no secrets** - hostnames and an email only:
 
 ```bash
-cp env.sample .env
-openssl rand -hex 32     # -> SECRET_KEY
-$EDITOR .env
+cp env.sample env.local
+$EDITOR env.local
 ```
 
-Then, from your local machine:
+Then deploy:
 
 ```bash
 ./deploy.sh
 ```
 
-It prompts for the host (remembered in `.deploy.conf` for next time), validates
-your `.env`, checks key auth, runs `bootstrap.sh` on the server, copies
-`compose.yaml` and `.env` to `/opt/stack`, and brings the stack up.
-
-Re-run it any time you change `compose.yaml` or `.env`. Use `--fast` to skip
-the remote `apt full-upgrade`:
+It prompts for the host (remembered in `.deploy.conf`), then for the
+AIOStreams and AIOMetadata logins. The AIOMetadata password is hashed with
+`openssl passwd -apr1` before it leaves your machine. `SECRET_KEY` is
+generated on first deploy.
 
 ```bash
-./deploy.sh --fast
+./deploy.sh --fast      # skip the remote apt full-upgrade
+./deploy.sh --rotate    # re-prompt for passwords (otherwise reused)
 ```
