@@ -1,0 +1,7 @@
+.env
+.deploy.conf
+data/
+traefik/
+acme.json
+*.pem
+*.key

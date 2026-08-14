@@ -1,0 +1,120 @@
+services:
+  traefik:
+    image: traefik:v3
+    container_name: traefik
+    restart: unless-stopped
+    ports:
+      - 80:80
+      - 443:443
+    command:
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entryPoints.web.address=:80"
+      - "--entryPoints.web.http.redirections.entryPoint.to=websecure"
+      - "--entryPoints.web.http.redirections.entryPoint.scheme=https"
+      - "--entryPoints.websecure.address=:443"
+      - "--certificatesresolvers.letsencrypt.acme.httpchallenge=true"
+      - "--certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web"
+      - "--certificatesresolvers.letsencrypt.acme.email=${ACME_EMAIL?}"
+      - "--certificatesresolvers.letsencrypt.acme.storage=/config/acme.json"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik:/config
+    mem_limit: 128m
+
+  aiostreams:
+    image: ghcr.io/viren070/aiostreams:latest
+    container_name: aiostreams
+    restart: unless-stopped
+    env_file: [.env]
+    environment:
+      - BASE_URL=https://${AIOSTREAMS_HOST?}
+      - SECRET_KEY=${SECRET_KEY?}
+    volumes:
+      - ./data/aiostreams:/app/data
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.aiostreams.rule=Host(`${AIOSTREAMS_HOST?}`)"
+      - "traefik.http.routers.aiostreams.entrypoints=websecure"
+      - "traefik.http.routers.aiostreams.tls.certresolver=letsencrypt"
+      - "traefik.http.services.aiostreams.loadbalancer.server.port=3000"
+    mem_limit: 700m
+
+  aiometadata:
+    image: ghcr.io/cedya77/aiometadata:latest
+    container_name: aiometadata
+    restart: unless-stopped
+    init: true
+    tty: true
+    env_file: [.env]
+    volumes:
+      - ./data/aiometadata/data:/app/addon/data
+    depends_on:
+      aiometadata_redis:
+        condition: service_healthy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.aiometadata.rule=Host(`${AIOMETADATA_HOST?}`)"
+      - "traefik.http.routers.aiometadata.entrypoints=websecure"
+      - "traefik.http.routers.aiometadata.tls.certresolver=letsencrypt"
+      - "traefik.http.services.aiometadata.loadbalancer.server.port=3232"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--no-verbose",
+          "--tries=1",
+          "--spider",
+          "http://localhost:3232/health",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    mem_limit: 700m
+
+  aiometadata_redis:
+    image: redis:7-alpine
+    container_name: aiometadata_redis
+    restart: unless-stopped
+    command: >
+      redis-server
+      --maxmemory 256mb
+      --maxmemory-policy allkeys-lru
+      --save ""
+      --appendonly no
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    mem_limit: 320m
+
+  beszel:
+    image: henrygd/beszel:latest
+    container_name: beszel
+    restart: unless-stopped
+    volumes:
+      - ./data/beszel:/beszel_data
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.beszel.rule=Host(`${BESZEL_HOST?}`)"
+      - "traefik.http.routers.beszel.entrypoints=websecure"
+      - "traefik.http.routers.beszel.tls.certresolver=letsencrypt"
+      - "traefik.http.services.beszel.loadbalancer.server.port=8090"
+    mem_limit: 256m
+
+  beszel-agent:
+    image: henrygd/beszel-agent:latest
+    container_name: beszel-agent
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - LISTEN=45876
+      - KEY=${BESZEL_KEY:-}
+      - TOKEN=${BESZEL_TOKEN:-}
+      - HUB_URL=https://${BESZEL_HOST?}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    mem_limit: 64m
