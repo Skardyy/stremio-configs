@@ -34,10 +34,27 @@ services:
       - ./data/aiostreams:/app/data
     labels:
       - "traefik.enable=true"
+      - "traefik.http.services.aiostreams.loadbalancer.server.port=3000"
+
+      # Gated: the configure UI and dashboard. Higher priority so it wins.
+      # Note manifests live under the SAME /stremio prefix as the configure
+      # page (/stremio/{uuid}/manifest.json vs /stremio/configure), so this
+      # has to name the exact paths rather than allowlist a prefix.
+      - "traefik.http.routers.aiostreams-cfg.rule=Host(`${AIOSTREAMS_HOST?}`) && (PathPrefix(`/stremio/configure`) || PathPrefix(`/dashboard`) || PathPrefix(`/configure`))"
+      - "traefik.http.routers.aiostreams-cfg.priority=100"
+      - "traefik.http.routers.aiostreams-cfg.entrypoints=websecure"
+      - "traefik.http.routers.aiostreams-cfg.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.aiostreams-cfg.service=aiostreams"
+      - "traefik.http.routers.aiostreams-cfg.middlewares=aiostreams-auth"
+      - "traefik.http.middlewares.aiostreams-auth.basicauth.users=${AIOSTREAMS_BASICAUTH?}"
+
+      # Everything else: manifests, streams, catalogs, static assets. Must
+      # stay open for Nuvio/Stremio.
       - "traefik.http.routers.aiostreams.rule=Host(`${AIOSTREAMS_HOST?}`)"
+      - "traefik.http.routers.aiostreams.priority=1"
       - "traefik.http.routers.aiostreams.entrypoints=websecure"
       - "traefik.http.routers.aiostreams.tls.certresolver=letsencrypt"
-      - "traefik.http.services.aiostreams.loadbalancer.server.port=3000"
+      - "traefik.http.routers.aiostreams.service=aiostreams"
     mem_limit: 700m
 
   aiometadata:

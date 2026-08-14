@@ -89,6 +89,7 @@ get_remote() { grep -E "^$1=" <<<"$remote_env" | head -1 | cut -d= -f2- || true;
 
 SECRET_KEY=$(get_remote SECRET_KEY)
 AIOSTREAMS_AUTH=$(get_remote AIOSTREAMS_AUTH)
+AIOSTREAMS_BASICAUTH=$(get_remote AIOSTREAMS_BASICAUTH)
 AIOMETADATA_AUTH=$(get_remote AIOMETADATA_AUTH)
 BESZEL_KEY=$(get_remote BESZEL_KEY)
 BESZEL_TOKEN=$(get_remote BESZEL_TOKEN)
@@ -100,9 +101,9 @@ else
   inf "SECRET_KEY kept (rotating it would orphan every saved config)"
 fi
 
-# $1=label  $2=name of var holding current value
+# $1=label  $2=name of var holding current value  $3=hash? (apr1|plain|both)
 prompt_login() {
-  local label=$1 var=$2 cur=${!2} user pass pass2
+  local label=$1 var=$2 mode=${3:-plain} cur=${!2} user pass pass2
   if [[ -n $cur && $ROTATE == 0 ]]; then
     inf "$label login kept (--rotate to change)"
     return
@@ -115,21 +116,43 @@ prompt_login() {
   [[ $pass == "$pass2" ]] || die "passwords do not match"
   [[ -n $pass ]] || die "password cannot be empty"
 
-  if [[ $label == AIOMetadata ]]; then
-    # Traefik wants an apr1 hash; compose needs every $ doubled.
-    local h
-    h=$(openssl passwd -apr1 "$pass" | sed 's/\$/\$\$/g')
-    printf -v "$var" '%s' "$user:$h"
-    ok "$label hashed (apr1)"
-  else
-    printf -v "$var" '%s' "$user:$pass"
-    ok "$label set"
-  fi
+  local h
+  case $mode in
+    apr1)
+      # Traefik wants an apr1 hash; compose needs every $ doubled.
+      h=$(openssl passwd -apr1 "$pass" | sed 's/\$/\$\$/g')
+      printf -v "$var" '%s' "$user:$h"
+      ok "$label hashed (apr1)"
+      ;;
+    both)
+      # AIOStreams needs plaintext for its own operator login, and an apr1
+      # hash for the Traefik gate in front of the configure page. Same
+      # credentials, so only ask once.
+      h=$(openssl passwd -apr1 "$pass" | sed 's/\$/\$\$/g')
+      printf -v "$var" '%s' "$user:$pass"
+      AIOSTREAMS_BASICAUTH="$user:$h"
+      ok "$label set (operator login + proxy gate)"
+      ;;
+    *)
+      printf -v "$var" '%s' "$user:$pass"
+      ok "$label set"
+      ;;
+  esac
   unset pass pass2
 }
 
-prompt_login AIOStreams   AIOSTREAMS_AUTH
-prompt_login AIOMetadata  AIOMETADATA_AUTH
+prompt_login AIOStreams   AIOSTREAMS_AUTH   both
+prompt_login AIOMetadata  AIOMETADATA_AUTH  apr1
+
+# If the operator login predates the proxy gate, the hash won't exist yet.
+if [[ -n $AIOSTREAMS_AUTH && -z $AIOSTREAMS_BASICAUTH ]]; then
+  inf "deriving proxy gate from the existing AIOStreams login"
+  u=${AIOSTREAMS_AUTH%%:*}
+  p=${AIOSTREAMS_AUTH#*:}
+  AIOSTREAMS_BASICAUTH="$u:$(openssl passwd -apr1 "$p" | sed 's/\$/\$\$/g')"
+  ok "proxy gate hash generated"
+  unset u p
+fi
 
 # Beszel's agent credentials come from the hub's "Add System" dialog, which
 # only exists after the hub is running. First deploy leaves these blank; the
@@ -162,10 +185,11 @@ scp -q compose.yaml "$TARGET:$STACK_DIR/compose.yaml"
 # Assemble the remote .env: non-secret config + secrets, piped over stdin so
 # it is never written to a local file.
 {
-  grep -vE '^(SECRET_KEY|AIOSTREAMS_AUTH|AIOMETADATA_AUTH|BESZEL_KEY|BESZEL_TOKEN)=' "$LOCAL_ENV"
+  grep -vE '^(SECRET_KEY|AIOSTREAMS_AUTH|AIOSTREAMS_BASICAUTH|AIOMETADATA_AUTH|BESZEL_KEY|BESZEL_TOKEN)=' "$LOCAL_ENV"
   echo
   echo "SECRET_KEY=$SECRET_KEY"
   echo "AIOSTREAMS_AUTH=$AIOSTREAMS_AUTH"
+  echo "AIOSTREAMS_BASICAUTH=$AIOSTREAMS_BASICAUTH"
   echo "AIOMETADATA_AUTH=$AIOMETADATA_AUTH"
   echo "BESZEL_KEY=$BESZEL_KEY"
   echo "BESZEL_TOKEN=$BESZEL_TOKEN"
