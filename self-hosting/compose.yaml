@@ -147,7 +147,10 @@ services:
     restart: unless-stopped
     network_mode: host
     environment:
-      - LISTEN=45876
+      # host networking is needed to see real interfaces and disks, but it
+      # also binds to every interface - pin to loopback so the port isn't
+      # reachable from outside the machine. The hub connects locally.
+      - LISTEN=127.0.0.1:45876
       - KEY=${BESZEL_KEY:-}
       - TOKEN=${BESZEL_TOKEN:-}
       - HUB_URL=https://${BESZEL_HOST?}
