@@ -64,7 +64,7 @@ for f in bootstrap.sh compose.yaml "$LOCAL_ENV"; do
   [[ -f $f ]] || die "missing $f  (cp env.sample $LOCAL_ENV and edit it)"
 done
 
-for k in ACME_EMAIL AIOSTREAMS_HOST AIOMETADATA_HOST BESZEL_HOST; do
+for k in ACME_EMAIL AIOSTREAMS_HOST AIOMETADATA_HOST DOZZLE_HOST; do
   v=$(grep -E "^${k}=" "$LOCAL_ENV" | cut -d= -f2- || true)
   [[ -n $v && $v != *yourdomain* && $v != *example.com* ]] \
     || die "$LOCAL_ENV: $k not filled in"
@@ -92,8 +92,6 @@ STACK_USER=$(get_remote STACK_USER)
 AIOSTREAMS_AUTH=$(get_remote AIOSTREAMS_AUTH)
 AIOSTREAMS_BASICAUTH=$(get_remote AIOSTREAMS_BASICAUTH)
 AIOMETADATA_AUTH=$(get_remote AIOMETADATA_AUTH)
-BESZEL_KEY=$(get_remote BESZEL_KEY)
-BESZEL_TOKEN=$(get_remote BESZEL_TOKEN)
 CF_DNS_API_TOKEN=$(get_remote CF_DNS_API_TOKEN)
 
 if [[ -z $SECRET_KEY ]]; then
@@ -142,26 +140,6 @@ if [[ -n $AIOSTREAMS_AUTH && -z $AIOMETADATA_AUTH ]]; then
   ok "backfilled"
 fi
 
-# Beszel's agent credentials come from the hub's "Add System" dialog, which
-# only exists after the hub is running. First deploy leaves these blank; the
-# second picks them up. Not secret enough to hide from the terminal.
-if [[ -n $BESZEL_KEY && $ROTATE == 0 ]]; then
-  inf "Beszel agent already registered"
-else
-  echo
-  inf "Beszel agent (leave blank to skip - the hub must be running first)"
-  read -rp "  Beszel public key: " in_bkey
-  if [[ -n $in_bkey ]]; then
-    read -rp "  Beszel token:      " in_btoken
-    [[ -n $in_btoken ]] || die "token cannot be empty when a key is given"
-    BESZEL_KEY=$in_bkey
-    BESZEL_TOKEN=$in_btoken
-    ok "Beszel agent credentials set"
-  else
-    inf "skipped - re-run deploy after adding the system in Beszel"
-  fi
-fi
-
 # Cloudflare token for the DNS-01 challenge. Needed because the domain is
 # proxied (orange cloud); HTTP-01 cannot reach the origin.
 if [[ -n $CF_DNS_API_TOKEN && $ROTATE == 0 ]]; then
@@ -187,27 +165,25 @@ scp -q compose.yaml "$TARGET:$STACK_DIR/compose.yaml"
 # Assemble the remote .env: non-secret config + secrets, piped over stdin so
 # it is never written to a local file.
 {
-  grep -vE '^(SECRET_KEY|AIOSTREAMS_AUTH|AIOSTREAMS_BASICAUTH|AIOMETADATA_AUTH|STACK_USER|BESZEL_KEY|BESZEL_TOKEN|CF_DNS_API_TOKEN)=' "$LOCAL_ENV"
+  grep -vE '^(SECRET_KEY|AIOSTREAMS_AUTH|AIOSTREAMS_BASICAUTH|AIOMETADATA_AUTH|STACK_USER|CF_DNS_API_TOKEN)=' "$LOCAL_ENV"
   echo
   echo "SECRET_KEY=$SECRET_KEY"
   echo "STACK_USER=$STACK_USER"
   echo "AIOSTREAMS_AUTH=$AIOSTREAMS_AUTH"
   echo "AIOSTREAMS_BASICAUTH=$AIOSTREAMS_BASICAUTH"
   echo "AIOMETADATA_AUTH=$AIOMETADATA_AUTH"
-  echo "BESZEL_KEY=$BESZEL_KEY"
-  echo "BESZEL_TOKEN=$BESZEL_TOKEN"
   echo "CF_DNS_API_TOKEN=$CF_DNS_API_TOKEN"
 } | ssh "$TARGET" "umask 077 && cat > $STACK_DIR/.env"
 ok "compose.yaml + .env written (.env is 600, server-only)"
 
 c "Starting containers"
-ssh "$TARGET" "cd $STACK_DIR && docker compose pull -q && docker compose up -d"
+ssh "$TARGET" "cd $STACK_DIR && docker compose pull -q && docker compose up -d --remove-orphans"
 
 c "Status"
 ssh "$TARGET" "cd $STACK_DIR && docker compose ps"
 
 # ------------------------------------------------------------------ done
-source <(grep -E '^(AIOSTREAMS_HOST|AIOMETADATA_HOST|BESZEL_HOST)=' "$LOCAL_ENV")
+source <(grep -E '^(AIOSTREAMS_HOST|AIOMETADATA_HOST|DOZZLE_HOST)=' "$LOCAL_ENV")
 
 cat <<EOF
 
@@ -215,7 +191,7 @@ $(c "Done")
 
   AIOStreams    https://$AIOSTREAMS_HOST/stremio/configure
   AIOMetadata   https://$AIOMETADATA_HOST/configure
-  Beszel        https://$BESZEL_HOST
+  Dozzle        https://$DOZZLE_HOST
 
   Both addon configure pages now require the logins you just set.
   Manifest URLs stay open so Nuvio can fetch them.
@@ -224,12 +200,3 @@ $(c "Done")
       ssh $TARGET 'cd $STACK_DIR && docker compose logs -f traefik'
 
 EOF
-
-if [[ -z $BESZEL_KEY ]]; then
-  cat <<EOF
-  Beszel is not registered yet. Open the URL above, create the admin
-  account, click Add System (host: localhost, port: 45876), then re-run
-  ./deploy.sh and paste the key and token when prompted.
-
-EOF
-fi
