@@ -39,6 +39,7 @@ services:
     environment:
       - BASE_URL=https://${AIOSTREAMS_HOST?}
       - SECRET_KEY=${SECRET_KEY?}
+      - BUILTIN_DEBRID_ERROR_CACHE_TTL=0
     volumes:
       - ./data/aiostreams:/app/data
     labels:
