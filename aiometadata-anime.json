@@ -1,6 +1,6 @@
 {
-  "version": "2.10.0",
-  "exportedAt": "2026-08-04T17:08:21.138Z",
+  "version": "2.14.1",
+  "exportedAt": "2026-08-22T20:01:48.862Z",
   "config": {
     "mal": {
       "skipRecap": false,
@@ -1064,7 +1064,7 @@
     "ageRating": "None",
     "castCount": 10,
     "providers": {
-      "anime": "kitsu",
+      "anime": "tvdb",
       "movie": "tmdb",
       "series": "tvdb",
       "anime_id_provider": "kitsu",
@@ -1073,13 +1073,13 @@
     "sessionId": "",
     "streaming": [],
     "blurThumbs": false,
-    "configHash": "73ce3de140a3a110",
+    "configHash": "5a5798ed03647c64",
     "showPrefix": false,
     "artProviders": {
       "anime": {
-        "logo": "meta",
-        "poster": "meta",
-        "background": "meta"
+        "poster": "anilist",
+        "background": "fanart",
+        "logo": "fanart"
       },
       "movie": {
         "logo": "meta",
@@ -1095,8 +1095,8 @@
       "originalLangFallback": false
     },
     "includeAdult": false,
-    "lastModified": 1785862938879,
-    "configVersion": 1785862938880,
+    "lastModified": 1786830062840,
+    "configVersion": 1786830062841,
     "searchEnabled": true,
     "tvdbSeasonType": "default",
     "usePosterProxy": true,
@@ -1115,7 +1115,7 @@
     "posterRatingProvider": "custom",
     "showDisabledCatalogs": false,
     "hideUnreleasedDigital": false,
-    "customPosterUrlPattern": "https://btttr.cc/poster-r/imdb/poster-default/{imdb_id}.jpg",
+    "customPosterUrlPattern": "",
     "customThumbnailUrlPattern": "",
     "hideUnreleasedShowsSearch": false,
     "publicmetadbWatchTracking": false,
