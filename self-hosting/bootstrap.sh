@@ -42,7 +42,9 @@ main() {
 log "Packages"
 export DEBIAN_FRONTEND=noninteractive
 
-PKGS=(ca-certificates curl gnupg git fail2ban unattended-upgrades)
+# sqlite3: deploy.sh reads AIOMetadata's config UUIDs out of its database to
+# populate CACHE_WARMUP_UUIDS without hardcoding them.
+PKGS=(ca-certificates curl gnupg git fail2ban unattended-upgrades sqlite3)
 missing=()
 for p in "${PKGS[@]}"; do
   dpkg -s "$p" &>/dev/null || missing+=("$p")
@@ -100,6 +102,16 @@ if write_if_changed /etc/sysctl.d/99-swappiness.conf 'vm.swappiness=20
   ok "vm.swappiness=20"
 else
   same "vm.swappiness already set"
+fi
+
+# Redis warns about this on startup; it matters if persistence is ever
+# enabled, since a background save forks the process.
+if write_if_changed /etc/sysctl.d/99-overcommit.conf 'vm.overcommit_memory=1
+'; then
+  sysctl -qp /etc/sysctl.d/99-overcommit.conf
+  ok "vm.overcommit_memory=1"
+else
+  same "vm.overcommit_memory already set"
 fi
 
 # ---------------------------------------------------------------- ssh

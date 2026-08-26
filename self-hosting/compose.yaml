@@ -39,6 +39,8 @@ services:
     environment:
       - BASE_URL=https://${AIOSTREAMS_HOST?}
       - SECRET_KEY=${SECRET_KEY?}
+      # 0 = don't cache debrid failures. The default 3600 turns one TorBox
+      # timeout into an hour of instantly-replayed errors for that content.
       - BUILTIN_DEBRID_ERROR_CACHE_TTL=0
     volumes:
       - ./data/aiostreams:/app/data
@@ -77,6 +79,23 @@ services:
       - HOST_NAME=https://${AIOMETADATA_HOST?}
       - REDIS_URL=redis://aiometadata_redis:6379
       - DATABASE_URI=sqlite://addon/data/db.sqlite
+
+      # --- Comprehensive catalog warming -----------------------------------
+      # Warms every enabled catalog for each listed config, using that
+      # config's own providers and API keys - so nothing global is needed.
+      # deploy.sh fills CACHE_WARMUP_UUIDS from the addon's own database;
+      # when it's empty (fresh install, no configs yet) warming stays off.
+      - CACHE_WARMUP_MODE=comprehensive
+      - CACHE_WARMUP_UUIDS=${CACHE_WARMUP_UUIDS:-}
+      - CATALOG_WARMUP_INTERVAL_HOURS=24
+      # Default is 100 pages per catalog. With 20-40 catalogs enabled that's
+      # thousands of upstream requests and the fastest way to hit Jikan's
+      # rate limit. 3 pages covers roughly the first 60 items per row.
+      - CATALOG_WARMUP_MAX_PAGES_PER_CATALOG=3
+      - CATALOG_WARMUP_TASK_DELAY_MS=300
+      # UTC. 17:00-21:00Z is 20:00-00:00 in Asia/Jerusalem - prime viewing.
+      - CATALOG_WARMUP_QUIET_HOURS_ENABLED=true
+      - CATALOG_WARMUP_QUIET_HOURS=17:00-21:00
     volumes:
       - ./data/aiometadata/data:/app/addon/data
     depends_on:
