@@ -1,6 +1,6 @@
 {
   "version": "2.15.0",
-  "exportedAt": "2026-08-26T10:27:52.579Z",
+  "exportedAt": "2026-09-03T19:15:50.969Z",
   "config": {
     "mal": {
       "skipRecap": false,
@@ -67,46 +67,6 @@
       "customDescriptionBlurb": ""
     },
     "catalogs": [
-      {
-        "id": "mal.airing",
-        "name": "MAL Airing Now",
-        "sort": "default",
-        "type": "anime",
-        "order": "asc",
-        "source": "mal",
-        "enabled": true,
-        "showInHome": true
-      },
-      {
-        "id": "mal.upcoming",
-        "name": "MAL Upcoming Season",
-        "sort": "default",
-        "type": "anime",
-        "order": "asc",
-        "source": "mal",
-        "enabled": true,
-        "showInHome": true
-      },
-      {
-        "id": "mal.season_top",
-        "name": "MAL Top Rated This Week",
-        "sort": "default",
-        "type": "anime",
-        "order": "asc",
-        "source": "mal",
-        "enabled": true,
-        "showInHome": true
-      },
-      {
-        "id": "mal.season_top_new",
-        "name": "MAL Top New This Week",
-        "sort": "default",
-        "type": "anime",
-        "order": "asc",
-        "source": "mal",
-        "enabled": true,
-        "showInHome": true
-      },
       {
         "id": "streaming.nfx",
         "name": "Netflix (Movies)",
@@ -746,6 +706,257 @@
         "source": "streaming",
         "enabled": false,
         "showInHome": false
+      },
+      {
+        "id": "anilist.discover.anime.popular_airing.mtlw3w5f",
+        "type": "anime",
+        "name": "Popular Airing",
+        "enabled": true,
+        "showInHome": true,
+        "source": "anilist",
+        "cacheTTL": 86400,
+        "metadata": {
+          "description": "ANILIST Discover (anime)",
+          "url": "https://anilist.co/search/anime",
+          "discover": {
+            "version": 2,
+            "source": "anilist",
+            "mediaType": "anime",
+            "params": {
+              "sort": "POPULARITY_DESC",
+              "format_in": "TV,TV_SHORT,ONA",
+              "status": "RELEASING",
+              "popularity_greater": 1000,
+              "isAdult": false,
+              "startDate_greater": "20220503"
+            },
+            "formState": {
+              "catalogName": "Popular Airing",
+              "discoverSource": "anilist",
+              "sortBy": "POPULARITY_DESC",
+              "cacheTTL": 86400,
+              "catalogType": "movie",
+              "anilistFormats": [
+                "TV",
+                "TV_SHORT",
+                "ONA"
+              ],
+              "anilistStatus": "RELEASING",
+              "anilistSeason": "",
+              "anilistSeasonYear": "",
+              "anilistCountry": "",
+              "anilistSelectedStudios": [],
+              "anilistIncludeGenres": [],
+              "anilistExcludeGenres": [],
+              "anilistIncludeTags": [],
+              "anilistExcludeTags": [],
+              "anilistScoreRange": [
+                0,
+                100
+              ],
+              "anilistPopularityMin": 1000,
+              "anilistEpisodesRange": [
+                0,
+                200
+              ],
+              "anilistDurationRange": [
+                0,
+                180
+              ],
+              "anilistIsAdult": false,
+              "anilistStartDateFrom": "2022-05-03",
+              "anilistStartDateTo": ""
+            }
+          }
+        }
+      },
+      {
+        "id": "anilist.discover.anime.top_airing.mtlu5wo1",
+        "type": "anime",
+        "name": "Trending Airing",
+        "enabled": true,
+        "showInHome": true,
+        "source": "anilist",
+        "cacheTTL": 21600,
+        "metadata": {
+          "description": "ANILIST Discover (anime)",
+          "url": "https://anilist.co/search/anime",
+          "discover": {
+            "version": 2,
+            "source": "anilist",
+            "mediaType": "anime",
+            "params": {
+              "sort": "TRENDING_DESC",
+              "format_in": "TV,TV_SHORT,ONA",
+              "status": "RELEASING",
+              "popularity_greater": 1000,
+              "isAdult": false,
+              "startDate_greater": "20221109"
+            },
+            "formState": {
+              "catalogName": "Trending Airing",
+              "discoverSource": "anilist",
+              "sortBy": "TRENDING_DESC",
+              "cacheTTL": 21600,
+              "catalogType": "movie",
+              "anilistFormats": [
+                "TV",
+                "TV_SHORT",
+                "ONA"
+              ],
+              "anilistStatus": "RELEASING",
+              "anilistSeason": "",
+              "anilistSeasonYear": "",
+              "anilistCountry": "",
+              "anilistSelectedStudios": [],
+              "anilistIncludeGenres": [],
+              "anilistExcludeGenres": [],
+              "anilistIncludeTags": [],
+              "anilistExcludeTags": [],
+              "anilistScoreRange": [
+                0,
+                100
+              ],
+              "anilistPopularityMin": 1000,
+              "anilistEpisodesRange": [
+                0,
+                200
+              ],
+              "anilistDurationRange": [
+                0,
+                180
+              ],
+              "anilistIsAdult": false,
+              "anilistStartDateFrom": "2022-11-09",
+              "anilistStartDateTo": ""
+            }
+          }
+        },
+        "displayType": "anime"
+      },
+      {
+        "id": "anilist.discover.anime.top_recently_ended.mtluhhwm",
+        "type": "anime",
+        "name": "Top Recently Ended",
+        "enabled": true,
+        "showInHome": true,
+        "source": "anilist",
+        "cacheTTL": 86400,
+        "metadata": {
+          "description": "ANILIST Discover (anime)",
+          "url": "https://anilist.co/search/anime",
+          "discover": {
+            "version": 2,
+            "source": "anilist",
+            "mediaType": "anime",
+            "params": {
+              "sort": "START_DATE_DESC",
+              "format_in": "TV,TV_SHORT,ONA",
+              "status": "FINISHED",
+              "averageScore_greater": 70,
+              "popularity_greater": 10000,
+              "isAdult": false
+            },
+            "formState": {
+              "catalogName": "Top Recently Ended",
+              "discoverSource": "anilist",
+              "sortBy": "START_DATE_DESC",
+              "cacheTTL": 86400,
+              "catalogType": "movie",
+              "anilistFormats": [
+                "TV",
+                "TV_SHORT",
+                "ONA"
+              ],
+              "anilistStatus": "FINISHED",
+              "anilistSeason": "",
+              "anilistSeasonYear": "",
+              "anilistCountry": "",
+              "anilistSelectedStudios": [],
+              "anilistIncludeGenres": [],
+              "anilistExcludeGenres": [],
+              "anilistIncludeTags": [],
+              "anilistExcludeTags": [],
+              "anilistScoreRange": [
+                70,
+                100
+              ],
+              "anilistPopularityMin": 10000,
+              "anilistEpisodesRange": [
+                0,
+                200
+              ],
+              "anilistDurationRange": [
+                0,
+                180
+              ],
+              "anilistIsAdult": false,
+              "anilistStartDateFrom": "",
+              "anilistStartDateTo": ""
+            }
+          }
+        }
+      },
+      {
+        "id": "anilist.discover.anime.top_upcoming.mtlum7y8",
+        "type": "anime",
+        "name": "Top Upcoming",
+        "enabled": true,
+        "showInHome": true,
+        "source": "anilist",
+        "cacheTTL": 86400,
+        "metadata": {
+          "description": "ANILIST Discover (anime)",
+          "url": "https://anilist.co/search/anime",
+          "discover": {
+            "version": 2,
+            "source": "anilist",
+            "mediaType": "anime",
+            "params": {
+              "sort": "POPULARITY_DESC",
+              "format_in": "TV,TV_SHORT,ONA",
+              "status": "NOT_YET_RELEASED",
+              "isAdult": false
+            },
+            "formState": {
+              "catalogName": "Top Upcoming",
+              "discoverSource": "anilist",
+              "sortBy": "POPULARITY_DESC",
+              "cacheTTL": 86400,
+              "catalogType": "movie",
+              "anilistFormats": [
+                "TV",
+                "TV_SHORT",
+                "ONA"
+              ],
+              "anilistStatus": "NOT_YET_RELEASED",
+              "anilistSeason": "",
+              "anilistSeasonYear": "",
+              "anilistCountry": "",
+              "anilistSelectedStudios": [],
+              "anilistIncludeGenres": [],
+              "anilistExcludeGenres": [],
+              "anilistIncludeTags": [],
+              "anilistExcludeTags": [],
+              "anilistScoreRange": [
+                0,
+                100
+              ],
+              "anilistPopularityMin": 0,
+              "anilistEpisodesRange": [
+                0,
+                200
+              ],
+              "anilistDurationRange": [
+                0,
+                180
+              ],
+              "anilistIsAdult": false,
+              "anilistStartDateFrom": "",
+              "anilistStartDateTo": ""
+            }
+          }
+        }
       }
     ],
     "language": "en-US",
@@ -763,7 +974,7 @@
     "sessionId": "",
     "streaming": [],
     "blurThumbs": false,
-    "configHash": "f6113b3c10c45b64",
+    "configHash": "6ab589777f6260af",
     "showPrefix": false,
     "artProviders": {
       "anime": {
@@ -785,8 +996,8 @@
       "originalLangFallback": false
     },
     "includeAdult": false,
-    "lastModified": 1787739740993,
-    "configVersion": 1787739740994,
+    "lastModified": 1788462158315,
+    "configVersion": 1788462158316,
     "searchEnabled": true,
     "tvdbSeasonType": "default",
     "usePosterProxy": true,
