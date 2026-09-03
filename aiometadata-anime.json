@@ -1,6 +1,6 @@
 {
   "version": "2.15.0",
-  "exportedAt": "2026-09-03T19:15:50.969Z",
+  "exportedAt": "2026-09-03T20:03:52.964Z",
   "config": {
     "mal": {
       "skipRecap": false,
@@ -854,7 +854,7 @@
               "format_in": "TV,TV_SHORT,ONA",
               "status": "FINISHED",
               "averageScore_greater": 70,
-              "popularity_greater": 10000,
+              "popularity_greater": 20000,
               "isAdult": false
             },
             "formState": {
@@ -881,7 +881,7 @@
                 70,
                 100
               ],
-              "anilistPopularityMin": 10000,
+              "anilistPopularityMin": 20000,
               "anilistEpisodesRange": [
                 0,
                 200
@@ -978,9 +978,9 @@
     "showPrefix": false,
     "artProviders": {
       "anime": {
-        "poster": "kitsu",
-        "background": "fanart",
-        "logo": "fanart"
+        "poster": "anilist",
+        "background": "imdb",
+        "logo": "imdb"
       },
       "movie": {
         "logo": "meta",
@@ -1000,7 +1000,7 @@
     "configVersion": 1788462158316,
     "searchEnabled": true,
     "tvdbSeasonType": "default",
-    "usePosterProxy": true,
+    "usePosterProxy": false,
     "displayAgeRating": false,
     "hideWatchedTrakt": false,
     "showRateMeButton": false,
@@ -1017,7 +1017,7 @@
     "showDisabledCatalogs": false,
     "hideUnreleasedDigital": false,
     "customPosterUrlPattern": "",
-    "customThumbnailUrlPattern": "https://openposterdb.com/{rpdb_key}/tmdb/episode-default/episode-{tmdb_id}-S{season}E{episode}",
+    "customThumbnailUrlPattern": "",
     "hideUnreleasedShowsSearch": false,
     "publicmetadbWatchTracking": false,
     "customBackgroundUrlPattern": "",
