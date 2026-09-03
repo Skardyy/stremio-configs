@@ -1,6 +1,6 @@
 {
   "version": "2.15.0",
-  "exportedAt": "2026-09-03T20:03:52.964Z",
+  "exportedAt": "2026-09-03T20:16:09.268Z",
   "config": {
     "mal": {
       "skipRecap": false,
@@ -777,7 +777,7 @@
         "enabled": true,
         "showInHome": true,
         "source": "anilist",
-        "cacheTTL": 21600,
+        "cacheTTL": 86400,
         "metadata": {
           "description": "ANILIST Discover (anime)",
           "url": "https://anilist.co/search/anime",
@@ -797,7 +797,7 @@
               "catalogName": "Trending Airing",
               "discoverSource": "anilist",
               "sortBy": "TRENDING_DESC",
-              "cacheTTL": 21600,
+              "cacheTTL": 86400,
               "catalogType": "movie",
               "anilistFormats": [
                 "TV",
@@ -831,8 +831,7 @@
               "anilistStartDateTo": ""
             }
           }
-        },
-        "displayType": "anime"
+        }
       },
       {
         "id": "anilist.discover.anime.top_recently_ended.mtluhhwm",
@@ -974,7 +973,7 @@
     "sessionId": "",
     "streaming": [],
     "blurThumbs": false,
-    "configHash": "6ab589777f6260af",
+    "configHash": "a5287723268d5b06",
     "showPrefix": false,
     "artProviders": {
       "anime": {
@@ -996,8 +995,8 @@
       "originalLangFallback": false
     },
     "includeAdult": false,
-    "lastModified": 1788462158315,
-    "configVersion": 1788462158316,
+    "lastModified": 1788465806169,
+    "configVersion": 1788465806170,
     "searchEnabled": true,
     "tvdbSeasonType": "default",
     "usePosterProxy": false,
