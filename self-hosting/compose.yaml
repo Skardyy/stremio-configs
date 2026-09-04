@@ -93,9 +93,9 @@ services:
       # rate limit. 3 pages covers roughly the first 60 items per row.
       - CATALOG_WARMUP_MAX_PAGES_PER_CATALOG=3
       - CATALOG_WARMUP_TASK_DELAY_MS=300
-      # UTC. 17:00-21:00Z is 20:00-00:00 in Asia/Jerusalem - prime viewing.
+      - TZ=Asia/Jerusalem
       - CATALOG_WARMUP_QUIET_HOURS_ENABLED=true
-      - CATALOG_WARMUP_QUIET_HOURS=17:00-21:00
+      - CATALOG_WARMUP_QUIET_HOURS=08:00-04:00
     volumes:
       - ./data/aiometadata/data:/app/addon/data
     depends_on:
