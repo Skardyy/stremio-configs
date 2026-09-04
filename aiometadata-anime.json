@@ -1,6 +1,6 @@
 {
   "version": "2.15.0",
-  "exportedAt": "2026-09-03T20:16:09.268Z",
+  "exportedAt": "2026-09-04T15:29:34.897Z",
   "config": {
     "mal": {
       "skipRecap": false,
@@ -973,13 +973,13 @@
     "sessionId": "",
     "streaming": [],
     "blurThumbs": false,
-    "configHash": "a5287723268d5b06",
+    "configHash": "70f75a300f78a778",
     "showPrefix": false,
     "artProviders": {
       "anime": {
         "poster": "anilist",
-        "background": "imdb",
-        "logo": "imdb"
+        "background": "tmdb",
+        "logo": "tmdb"
       },
       "movie": {
         "logo": "meta",
@@ -995,8 +995,8 @@
       "originalLangFallback": false
     },
     "includeAdult": false,
-    "lastModified": 1788465806169,
-    "configVersion": 1788465806170,
+    "lastModified": 1788466527045,
+    "configVersion": 1788466527046,
     "searchEnabled": true,
     "tvdbSeasonType": "default",
     "usePosterProxy": false,
