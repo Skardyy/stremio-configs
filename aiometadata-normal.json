@@ -1,6 +1,6 @@
 {
-  "version": "2.15.0",
-  "exportedAt": "2026-09-04T14:44:37.457Z",
+  "version": "2.16.5",
+  "exportedAt": "2026-09-04T19:03:46.395Z",
   "config": {
     "mal": {
       "skipRecap": false,
@@ -2989,7 +2989,7 @@
     "sessionId": "",
     "streaming": [],
     "blurThumbs": false,
-    "configHash": "adc4073d4968b0de",
+    "configHash": "3f55318b9f653647",
     "showPrefix": false,
     "collections": [
       {
@@ -3218,11 +3218,11 @@
       "originalLangFallback": false
     },
     "includeAdult": false,
-    "lastModified": 1787740213846,
-    "configVersion": 1787740213847,
+    "lastModified": 1788532719676,
+    "configVersion": 1788532719677,
     "searchEnabled": true,
     "tvdbSeasonType": "default",
-    "usePosterProxy": true,
+    "usePosterProxy": false,
     "displayAgeRating": false,
     "hideWatchedTrakt": false,
     "malWatchTracking": false,
