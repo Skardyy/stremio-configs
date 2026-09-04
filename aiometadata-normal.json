@@ -1,6 +1,6 @@
 {
   "version": "2.15.0",
-  "exportedAt": "2026-08-26T10:31:24.407Z",
+  "exportedAt": "2026-09-04T14:44:37.457Z",
   "config": {
     "mal": {
       "skipRecap": false,
@@ -67,261 +67,589 @@
     "catalogs": [
       {
         "id": "tmdb.discover.series.new_releases",
-        "name": "New Releases",
         "type": "series",
-        "source": "tmdb",
+        "name": "New Releases",
         "enabled": true,
-        "cacheTTL": 43200,
+        "showInHome": true,
+        "source": "tmdb",
+        "cacheTTL": 86400,
         "metadata": {
+          "description": "TMDB Discover (tv)",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=first_air_date.desc&include_adult=false&without_genres=16%7C10762%7C10766%7C10751&with_original_language=en&vote_average.gte=6&vote_count.gte=10&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04",
           "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "tv",
             "params": {
               "sort_by": "first_air_date.desc",
               "include_adult": false,
-              "vote_count.gte": 50,
-              "without_genres": "10762,10763,10764,10766,10767",
-              "first_air_date.gte": "__tmdb_date__:last_year:from",
-              "first_air_date.lte": "__tmdb_date__:last_year:to",
-              "with_original_language": "en"
-            },
-            "source": "tmdb",
-            "version": 2,
-            "formState": {
-              "sortBy": "first_air_date.desc",
-              "catalogName": "New Releases",
-              "catalogType": "series",
-              "includeAdult": false,
-              "releasedOnly": false,
-              "voteCountMin": 50,
-              "tmdbMediaType": "tv",
-              "discoverSource": "tmdb",
-              "originalLanguage": "en",
-              "providerJoinMode": "or",
-              "seriesDatePreset": "last_year"
-            },
-            "mediaType": "tv"
-          },
-          "description": "TMDB Discover (tv)"
-        },
-        "showInHome": true,
-        "displayType": "series"
-      },
-      {
-        "id": "tmdb.discover.movie.new_releases",
-        "name": "New Releases",
-        "type": "movie",
-        "source": "tmdb",
-        "enabled": true,
-        "cacheTTL": 43200,
-        "metadata": {
-          "discover": {
-            "params": {
-              "sort_by": "primary_release_date.desc",
-              "include_adult": false,
-              "vote_count.gte": 100,
-              "without_genres": "10770",
+              "without_genres": "16|10762|10766|10751",
               "with_original_language": "en",
-              "primary_release_date.gte": "__tmdb_date__:last_year:from",
-              "primary_release_date.lte": "__tmdb_date__:last_year:to"
+              "vote_average.gte": 6,
+              "vote_count.gte": 10,
+              "first_air_date.gte": "__tmdb_date__:last_year:from",
+              "first_air_date.lte": "__tmdb_date__:last_year:to"
             },
-            "source": "tmdb",
-            "version": 2,
             "formState": {
-              "sortBy": "primary_release_date.desc",
               "catalogName": "New Releases",
-              "catalogType": "movie",
+              "discoverSource": "tmdb",
+              "sortBy": "first_air_date.desc",
+              "cacheTTL": 86400,
+              "catalogType": "series",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10762,
+                  "label": "Kids"
+                },
+                {
+                  "id": 10766,
+                  "label": "Soap"
+                },
+                {
+                  "id": 10751,
+                  "label": "Family"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "en",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "certificationMode": "exact",
               "includeAdult": false,
               "releasedOnly": false,
-              "voteCountMin": 100,
-              "tmdbMediaType": "movie",
-              "discoverSource": "tmdb",
-              "movieDatePreset": "last_year",
-              "originalLanguage": "en",
-              "providerJoinMode": "or"
-            },
-            "mediaType": "movie"
-          },
-          "description": "TMDB Discover (movie)"
-        },
-        "showInHome": true,
-        "displayType": "movie"
+              "tmdbTvStatuses": [],
+              "tmdbMovieReleaseTypes": [],
+              "tmdbTvTypes": [],
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withNetworks": [],
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "",
+              "watchProviders": [],
+              "providerJoinMode": "or",
+              "voteAverageRange": [
+                6,
+                10
+              ],
+              "voteCountMin": 10,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "",
+              "primaryReleaseTo": "",
+              "movieDatePreset": "clear",
+              "firstAirFrom": "2025-09-04",
+              "firstAirTo": "2026-09-04",
+              "seriesDatePreset": "last_year",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "airDatePreset": "clear",
+              "releaseRegion": ""
+            }
+          }
+        }
       },
       {
         "id": "tmdb.discover.series.best_new",
-        "name": "Best New",
         "type": "series",
-        "source": "tmdb",
+        "name": "Most Popular",
         "enabled": true,
-        "cacheTTL": 43200,
+        "showInHome": true,
+        "source": "tmdb",
+        "cacheTTL": 86400,
         "metadata": {
+          "description": "TMDB Discover (tv)",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10762%7C10766%7C10751&vote_average.gte=6&vote_count.gte=10&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04",
           "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "tv",
             "params": {
               "sort_by": "popularity.desc",
               "include_adult": false,
-              "vote_count.gte": 300,
-              "without_genres": "10762,10763,10764,10766,10767",
-              "vote_average.gte": 7,
+              "without_genres": "16|10762|10766|10751",
+              "vote_average.gte": 6,
+              "vote_count.gte": 10,
               "first_air_date.gte": "__tmdb_date__:last_year:from",
-              "first_air_date.lte": "__tmdb_date__:last_year:to",
-              "with_original_language": "en"
+              "first_air_date.lte": "__tmdb_date__:last_year:to"
             },
-            "source": "tmdb",
-            "version": 2,
             "formState": {
+              "catalogName": "Most Popular",
+              "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
-              "catalogName": "Best New",
+              "cacheTTL": 86400,
               "catalogType": "series",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10762,
+                  "label": "Kids"
+                },
+                {
+                  "id": 10766,
+                  "label": "Soap"
+                },
+                {
+                  "id": 10751,
+                  "label": "Family"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "certificationMode": "exact",
               "includeAdult": false,
               "releasedOnly": false,
-              "voteCountMin": 300,
-              "tmdbMediaType": "tv",
-              "discoverSource": "tmdb",
-              "originalLanguage": "en",
+              "tmdbTvStatuses": [],
+              "tmdbMovieReleaseTypes": [],
+              "tmdbTvTypes": [],
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withNetworks": [],
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "",
+              "watchProviders": [],
               "providerJoinMode": "or",
-              "seriesDatePreset": "last_year",
               "voteAverageRange": [
-                7,
+                6,
                 10
-              ]
-            },
-            "mediaType": "tv"
-          },
-          "description": "TMDB Discover (tv)"
-        },
-        "showInHome": true,
-        "displayType": "series"
+              ],
+              "voteCountMin": 10,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "",
+              "primaryReleaseTo": "",
+              "movieDatePreset": "clear",
+              "firstAirFrom": "2025-09-04",
+              "firstAirTo": "2026-09-04",
+              "seriesDatePreset": "last_year",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "airDatePreset": "clear",
+              "releaseRegion": ""
+            }
+          }
+        }
       },
       {
         "id": "tmdb.discover.movie.best_new",
-        "name": "Best New",
         "type": "movie",
-        "source": "tmdb",
+        "name": "Most Popular",
         "enabled": true,
-        "cacheTTL": 43200,
+        "showInHome": true,
+        "source": "tmdb",
+        "cacheTTL": 86400,
         "metadata": {
+          "description": "TMDB Discover (movie)",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&vote_average.gte=6&vote_count.gte=10&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04",
           "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "movie",
             "params": {
               "sort_by": "popularity.desc",
               "include_adult": false,
-              "vote_count.gte": 500,
-              "without_genres": "10770",
-              "vote_average.gte": 6.8,
-              "with_original_language": "en",
+              "without_genres": "16|10751",
+              "vote_average.gte": 6,
+              "vote_count.gte": 10,
               "primary_release_date.gte": "__tmdb_date__:last_year:from",
               "primary_release_date.lte": "__tmdb_date__:last_year:to"
             },
-            "source": "tmdb",
-            "version": 2,
             "formState": {
+              "catalogName": "Most Popular",
+              "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
-              "catalogName": "Best New",
+              "cacheTTL": 86400,
               "catalogType": "movie",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10751,
+                  "label": "Family"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "certificationMode": "exact",
               "includeAdult": false,
               "releasedOnly": false,
-              "voteCountMin": 500,
-              "tmdbMediaType": "movie",
-              "discoverSource": "tmdb",
-              "movieDatePreset": "last_year",
-              "originalLanguage": "en",
+              "tmdbTvStatuses": [],
+              "tmdbMovieReleaseTypes": [],
+              "tmdbTvTypes": [],
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withNetworks": [],
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "",
+              "watchProviders": [],
               "providerJoinMode": "or",
               "voteAverageRange": [
-                6.8,
+                6,
                 10
-              ]
-            },
-            "mediaType": "movie"
-          },
-          "description": "TMDB Discover (movie)"
-        },
-        "showInHome": true,
-        "displayType": "movie"
+              ],
+              "voteCountMin": 10,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "2025-09-04",
+              "primaryReleaseTo": "2026-09-04",
+              "movieDatePreset": "last_year",
+              "firstAirFrom": "",
+              "firstAirTo": "",
+              "seriesDatePreset": "clear",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "airDatePreset": "clear",
+              "releaseRegion": ""
+            }
+          }
+        }
       },
       {
-        "id": "tmdb.trending",
-        "name": "Trending",
-        "sort": "default",
+        "id": "tmdb.discover.movie.most_popular_copy.mtmy6vve",
         "type": "series",
-        "order": "asc",
-        "source": "tmdb",
+        "name": "Most Liked",
         "enabled": true,
-        "showInHome": true
+        "showInHome": true,
+        "source": "tmdb",
+        "cacheTTL": 86400,
+        "metadata": {
+          "description": "TMDB Discover (tv)",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=vote_average.desc&include_adult=false&without_genres=16%7C10762%7C10766%7C10751&vote_average.gte=6&vote_count.gte=100&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04",
+          "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "tv",
+            "params": {
+              "sort_by": "vote_average.desc",
+              "include_adult": false,
+              "without_genres": "16|10762|10766|10751",
+              "vote_average.gte": 6,
+              "vote_count.gte": 100,
+              "first_air_date.gte": "__tmdb_date__:last_year:from",
+              "first_air_date.lte": "__tmdb_date__:last_year:to"
+            },
+            "formState": {
+              "catalogName": "Most Liked",
+              "discoverSource": "tmdb",
+              "sortBy": "vote_average.desc",
+              "cacheTTL": 86400,
+              "catalogType": "series",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10762,
+                  "label": "Kids"
+                },
+                {
+                  "id": 10766,
+                  "label": "Soap"
+                },
+                {
+                  "id": 10751,
+                  "label": "Family"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "certificationMode": "exact",
+              "includeAdult": false,
+              "releasedOnly": false,
+              "tmdbTvStatuses": [],
+              "tmdbMovieReleaseTypes": [],
+              "tmdbTvTypes": [],
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withNetworks": [],
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "",
+              "watchProviders": [],
+              "providerJoinMode": "or",
+              "voteAverageRange": [
+                6,
+                10
+              ],
+              "voteCountMin": 100,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "2025-09-04",
+              "primaryReleaseTo": "2026-09-04",
+              "movieDatePreset": "last_year",
+              "firstAirFrom": "2025-09-04",
+              "firstAirTo": "2026-09-04",
+              "seriesDatePreset": "last_year",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "airDatePreset": "clear",
+              "releaseRegion": ""
+            }
+          }
+        }
       },
       {
-        "id": "tmdb.trending",
-        "name": "Trending",
-        "sort": "default",
+        "id": "tmdb.discover.series.most_liked_copy.mtmyhbc2",
         "type": "movie",
-        "order": "asc",
-        "source": "tmdb",
+        "name": "Most Liked",
         "enabled": true,
-        "showInHome": true
+        "showInHome": true,
+        "source": "tmdb",
+        "cacheTTL": 86400,
+        "metadata": {
+          "description": "TMDB Discover (movie)",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=vote_average.desc&include_adult=false&without_genres=16%7C10751&vote_average.gte=6&vote_count.gte=100&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04",
+          "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "movie",
+            "params": {
+              "sort_by": "vote_average.desc",
+              "include_adult": false,
+              "without_genres": "16|10751",
+              "vote_average.gte": 6,
+              "vote_count.gte": 100,
+              "primary_release_date.gte": "__tmdb_date__:last_year:from",
+              "primary_release_date.lte": "__tmdb_date__:last_year:to"
+            },
+            "formState": {
+              "catalogName": "Most Liked",
+              "discoverSource": "tmdb",
+              "sortBy": "vote_average.desc",
+              "cacheTTL": 86400,
+              "catalogType": "movie",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10751,
+                  "label": "Family"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "certificationMode": "exact",
+              "includeAdult": false,
+              "releasedOnly": false,
+              "tmdbTvStatuses": [],
+              "tmdbMovieReleaseTypes": [],
+              "tmdbTvTypes": [],
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withNetworks": [],
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "",
+              "watchProviders": [],
+              "providerJoinMode": "or",
+              "voteAverageRange": [
+                6,
+                10
+              ],
+              "voteCountMin": 100,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "2025-09-04",
+              "primaryReleaseTo": "2026-09-04",
+              "movieDatePreset": "last_year",
+              "firstAirFrom": "2025-09-04",
+              "firstAirTo": "2026-09-04",
+              "seriesDatePreset": "last_year",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "airDatePreset": "clear",
+              "releaseRegion": ""
+            }
+          }
+        }
       },
       {
         "id": "tmdb.discover.movie.in_cinemas",
-        "name": "In Cinemas",
         "type": "movie",
-        "source": "tmdb",
+        "name": "In Cinemas",
         "enabled": true,
-        "cacheTTL": 43200,
+        "showInHome": true,
+        "source": "tmdb",
+        "cacheTTL": 86400,
         "metadata": {
+          "description": "TMDB Discover (movie)",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&region=US&with_release_type=2%7C3&vote_average.gte=6&vote_count.gte=10&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04&release_date.gte=2025-09-04&release_date.lte=2026-09-04",
           "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "movie",
             "params": {
               "sort_by": "popularity.desc",
               "include_adult": false,
-              "without_genres": "10770",
+              "without_genres": "16|10751",
+              "region": "US",
               "with_release_type": "2|3",
-              "with_original_language": "en",
+              "vote_average.gte": 6,
+              "vote_count.gte": 10,
               "primary_release_date.gte": "__tmdb_date__:last_year:from",
-              "primary_release_date.lte": "__tmdb_date__:last_year:to"
+              "primary_release_date.lte": "__tmdb_date__:last_year:to",
+              "release_date.gte": "__tmdb_date__:last_year:from",
+              "release_date.lte": "__tmdb_date__:last_year:to"
             },
-            "source": "tmdb",
-            "version": 2,
             "formState": {
-              "sortBy": "popularity.desc",
               "catalogName": "In Cinemas",
+              "discoverSource": "tmdb",
+              "sortBy": "popularity.desc",
+              "cacheTTL": 86400,
               "catalogType": "movie",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10751,
+                  "label": "Family"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "certificationMode": "exact",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "movie",
-              "discoverSource": "tmdb",
+              "tmdbTvStatuses": [],
+              "tmdbMovieReleaseTypes": [
+                "3",
+                "2"
+              ],
+              "tmdbTvTypes": [],
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withNetworks": [],
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "",
+              "watchProviders": [],
+              "providerJoinMode": "or",
+              "voteAverageRange": [
+                6,
+                10
+              ],
+              "voteCountMin": 10,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "2025-09-04",
+              "primaryReleaseTo": "2026-09-04",
               "movieDatePreset": "last_year",
-              "originalLanguage": "en",
-              "providerJoinMode": "or"
-            },
-            "mediaType": "movie"
-          },
-          "description": "TMDB Discover (movie)"
-        },
-        "showInHome": true,
-        "displayType": "movie"
+              "firstAirFrom": "",
+              "firstAirTo": "",
+              "seriesDatePreset": "clear",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "airDatePreset": "clear",
+              "releaseRegion": ""
+            }
+          }
+        }
       },
       {
         "id": "tmdb.discover.series.new_crime",
-        "name": "Crime & Mystery",
         "type": "series",
-        "source": "tmdb",
+        "name": "Crime & Mystery",
         "enabled": true,
-        "cacheTTL": 43200,
+        "showInHome": true,
+        "source": "tmdb",
+        "cacheTTL": 86400,
         "metadata": {
+          "description": "TMDB Discover (tv)",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&with_genres=80%7C9648&without_genres=16%7C10751%7C10762%7C10766&vote_average.gte=6&vote_count.gte=10&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04",
           "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "tv",
             "params": {
               "sort_by": "popularity.desc",
-              "with_genres": "80,9648",
               "include_adult": false,
-              "vote_count.gte": 40,
-              "without_genres": "10762,10763,10764,10766,10767",
+              "with_genres": "80|9648",
+              "without_genres": "16|10751|10762|10766",
+              "vote_average.gte": 6,
+              "vote_count.gte": 10,
               "first_air_date.gte": "__tmdb_date__:last_year:from",
-              "first_air_date.lte": "__tmdb_date__:last_year:to",
-              "with_original_language": "en"
+              "first_air_date.lte": "__tmdb_date__:last_year:to"
             },
-            "source": "tmdb",
-            "version": 2,
             "formState": {
-              "sortBy": "popularity.desc",
               "catalogName": "Crime & Mystery",
+              "discoverSource": "tmdb",
+              "sortBy": "popularity.desc",
+              "cacheTTL": 86400,
               "catalogType": "series",
-              "includeAdult": false,
-              "releasedOnly": false,
-              "voteCountMin": 40,
               "includeGenres": [
                 {
                   "id": 80,
@@ -332,49 +660,147 @@
                   "label": "Mystery"
                 }
               ],
-              "tmdbMediaType": "tv",
-              "discoverSource": "tmdb",
-              "originalLanguage": "en",
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10751,
+                  "label": "Family"
+                },
+                {
+                  "id": 10762,
+                  "label": "Kids"
+                },
+                {
+                  "id": 10766,
+                  "label": "Soap"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "certificationMode": "exact",
+              "includeAdult": false,
+              "releasedOnly": false,
+              "tmdbTvStatuses": [],
+              "tmdbMovieReleaseTypes": [
+                "3",
+                "2"
+              ],
+              "tmdbTvTypes": [],
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withNetworks": [],
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "",
+              "watchProviders": [],
               "providerJoinMode": "or",
-              "seriesDatePreset": "last_year"
-            },
-            "mediaType": "tv"
-          },
-          "description": "TMDB Discover (tv)"
-        },
-        "showInHome": true,
-        "displayType": "series"
+              "voteAverageRange": [
+                6,
+                10
+              ],
+              "voteCountMin": 10,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "",
+              "primaryReleaseTo": "",
+              "movieDatePreset": "clear",
+              "firstAirFrom": "2025-09-04",
+              "firstAirTo": "2026-09-04",
+              "seriesDatePreset": "last_year",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "airDatePreset": "clear",
+              "releaseRegion": ""
+            }
+          }
+        }
       },
       {
         "id": "tmdb.discover.series.svc.netflix",
-        "name": "New on Netflix",
         "type": "series",
-        "source": "tmdb",
+        "name": "Popular on Netflix",
         "enabled": true,
-        "cacheTTL": 43200,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
         "metadata": {
+          "description": "TMDB Discover (tv)",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=10762%7C16%7C10766%7C10751&watch_region=US&with_watch_providers=8%7C1796&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04",
           "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "tv",
             "params": {
               "sort_by": "popularity.desc",
-              "watch_region": "US",
               "include_adult": false,
-              "without_genres": "10762,10763,10764,10766,10767",
-              "first_air_date.gte": "__tmdb_date__:last_5_years:from",
-              "first_air_date.lte": "__tmdb_date__:last_5_years:to",
+              "without_genres": "10762|16|10766|10751",
+              "watch_region": "US",
               "with_watch_providers": "8|1796",
-              "with_original_language": "en"
+              "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
+              "first_air_date.gte": "__tmdb_date__:last_year:from",
+              "first_air_date.lte": "__tmdb_date__:last_year:to"
             },
-            "source": "tmdb",
-            "version": 2,
             "formState": {
+              "catalogName": "Popular on Netflix",
+              "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
-              "catalogName": "New on Netflix",
+              "cacheTTL": 86400,
               "catalogType": "series",
-              "watchRegion": "US",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 10762,
+                  "label": "Kids"
+                },
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10766,
+                  "label": "Soap"
+                },
+                {
+                  "id": 10751,
+                  "label": "Family"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "certificationMode": "exact",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "tv",
-              "discoverSource": "tmdb",
+              "tmdbTvStatuses": [],
+              "tmdbMovieReleaseTypes": [
+                "3",
+                "2"
+              ],
+              "tmdbTvTypes": [],
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withNetworks": [],
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "US",
               "watchProviders": [
                 {
                   "id": 8,
@@ -385,47 +811,93 @@
                   "label": "Netflix Standard with Ads"
                 }
               ],
-              "originalLanguage": "en",
               "providerJoinMode": "or",
-              "seriesDatePreset": "last_5_years"
-            },
-            "mediaType": "tv"
-          },
-          "description": "TMDB Discover (tv)"
-        },
-        "showInHome": false,
-        "displayType": "series"
+              "voteAverageRange": [
+                0,
+                10
+              ],
+              "voteCountMin": 0,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "",
+              "primaryReleaseTo": "",
+              "movieDatePreset": "clear",
+              "firstAirFrom": "2025-09-04",
+              "firstAirTo": "2026-09-04",
+              "seriesDatePreset": "last_year",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "airDatePreset": "clear",
+              "releaseRegion": ""
+            }
+          }
+        }
       },
       {
         "id": "tmdb.discover.movie.svc.netflix",
-        "name": "New on Netflix",
         "type": "movie",
-        "source": "tmdb",
+        "name": "Popular on Netflix",
         "enabled": true,
-        "cacheTTL": 43200,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
         "metadata": {
+          "description": "TMDB Discover (movie)",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&watch_region=US&with_watch_providers=8%7C1796&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04",
           "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "movie",
             "params": {
               "sort_by": "popularity.desc",
-              "watch_region": "US",
               "include_adult": false,
-              "without_genres": "10770",
+              "without_genres": "16|10751",
+              "watch_region": "US",
               "with_watch_providers": "8|1796",
-              "with_original_language": "en",
-              "primary_release_date.gte": "__tmdb_date__:last_5_years:from",
-              "primary_release_date.lte": "__tmdb_date__:last_5_years:to"
+              "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
+              "primary_release_date.gte": "__tmdb_date__:last_year:from",
+              "primary_release_date.lte": "__tmdb_date__:last_year:to"
             },
-            "source": "tmdb",
-            "version": 2,
             "formState": {
+              "catalogName": "Popular on Netflix",
+              "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
-              "catalogName": "New on Netflix",
+              "cacheTTL": 86400,
               "catalogType": "movie",
-              "watchRegion": "US",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10751,
+                  "label": "Family"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "certificationMode": "exact",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "movie",
-              "discoverSource": "tmdb",
+              "tmdbTvStatuses": [],
+              "tmdbMovieReleaseTypes": [],
+              "tmdbTvTypes": [],
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withNetworks": [],
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "US",
               "watchProviders": [
                 {
                   "id": 8,
@@ -436,345 +908,694 @@
                   "label": "Netflix Standard with Ads"
                 }
               ],
-              "movieDatePreset": "last_5_years",
-              "originalLanguage": "en",
-              "providerJoinMode": "or"
-            },
-            "mediaType": "movie"
-          },
-          "description": "TMDB Discover (movie)"
-        },
-        "showInHome": false,
-        "displayType": "movie"
+              "providerJoinMode": "or",
+              "voteAverageRange": [
+                0,
+                10
+              ],
+              "voteCountMin": 0,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "2025-09-04",
+              "primaryReleaseTo": "2026-09-04",
+              "movieDatePreset": "last_year",
+              "firstAirFrom": "",
+              "firstAirTo": "",
+              "seriesDatePreset": "clear",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "airDatePreset": "clear",
+              "releaseRegion": ""
+            }
+          }
+        }
       },
       {
         "id": "tmdb.discover.series.svc.appletv",
-        "name": "New on Apple TV+",
         "type": "series",
-        "source": "tmdb",
+        "name": "Popular on Apple TV+",
         "enabled": true,
-        "cacheTTL": 43200,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
         "metadata": {
+          "description": "TMDB Discover (tv)",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10762%7C10766%7C10751&watch_region=US&with_watch_providers=350%7C2&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04",
           "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "tv",
             "params": {
               "sort_by": "popularity.desc",
-              "watch_region": "US",
               "include_adult": false,
-              "without_genres": "10762,10763,10764,10766,10767",
-              "first_air_date.gte": "__tmdb_date__:last_5_years:from",
-              "first_air_date.lte": "__tmdb_date__:last_5_years:to",
-              "with_watch_providers": "350|2243",
-              "with_original_language": "en"
+              "without_genres": "16|10762|10766|10751",
+              "watch_region": "US",
+              "with_watch_providers": "350|2",
+              "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
+              "first_air_date.gte": "__tmdb_date__:last_year:from",
+              "first_air_date.lte": "__tmdb_date__:last_year:to"
             },
-            "source": "tmdb",
-            "version": 2,
             "formState": {
+              "catalogName": "Popular on Apple TV+",
+              "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
-              "catalogName": "New on Apple TV+",
+              "cacheTTL": 86400,
               "catalogType": "series",
-              "watchRegion": "US",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10762,
+                  "label": "Kids"
+                },
+                {
+                  "id": 10766,
+                  "label": "Soap"
+                },
+                {
+                  "id": 10751,
+                  "label": "Family"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "certificationMode": "exact",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "tv",
-              "discoverSource": "tmdb",
+              "tmdbTvStatuses": [],
+              "tmdbMovieReleaseTypes": [
+                "3",
+                "2"
+              ],
+              "tmdbTvTypes": [],
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withNetworks": [],
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "US",
               "watchProviders": [
                 {
                   "id": 350,
                   "label": "Apple TV"
                 },
                 {
-                  "id": 2243,
-                  "label": "Apple TV Amazon Channel"
+                  "id": 2,
+                  "label": "Apple TV Store"
                 }
               ],
-              "originalLanguage": "en",
               "providerJoinMode": "or",
-              "seriesDatePreset": "last_5_years"
-            },
-            "mediaType": "tv"
-          },
-          "description": "TMDB Discover (tv)"
-        },
-        "showInHome": false,
-        "displayType": "series"
+              "voteAverageRange": [
+                0,
+                10
+              ],
+              "voteCountMin": 0,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "",
+              "primaryReleaseTo": "",
+              "movieDatePreset": "clear",
+              "firstAirFrom": "2025-09-04",
+              "firstAirTo": "2026-09-04",
+              "seriesDatePreset": "last_year",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "airDatePreset": "clear",
+              "releaseRegion": ""
+            }
+          }
+        }
       },
       {
         "id": "tmdb.discover.movie.svc.appletv",
-        "name": "New on Apple TV+",
         "type": "movie",
-        "source": "tmdb",
+        "name": "Popular on Apple TV+",
         "enabled": true,
-        "cacheTTL": 43200,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
         "metadata": {
+          "description": "TMDB Discover (movie)",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&watch_region=US&with_watch_providers=350%7C2&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04",
           "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "movie",
             "params": {
               "sort_by": "popularity.desc",
-              "watch_region": "US",
               "include_adult": false,
-              "without_genres": "10770",
-              "with_watch_providers": "350|2243",
-              "with_original_language": "en",
-              "primary_release_date.gte": "__tmdb_date__:last_5_years:from",
-              "primary_release_date.lte": "__tmdb_date__:last_5_years:to"
+              "without_genres": "16|10751",
+              "watch_region": "US",
+              "with_watch_providers": "350|2",
+              "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
+              "primary_release_date.gte": "__tmdb_date__:last_year:from",
+              "primary_release_date.lte": "__tmdb_date__:last_year:to"
             },
-            "source": "tmdb",
-            "version": 2,
             "formState": {
+              "catalogName": "Popular on Apple TV+",
+              "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
-              "catalogName": "New on Apple TV+",
+              "cacheTTL": 86400,
               "catalogType": "movie",
-              "watchRegion": "US",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10751,
+                  "label": "Family"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "certificationMode": "exact",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "movie",
-              "discoverSource": "tmdb",
+              "tmdbTvStatuses": [],
+              "tmdbMovieReleaseTypes": [],
+              "tmdbTvTypes": [],
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withNetworks": [],
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "US",
               "watchProviders": [
                 {
                   "id": 350,
                   "label": "Apple TV"
                 },
                 {
-                  "id": 2243,
-                  "label": "Apple TV Amazon Channel"
+                  "id": 2,
+                  "label": "Apple TV Store"
                 }
               ],
-              "movieDatePreset": "last_5_years",
-              "originalLanguage": "en",
-              "providerJoinMode": "or"
-            },
-            "mediaType": "movie"
-          },
-          "description": "TMDB Discover (movie)"
-        },
-        "showInHome": false,
-        "displayType": "movie"
+              "providerJoinMode": "or",
+              "voteAverageRange": [
+                0,
+                10
+              ],
+              "voteCountMin": 0,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "2025-09-04",
+              "primaryReleaseTo": "2026-09-04",
+              "movieDatePreset": "last_year",
+              "firstAirFrom": "",
+              "firstAirTo": "",
+              "seriesDatePreset": "clear",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "airDatePreset": "clear",
+              "releaseRegion": ""
+            }
+          }
+        }
       },
       {
         "id": "tmdb.discover.series.svc.hbomax",
-        "name": "New on HBO Max",
         "type": "series",
-        "source": "tmdb",
+        "name": "Popular on HBO Max",
         "enabled": true,
-        "cacheTTL": 43200,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
         "metadata": {
+          "description": "TMDB Discover (tv)",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10762%7C10751%7C10766&watch_region=US&with_watch_providers=1899&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04",
           "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "tv",
             "params": {
               "sort_by": "popularity.desc",
-              "watch_region": "US",
               "include_adult": false,
-              "without_genres": "10762,10763,10764,10766,10767",
-              "first_air_date.gte": "__tmdb_date__:last_5_years:from",
-              "first_air_date.lte": "__tmdb_date__:last_5_years:to",
-              "with_watch_providers": "1899|1825",
-              "with_original_language": "en"
+              "without_genres": "16|10762|10751|10766",
+              "watch_region": "US",
+              "with_watch_providers": "1899",
+              "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
+              "first_air_date.gte": "__tmdb_date__:last_year:from",
+              "first_air_date.lte": "__tmdb_date__:last_year:to"
             },
-            "source": "tmdb",
-            "version": 2,
             "formState": {
+              "catalogName": "Popular on HBO Max",
+              "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
-              "catalogName": "New on HBO Max",
+              "cacheTTL": 86400,
               "catalogType": "series",
-              "watchRegion": "US",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10762,
+                  "label": "Kids"
+                },
+                {
+                  "id": 10751,
+                  "label": "Family"
+                },
+                {
+                  "id": 10766,
+                  "label": "Soap"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "certificationMode": "exact",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "tv",
-              "discoverSource": "tmdb",
+              "tmdbTvStatuses": [],
+              "tmdbMovieReleaseTypes": [],
+              "tmdbTvTypes": [],
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withNetworks": [],
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "US",
               "watchProviders": [
                 {
                   "id": 1899,
                   "label": "HBO Max"
-                },
-                {
-                  "id": 1825,
-                  "label": "HBO Max Amazon Channel"
                 }
               ],
-              "originalLanguage": "en",
               "providerJoinMode": "or",
-              "seriesDatePreset": "last_5_years"
-            },
-            "mediaType": "tv"
-          },
-          "description": "TMDB Discover (tv)"
-        },
-        "showInHome": false,
-        "displayType": "series"
+              "voteAverageRange": [
+                0,
+                10
+              ],
+              "voteCountMin": 0,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "",
+              "primaryReleaseTo": "",
+              "movieDatePreset": "clear",
+              "firstAirFrom": "2025-09-04",
+              "firstAirTo": "2026-09-04",
+              "seriesDatePreset": "last_year",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "airDatePreset": "clear",
+              "releaseRegion": ""
+            }
+          }
+        }
       },
       {
         "id": "tmdb.discover.movie.svc.hbomax",
-        "name": "New on HBO Max",
         "type": "movie",
-        "source": "tmdb",
+        "name": "Popular on HBO Max",
         "enabled": true,
-        "cacheTTL": 43200,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
         "metadata": {
+          "description": "TMDB Discover (movie)",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&watch_region=US&with_watch_providers=1899&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04",
           "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "movie",
             "params": {
               "sort_by": "popularity.desc",
-              "watch_region": "US",
               "include_adult": false,
-              "without_genres": "10770",
-              "with_watch_providers": "1899|1825",
-              "with_original_language": "en",
-              "primary_release_date.gte": "__tmdb_date__:last_5_years:from",
-              "primary_release_date.lte": "__tmdb_date__:last_5_years:to"
+              "without_genres": "16|10751",
+              "watch_region": "US",
+              "with_watch_providers": "1899",
+              "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
+              "primary_release_date.gte": "__tmdb_date__:last_year:from",
+              "primary_release_date.lte": "__tmdb_date__:last_year:to"
             },
-            "source": "tmdb",
-            "version": 2,
             "formState": {
+              "catalogName": "Popular on HBO Max",
+              "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
-              "catalogName": "New on HBO Max",
+              "cacheTTL": 86400,
               "catalogType": "movie",
-              "watchRegion": "US",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10751,
+                  "label": "Family"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "certificationMode": "exact",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "movie",
-              "discoverSource": "tmdb",
+              "tmdbTvStatuses": [],
+              "tmdbMovieReleaseTypes": [],
+              "tmdbTvTypes": [],
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withNetworks": [],
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "US",
               "watchProviders": [
                 {
                   "id": 1899,
                   "label": "HBO Max"
-                },
-                {
-                  "id": 1825,
-                  "label": "HBO Max Amazon Channel"
                 }
               ],
-              "movieDatePreset": "last_5_years",
-              "originalLanguage": "en",
-              "providerJoinMode": "or"
-            },
-            "mediaType": "movie"
-          },
-          "description": "TMDB Discover (movie)"
-        },
-        "showInHome": false,
-        "displayType": "movie"
+              "providerJoinMode": "or",
+              "voteAverageRange": [
+                0,
+                10
+              ],
+              "voteCountMin": 0,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "2025-09-04",
+              "primaryReleaseTo": "2026-09-04",
+              "movieDatePreset": "last_year",
+              "firstAirFrom": "",
+              "firstAirTo": "",
+              "seriesDatePreset": "clear",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "airDatePreset": "clear",
+              "releaseRegion": ""
+            }
+          }
+        }
       },
       {
         "id": "tmdb.discover.series.svc.disney",
-        "name": "New on Disney+",
         "type": "series",
-        "source": "tmdb",
+        "name": "Popular on Disney+",
         "enabled": true,
-        "cacheTTL": 43200,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
         "metadata": {
+          "description": "TMDB Discover (tv)",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751%7C10762%7C10766&watch_region=US&with_watch_providers=337&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04",
           "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "tv",
             "params": {
               "sort_by": "popularity.desc",
-              "watch_region": "US",
               "include_adult": false,
-              "without_genres": "10762,10763,10764,10766,10767",
-              "first_air_date.gte": "__tmdb_date__:last_5_years:from",
-              "first_air_date.lte": "__tmdb_date__:last_5_years:to",
+              "without_genres": "16|10751|10762|10766",
+              "watch_region": "US",
               "with_watch_providers": "337",
-              "with_original_language": "en"
+              "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
+              "first_air_date.gte": "__tmdb_date__:last_year:from",
+              "first_air_date.lte": "__tmdb_date__:last_year:to"
             },
-            "source": "tmdb",
-            "version": 2,
             "formState": {
+              "catalogName": "Popular on Disney+",
+              "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
-              "catalogName": "New on Disney+",
+              "cacheTTL": 86400,
               "catalogType": "series",
-              "watchRegion": "US",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10751,
+                  "label": "Family"
+                },
+                {
+                  "id": 10762,
+                  "label": "Kids"
+                },
+                {
+                  "id": 10766,
+                  "label": "Soap"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "certificationMode": "exact",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "tv",
-              "discoverSource": "tmdb",
+              "tmdbTvStatuses": [],
+              "tmdbMovieReleaseTypes": [],
+              "tmdbTvTypes": [],
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withNetworks": [],
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "US",
               "watchProviders": [
                 {
                   "id": 337,
                   "label": "Disney Plus"
                 }
               ],
-              "originalLanguage": "en",
               "providerJoinMode": "or",
-              "seriesDatePreset": "last_5_years"
-            },
-            "mediaType": "tv"
-          },
-          "description": "TMDB Discover (tv)"
-        },
-        "showInHome": false,
-        "displayType": "series"
+              "voteAverageRange": [
+                0,
+                10
+              ],
+              "voteCountMin": 0,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "",
+              "primaryReleaseTo": "",
+              "movieDatePreset": "clear",
+              "firstAirFrom": "2025-09-04",
+              "firstAirTo": "2026-09-04",
+              "seriesDatePreset": "last_year",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "airDatePreset": "clear",
+              "releaseRegion": ""
+            }
+          }
+        }
       },
       {
         "id": "tmdb.discover.movie.svc.disney",
-        "name": "New on Disney+",
         "type": "movie",
-        "source": "tmdb",
+        "name": "Popular on Disney+",
         "enabled": true,
-        "cacheTTL": 43200,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
         "metadata": {
+          "description": "TMDB Discover (movie)",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&watch_region=US&with_watch_providers=337&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04",
           "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "movie",
             "params": {
               "sort_by": "popularity.desc",
-              "watch_region": "US",
               "include_adult": false,
-              "without_genres": "10770",
+              "without_genres": "16|10751",
+              "watch_region": "US",
               "with_watch_providers": "337",
-              "with_original_language": "en",
-              "primary_release_date.gte": "__tmdb_date__:last_5_years:from",
-              "primary_release_date.lte": "__tmdb_date__:last_5_years:to"
+              "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
+              "primary_release_date.gte": "__tmdb_date__:last_year:from",
+              "primary_release_date.lte": "__tmdb_date__:last_year:to"
             },
-            "source": "tmdb",
-            "version": 2,
             "formState": {
+              "catalogName": "Popular on Disney+",
+              "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
-              "catalogName": "New on Disney+",
+              "cacheTTL": 86400,
               "catalogType": "movie",
-              "watchRegion": "US",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10751,
+                  "label": "Family"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "certificationMode": "exact",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "movie",
-              "discoverSource": "tmdb",
+              "tmdbTvStatuses": [],
+              "tmdbMovieReleaseTypes": [],
+              "tmdbTvTypes": [],
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withNetworks": [],
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "US",
               "watchProviders": [
                 {
                   "id": 337,
                   "label": "Disney Plus"
                 }
               ],
-              "movieDatePreset": "last_5_years",
-              "originalLanguage": "en",
-              "providerJoinMode": "or"
-            },
-            "mediaType": "movie"
-          },
-          "description": "TMDB Discover (movie)"
-        },
-        "showInHome": false,
-        "displayType": "movie"
+              "providerJoinMode": "or",
+              "voteAverageRange": [
+                0,
+                10
+              ],
+              "voteCountMin": 0,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "2025-09-04",
+              "primaryReleaseTo": "2026-09-04",
+              "movieDatePreset": "last_year",
+              "firstAirFrom": "",
+              "firstAirTo": "",
+              "seriesDatePreset": "clear",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "airDatePreset": "clear",
+              "releaseRegion": ""
+            }
+          }
+        }
       },
       {
         "id": "tmdb.discover.series.svc.prime",
-        "name": "New on Prime Video",
         "type": "series",
-        "source": "tmdb",
+        "name": "Popular on Prime Video",
         "enabled": true,
-        "cacheTTL": 43200,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
         "metadata": {
+          "description": "TMDB Discover (tv)",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751%7C10762%7C10766&watch_region=US&with_watch_providers=9%7C613%7C2100&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04",
           "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "tv",
             "params": {
               "sort_by": "popularity.desc",
-              "watch_region": "US",
               "include_adult": false,
-              "without_genres": "10762,10763,10764,10766,10767",
-              "first_air_date.gte": "__tmdb_date__:last_5_years:from",
-              "first_air_date.lte": "__tmdb_date__:last_5_years:to",
+              "without_genres": "16|10751|10762|10766",
+              "watch_region": "US",
               "with_watch_providers": "9|613|2100",
-              "with_original_language": "en"
+              "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
+              "first_air_date.gte": "__tmdb_date__:last_year:from",
+              "first_air_date.lte": "__tmdb_date__:last_year:to"
             },
-            "source": "tmdb",
-            "version": 2,
             "formState": {
+              "catalogName": "Popular on Prime Video",
+              "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
-              "catalogName": "New on Prime Video",
+              "cacheTTL": 86400,
               "catalogType": "series",
-              "watchRegion": "US",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10751,
+                  "label": "Family"
+                },
+                {
+                  "id": 10762,
+                  "label": "Kids"
+                },
+                {
+                  "id": 10766,
+                  "label": "Soap"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "certificationMode": "exact",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "tv",
-              "discoverSource": "tmdb",
+              "tmdbTvStatuses": [],
+              "tmdbMovieReleaseTypes": [],
+              "tmdbTvTypes": [],
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withNetworks": [],
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "US",
               "watchProviders": [
                 {
                   "id": 9,
@@ -789,47 +1610,93 @@
                   "label": "Amazon Prime Video with Ads"
                 }
               ],
-              "originalLanguage": "en",
               "providerJoinMode": "or",
-              "seriesDatePreset": "last_5_years"
-            },
-            "mediaType": "tv"
-          },
-          "description": "TMDB Discover (tv)"
-        },
-        "showInHome": false,
-        "displayType": "series"
+              "voteAverageRange": [
+                0,
+                10
+              ],
+              "voteCountMin": 0,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "",
+              "primaryReleaseTo": "",
+              "movieDatePreset": "clear",
+              "firstAirFrom": "2025-09-04",
+              "firstAirTo": "2026-09-04",
+              "seriesDatePreset": "last_year",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "airDatePreset": "clear",
+              "releaseRegion": ""
+            }
+          }
+        }
       },
       {
         "id": "tmdb.discover.movie.svc.prime",
-        "name": "New on Prime Video",
         "type": "movie",
-        "source": "tmdb",
+        "name": "Popular on Prime Video",
         "enabled": true,
-        "cacheTTL": 43200,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
         "metadata": {
+          "description": "TMDB Discover (movie)",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&watch_region=US&with_watch_providers=9%7C613%7C2100&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04",
           "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "movie",
             "params": {
               "sort_by": "popularity.desc",
-              "watch_region": "US",
               "include_adult": false,
-              "without_genres": "10770",
+              "without_genres": "16|10751",
+              "watch_region": "US",
               "with_watch_providers": "9|613|2100",
-              "with_original_language": "en",
-              "primary_release_date.gte": "__tmdb_date__:last_5_years:from",
-              "primary_release_date.lte": "__tmdb_date__:last_5_years:to"
+              "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
+              "primary_release_date.gte": "__tmdb_date__:last_year:from",
+              "primary_release_date.lte": "__tmdb_date__:last_year:to"
             },
-            "source": "tmdb",
-            "version": 2,
             "formState": {
+              "catalogName": "Popular on Prime Video",
+              "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
-              "catalogName": "New on Prime Video",
+              "cacheTTL": 86400,
               "catalogType": "movie",
-              "watchRegion": "US",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10751,
+                  "label": "Family"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "certificationMode": "exact",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "movie",
-              "discoverSource": "tmdb",
+              "tmdbTvStatuses": [],
+              "tmdbMovieReleaseTypes": [],
+              "tmdbTvTypes": [],
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withNetworks": [],
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "US",
               "watchProviders": [
                 {
                   "id": 9,
@@ -844,47 +1711,101 @@
                   "label": "Amazon Prime Video with Ads"
                 }
               ],
-              "movieDatePreset": "last_5_years",
-              "originalLanguage": "en",
-              "providerJoinMode": "or"
-            },
-            "mediaType": "movie"
-          },
-          "description": "TMDB Discover (movie)"
-        },
-        "showInHome": false,
-        "displayType": "movie"
+              "providerJoinMode": "or",
+              "voteAverageRange": [
+                0,
+                10
+              ],
+              "voteCountMin": 0,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "2025-09-04",
+              "primaryReleaseTo": "2026-09-04",
+              "movieDatePreset": "last_year",
+              "firstAirFrom": "",
+              "firstAirTo": "",
+              "seriesDatePreset": "clear",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "airDatePreset": "clear",
+              "releaseRegion": ""
+            }
+          }
+        }
       },
       {
         "id": "tmdb.discover.series.svc.paramount",
-        "name": "New on Paramount+",
         "type": "series",
-        "source": "tmdb",
+        "name": "Popular on Paramount+",
         "enabled": true,
-        "cacheTTL": 43200,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
         "metadata": {
+          "description": "TMDB Discover (tv)",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10762%7C10751%7C10766&watch_region=US&with_watch_providers=2303%7C2616&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04",
           "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "tv",
             "params": {
               "sort_by": "popularity.desc",
-              "watch_region": "US",
               "include_adult": false,
-              "without_genres": "10762,10763,10764,10766,10767",
-              "first_air_date.gte": "__tmdb_date__:last_5_years:from",
-              "first_air_date.lte": "__tmdb_date__:last_5_years:to",
-              "with_watch_providers": "2303|2616|582|633|1853",
-              "with_original_language": "en"
+              "without_genres": "16|10762|10751|10766",
+              "watch_region": "US",
+              "with_watch_providers": "2303|2616",
+              "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
+              "first_air_date.gte": "__tmdb_date__:last_year:from",
+              "first_air_date.lte": "__tmdb_date__:last_year:to"
             },
-            "source": "tmdb",
-            "version": 2,
             "formState": {
+              "catalogName": "Popular on Paramount+",
+              "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
-              "catalogName": "New on Paramount+",
+              "cacheTTL": 86400,
               "catalogType": "series",
-              "watchRegion": "US",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10762,
+                  "label": "Kids"
+                },
+                {
+                  "id": 10751,
+                  "label": "Family"
+                },
+                {
+                  "id": 10766,
+                  "label": "Soap"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "certificationMode": "exact",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "tv",
-              "discoverSource": "tmdb",
+              "tmdbTvStatuses": [],
+              "tmdbMovieReleaseTypes": [],
+              "tmdbTvTypes": [],
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withNetworks": [],
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "US",
               "watchProviders": [
                 {
                   "id": 2303,
@@ -893,61 +1814,95 @@
                 {
                   "id": 2616,
                   "label": "Paramount Plus Essential"
-                },
-                {
-                  "id": 582,
-                  "label": "Paramount+ Amazon Channel"
-                },
-                {
-                  "id": 633,
-                  "label": "Paramount+ Roku Premium Channel"
-                },
-                {
-                  "id": 1853,
-                  "label": "Paramount Plus Apple TV Channel"
                 }
               ],
-              "originalLanguage": "en",
               "providerJoinMode": "or",
-              "seriesDatePreset": "last_5_years"
-            },
-            "mediaType": "tv"
-          },
-          "description": "TMDB Discover (tv)"
-        },
-        "showInHome": false,
-        "displayType": "series"
+              "voteAverageRange": [
+                0,
+                10
+              ],
+              "voteCountMin": 0,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "",
+              "primaryReleaseTo": "",
+              "movieDatePreset": "clear",
+              "firstAirFrom": "2025-09-04",
+              "firstAirTo": "2026-09-04",
+              "seriesDatePreset": "last_year",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "airDatePreset": "clear",
+              "releaseRegion": ""
+            }
+          }
+        }
       },
       {
         "id": "tmdb.discover.movie.svc.paramount",
-        "name": "New on Paramount+",
         "type": "movie",
-        "source": "tmdb",
+        "name": "Popular on Paramount+",
         "enabled": true,
-        "cacheTTL": 43200,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
         "metadata": {
+          "description": "TMDB Discover (movie)",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&watch_region=US&with_watch_providers=2303%7C2616&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04",
           "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "movie",
             "params": {
               "sort_by": "popularity.desc",
-              "watch_region": "US",
               "include_adult": false,
-              "without_genres": "10770",
-              "with_watch_providers": "2303|2616|582|633|1853",
-              "with_original_language": "en",
-              "primary_release_date.gte": "__tmdb_date__:last_5_years:from",
-              "primary_release_date.lte": "__tmdb_date__:last_5_years:to"
+              "without_genres": "16|10751",
+              "watch_region": "US",
+              "with_watch_providers": "2303|2616",
+              "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
+              "primary_release_date.gte": "__tmdb_date__:last_year:from",
+              "primary_release_date.lte": "__tmdb_date__:last_year:to"
             },
-            "source": "tmdb",
-            "version": 2,
             "formState": {
+              "catalogName": "Popular on Paramount+",
+              "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
-              "catalogName": "New on Paramount+",
+              "cacheTTL": 86400,
               "catalogType": "movie",
-              "watchRegion": "US",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10751,
+                  "label": "Family"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "certificationMode": "exact",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "movie",
-              "discoverSource": "tmdb",
+              "tmdbTvStatuses": [],
+              "tmdbMovieReleaseTypes": [],
+              "tmdbTvTypes": [],
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withNetworks": [],
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "US",
               "watchProviders": [
                 {
                   "id": 2303,
@@ -956,61 +1911,103 @@
                 {
                   "id": 2616,
                   "label": "Paramount Plus Essential"
-                },
-                {
-                  "id": 582,
-                  "label": "Paramount+ Amazon Channel"
-                },
-                {
-                  "id": 633,
-                  "label": "Paramount+ Roku Premium Channel"
-                },
-                {
-                  "id": 1853,
-                  "label": "Paramount Plus Apple TV Channel"
                 }
               ],
-              "movieDatePreset": "last_5_years",
-              "originalLanguage": "en",
-              "providerJoinMode": "or"
-            },
-            "mediaType": "movie"
-          },
-          "description": "TMDB Discover (movie)"
-        },
-        "showInHome": false,
-        "displayType": "movie"
+              "providerJoinMode": "or",
+              "voteAverageRange": [
+                0,
+                10
+              ],
+              "voteCountMin": 0,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "2025-09-04",
+              "primaryReleaseTo": "2026-09-04",
+              "movieDatePreset": "last_year",
+              "firstAirFrom": "",
+              "firstAirTo": "",
+              "seriesDatePreset": "clear",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "airDatePreset": "clear",
+              "releaseRegion": ""
+            }
+          }
+        }
       },
       {
         "id": "tmdb.discover.series.svc.peacock",
-        "name": "New on Peacock",
         "type": "series",
-        "source": "tmdb",
+        "name": "Popular on Peacock",
         "enabled": true,
-        "cacheTTL": 43200,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
         "metadata": {
+          "description": "TMDB Discover (tv)",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751%7C10762%7C10766&watch_region=US&with_watch_providers=386%7C387&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04",
           "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "tv",
             "params": {
               "sort_by": "popularity.desc",
-              "watch_region": "US",
               "include_adult": false,
-              "without_genres": "10762,10763,10764,10766,10767",
-              "first_air_date.gte": "__tmdb_date__:last_5_years:from",
-              "first_air_date.lte": "__tmdb_date__:last_5_years:to",
+              "without_genres": "16|10751|10762|10766",
+              "watch_region": "US",
               "with_watch_providers": "386|387",
-              "with_original_language": "en"
+              "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
+              "first_air_date.gte": "__tmdb_date__:last_year:from",
+              "first_air_date.lte": "__tmdb_date__:last_year:to"
             },
-            "source": "tmdb",
-            "version": 2,
             "formState": {
+              "catalogName": "Popular on Peacock",
+              "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
-              "catalogName": "New on Peacock",
+              "cacheTTL": 86400,
               "catalogType": "series",
-              "watchRegion": "US",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10751,
+                  "label": "Family"
+                },
+                {
+                  "id": 10762,
+                  "label": "Kids"
+                },
+                {
+                  "id": 10766,
+                  "label": "Soap"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "certificationMode": "exact",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "tv",
-              "discoverSource": "tmdb",
+              "tmdbTvStatuses": [],
+              "tmdbMovieReleaseTypes": [],
+              "tmdbTvTypes": [],
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withNetworks": [],
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "US",
               "watchProviders": [
                 {
                   "id": 386,
@@ -1021,47 +2018,93 @@
                   "label": "Peacock Premium Plus"
                 }
               ],
-              "originalLanguage": "en",
               "providerJoinMode": "or",
-              "seriesDatePreset": "last_5_years"
-            },
-            "mediaType": "tv"
-          },
-          "description": "TMDB Discover (tv)"
-        },
-        "showInHome": false,
-        "displayType": "series"
+              "voteAverageRange": [
+                0,
+                10
+              ],
+              "voteCountMin": 0,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "",
+              "primaryReleaseTo": "",
+              "movieDatePreset": "clear",
+              "firstAirFrom": "2025-09-04",
+              "firstAirTo": "2026-09-04",
+              "seriesDatePreset": "last_year",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "airDatePreset": "clear",
+              "releaseRegion": ""
+            }
+          }
+        }
       },
       {
         "id": "tmdb.discover.movie.svc.peacock",
-        "name": "New on Peacock",
         "type": "movie",
-        "source": "tmdb",
+        "name": "Popular on Peacock",
         "enabled": true,
-        "cacheTTL": 43200,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
         "metadata": {
+          "description": "TMDB Discover (movie)",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&watch_region=US&with_watch_providers=386%7C387&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04",
           "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "movie",
             "params": {
               "sort_by": "popularity.desc",
-              "watch_region": "US",
               "include_adult": false,
-              "without_genres": "10770",
+              "without_genres": "16|10751",
+              "watch_region": "US",
               "with_watch_providers": "386|387",
-              "with_original_language": "en",
-              "primary_release_date.gte": "__tmdb_date__:last_5_years:from",
-              "primary_release_date.lte": "__tmdb_date__:last_5_years:to"
+              "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
+              "primary_release_date.gte": "__tmdb_date__:last_year:from",
+              "primary_release_date.lte": "__tmdb_date__:last_year:to"
             },
-            "source": "tmdb",
-            "version": 2,
             "formState": {
+              "catalogName": "Popular on Peacock",
+              "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
-              "catalogName": "New on Peacock",
+              "cacheTTL": 86400,
               "catalogType": "movie",
-              "watchRegion": "US",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10751,
+                  "label": "Family"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "certificationMode": "exact",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "movie",
-              "discoverSource": "tmdb",
+              "tmdbTvStatuses": [],
+              "tmdbMovieReleaseTypes": [],
+              "tmdbTvTypes": [],
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withNetworks": [],
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "US",
               "watchProviders": [
                 {
                   "id": 386,
@@ -1072,228 +2115,223 @@
                   "label": "Peacock Premium Plus"
                 }
               ],
-              "movieDatePreset": "last_5_years",
-              "originalLanguage": "en",
-              "providerJoinMode": "or"
-            },
-            "mediaType": "movie"
-          },
-          "description": "TMDB Discover (movie)"
-        },
-        "showInHome": false,
-        "displayType": "movie"
+              "providerJoinMode": "or",
+              "voteAverageRange": [
+                0,
+                10
+              ],
+              "voteCountMin": 0,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "2025-09-04",
+              "primaryReleaseTo": "2026-09-04",
+              "movieDatePreset": "last_year",
+              "firstAirFrom": "",
+              "firstAirTo": "",
+              "seriesDatePreset": "clear",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "airDatePreset": "clear",
+              "releaseRegion": ""
+            }
+          }
+        }
       },
       {
         "id": "tmdb.discover.series.svc.hulu",
-        "name": "New on Hulu",
         "type": "series",
-        "source": "tmdb",
+        "name": "Popular on Hulu",
         "enabled": true,
-        "cacheTTL": 43200,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
         "metadata": {
+          "description": "TMDB Discover (tv)",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751%7C10762%7C10766&watch_region=US&with_watch_providers=15&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04",
           "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "tv",
             "params": {
               "sort_by": "popularity.desc",
-              "watch_region": "US",
               "include_adult": false,
-              "without_genres": "10762,10763,10764,10766,10767",
-              "first_air_date.gte": "__tmdb_date__:last_5_years:from",
-              "first_air_date.lte": "__tmdb_date__:last_5_years:to",
+              "without_genres": "16|10751|10762|10766",
+              "watch_region": "US",
               "with_watch_providers": "15",
-              "with_original_language": "en"
+              "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
+              "first_air_date.gte": "__tmdb_date__:last_year:from",
+              "first_air_date.lte": "__tmdb_date__:last_year:to"
             },
-            "source": "tmdb",
-            "version": 2,
             "formState": {
+              "catalogName": "Popular on Hulu",
+              "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
-              "catalogName": "New on Hulu",
+              "cacheTTL": 86400,
               "catalogType": "series",
-              "watchRegion": "US",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10751,
+                  "label": "Family"
+                },
+                {
+                  "id": 10762,
+                  "label": "Kids"
+                },
+                {
+                  "id": 10766,
+                  "label": "Soap"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "certificationMode": "exact",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "tv",
-              "discoverSource": "tmdb",
+              "tmdbTvStatuses": [],
+              "tmdbMovieReleaseTypes": [],
+              "tmdbTvTypes": [],
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withNetworks": [],
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "US",
               "watchProviders": [
                 {
                   "id": 15,
                   "label": "Hulu"
                 }
               ],
-              "originalLanguage": "en",
               "providerJoinMode": "or",
-              "seriesDatePreset": "last_5_years"
-            },
-            "mediaType": "tv"
-          },
-          "description": "TMDB Discover (tv)"
-        },
-        "showInHome": false,
-        "displayType": "series"
+              "voteAverageRange": [
+                0,
+                10
+              ],
+              "voteCountMin": 0,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "",
+              "primaryReleaseTo": "",
+              "movieDatePreset": "clear",
+              "firstAirFrom": "2025-09-04",
+              "firstAirTo": "2026-09-04",
+              "seriesDatePreset": "last_year",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "airDatePreset": "clear",
+              "releaseRegion": ""
+            }
+          }
+        }
       },
       {
         "id": "tmdb.discover.movie.svc.hulu",
-        "name": "New on Hulu",
         "type": "movie",
-        "source": "tmdb",
+        "name": "Popular on Hulu",
         "enabled": true,
-        "cacheTTL": 43200,
+        "showInHome": false,
+        "source": "tmdb",
+        "cacheTTL": 86400,
         "metadata": {
+          "description": "TMDB Discover (movie)",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&watch_region=US&with_watch_providers=15&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04",
           "discover": {
+            "version": 2,
+            "source": "tmdb",
+            "mediaType": "movie",
             "params": {
               "sort_by": "popularity.desc",
-              "watch_region": "US",
               "include_adult": false,
-              "without_genres": "10770",
+              "without_genres": "16|10751",
+              "watch_region": "US",
               "with_watch_providers": "15",
-              "with_original_language": "en",
-              "primary_release_date.gte": "__tmdb_date__:last_5_years:from",
-              "primary_release_date.lte": "__tmdb_date__:last_5_years:to"
+              "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
+              "primary_release_date.gte": "__tmdb_date__:last_year:from",
+              "primary_release_date.lte": "__tmdb_date__:last_year:to"
             },
-            "source": "tmdb",
-            "version": 2,
             "formState": {
+              "catalogName": "Popular on Hulu",
+              "discoverSource": "tmdb",
               "sortBy": "popularity.desc",
-              "catalogName": "New on Hulu",
+              "cacheTTL": 86400,
               "catalogType": "movie",
-              "watchRegion": "US",
+              "includeGenres": [],
+              "excludeGenres": [
+                {
+                  "id": 16,
+                  "label": "Animation"
+                },
+                {
+                  "id": 10751,
+                  "label": "Family"
+                }
+              ],
+              "genreJoinMode": "or",
+              "originalLanguage": "",
+              "originCountry": "",
+              "certificationCountry": "",
+              "certificationValue": "",
+              "certificationMode": "exact",
               "includeAdult": false,
               "releasedOnly": false,
-              "tmdbMediaType": "movie",
-              "discoverSource": "tmdb",
+              "tmdbTvStatuses": [],
+              "tmdbMovieReleaseTypes": [],
+              "tmdbTvTypes": [],
+              "selectedPeople": [],
+              "peopleJoinMode": "or",
+              "withCompanies": [],
+              "withoutCompanies": [],
+              "companyJoinMode": "or",
+              "withNetworks": [],
+              "withKeywords": [],
+              "withoutKeywords": [],
+              "keywordJoinMode": "or",
+              "watchRegion": "US",
               "watchProviders": [
                 {
                   "id": 15,
                   "label": "Hulu"
                 }
               ],
-              "movieDatePreset": "last_5_years",
-              "originalLanguage": "en",
-              "providerJoinMode": "or"
-            },
-            "mediaType": "movie"
-          },
-          "description": "TMDB Discover (movie)"
-        },
-        "showInHome": false,
-        "displayType": "movie"
-      },
-      {
-        "id": "tmdb.discover.series.svc.starz",
-        "name": "New on Starz",
-        "type": "series",
-        "source": "tmdb",
-        "enabled": true,
-        "cacheTTL": 43200,
-        "metadata": {
-          "discover": {
-            "params": {
-              "sort_by": "popularity.desc",
-              "watch_region": "US",
-              "include_adult": false,
-              "without_genres": "10762,10763,10764,10766,10767",
-              "first_air_date.gte": "__tmdb_date__:last_5_years:from",
-              "first_air_date.lte": "__tmdb_date__:last_5_years:to",
-              "with_watch_providers": "43|1794|1855|634",
-              "with_original_language": "en"
-            },
-            "source": "tmdb",
-            "version": 2,
-            "formState": {
-              "sortBy": "popularity.desc",
-              "catalogName": "New on Starz",
-              "catalogType": "series",
-              "watchRegion": "US",
-              "includeAdult": false,
-              "releasedOnly": false,
-              "tmdbMediaType": "tv",
-              "discoverSource": "tmdb",
-              "watchProviders": [
-                {
-                  "id": 43,
-                  "label": "Starz"
-                },
-                {
-                  "id": 1794,
-                  "label": "Starz Amazon Channel"
-                },
-                {
-                  "id": 1855,
-                  "label": "Starz Apple TV Channel"
-                },
-                {
-                  "id": 634,
-                  "label": "Starz Roku Premium Channel"
-                }
-              ],
-              "originalLanguage": "en",
               "providerJoinMode": "or",
-              "seriesDatePreset": "last_5_years"
-            },
-            "mediaType": "tv"
-          },
-          "description": "TMDB Discover (tv)"
-        },
-        "showInHome": false,
-        "displayType": "series"
-      },
-      {
-        "id": "tmdb.discover.movie.svc.starz",
-        "name": "New on Starz",
-        "type": "movie",
-        "source": "tmdb",
-        "enabled": true,
-        "cacheTTL": 43200,
-        "metadata": {
-          "discover": {
-            "params": {
-              "sort_by": "popularity.desc",
-              "watch_region": "US",
-              "include_adult": false,
-              "without_genres": "10770",
-              "with_watch_providers": "43|1794|1855|634",
-              "with_original_language": "en",
-              "primary_release_date.gte": "__tmdb_date__:last_5_years:from",
-              "primary_release_date.lte": "__tmdb_date__:last_5_years:to"
-            },
-            "source": "tmdb",
-            "version": 2,
-            "formState": {
-              "sortBy": "popularity.desc",
-              "catalogName": "New on Starz",
-              "catalogType": "movie",
-              "watchRegion": "US",
-              "includeAdult": false,
-              "releasedOnly": false,
-              "tmdbMediaType": "movie",
-              "discoverSource": "tmdb",
-              "watchProviders": [
-                {
-                  "id": 43,
-                  "label": "Starz"
-                },
-                {
-                  "id": 1794,
-                  "label": "Starz Amazon Channel"
-                },
-                {
-                  "id": 1855,
-                  "label": "Starz Apple TV Channel"
-                },
-                {
-                  "id": 634,
-                  "label": "Starz Roku Premium Channel"
-                }
+              "voteAverageRange": [
+                0,
+                10
               ],
-              "movieDatePreset": "last_5_years",
-              "originalLanguage": "en",
-              "providerJoinMode": "or"
-            },
-            "mediaType": "movie"
-          },
-          "description": "TMDB Discover (movie)"
-        },
-        "showInHome": false,
-        "displayType": "movie"
+              "voteCountMin": 0,
+              "runtimeRange": [
+                0,
+                400
+              ],
+              "primaryReleaseFrom": "2025-09-04",
+              "primaryReleaseTo": "2026-09-04",
+              "movieDatePreset": "last_year",
+              "firstAirFrom": "",
+              "firstAirTo": "",
+              "seriesDatePreset": "clear",
+              "airDateFrom": "",
+              "airDateTo": "",
+              "airDatePreset": "clear",
+              "releaseRegion": ""
+            }
+          }
+        }
       },
       {
         "id": "streaming.nfx",
@@ -1951,7 +2989,7 @@
     "sessionId": "",
     "streaming": [],
     "blurThumbs": false,
-    "configHash": "b518e180cd34f27b",
+    "configHash": "adc4073d4968b0de",
     "showPrefix": false,
     "collections": [
       {
@@ -1965,16 +3003,18 @@
             "title": "Netflix",
             "sources": [
               {
-                "name": "New on Netflix",
+                "name": "Popular on Netflix",
                 "type": "series",
                 "genre": "None",
-                "catalogId": "tmdb.discover.series.svc.netflix"
+                "catalogId": "tmdb.discover.series.svc.netflix",
+                "baseType": "series"
               },
               {
-                "name": "New on Netflix",
+                "name": "Popular on Netflix",
                 "type": "movie",
                 "genre": "None",
-                "catalogId": "tmdb.discover.movie.svc.netflix"
+                "catalogId": "tmdb.discover.movie.svc.netflix",
+                "baseType": "movie"
               }
             ],
             "hideTitle": false,
@@ -1987,16 +3027,18 @@
             "title": "Apple TV+",
             "sources": [
               {
-                "name": "New on Apple TV+",
+                "name": "Popular on Apple TV+",
                 "type": "series",
                 "genre": "None",
-                "catalogId": "tmdb.discover.series.svc.appletv"
+                "catalogId": "tmdb.discover.series.svc.appletv",
+                "baseType": "series"
               },
               {
-                "name": "New on Apple TV+",
+                "name": "Popular on Apple TV+",
                 "type": "movie",
                 "genre": "None",
-                "catalogId": "tmdb.discover.movie.svc.appletv"
+                "catalogId": "tmdb.discover.movie.svc.appletv",
+                "baseType": "movie"
               }
             ],
             "hideTitle": false,
@@ -2009,16 +3051,18 @@
             "title": "HBO Max",
             "sources": [
               {
-                "name": "New on HBO Max",
+                "name": "Popular on HBO Max",
                 "type": "series",
                 "genre": "None",
-                "catalogId": "tmdb.discover.series.svc.hbomax"
+                "catalogId": "tmdb.discover.series.svc.hbomax",
+                "baseType": "series"
               },
               {
-                "name": "New on HBO Max",
+                "name": "Popular on HBO Max",
                 "type": "movie",
                 "genre": "None",
-                "catalogId": "tmdb.discover.movie.svc.hbomax"
+                "catalogId": "tmdb.discover.movie.svc.hbomax",
+                "baseType": "movie"
               }
             ],
             "hideTitle": false,
@@ -2031,16 +3075,18 @@
             "title": "Disney+",
             "sources": [
               {
-                "name": "New on Disney+",
+                "name": "Popular on Disney+",
                 "type": "series",
                 "genre": "None",
-                "catalogId": "tmdb.discover.series.svc.disney"
+                "catalogId": "tmdb.discover.series.svc.disney",
+                "baseType": "series"
               },
               {
-                "name": "New on Disney+",
+                "name": "Popular on Disney+",
                 "type": "movie",
                 "genre": "None",
-                "catalogId": "tmdb.discover.movie.svc.disney"
+                "catalogId": "tmdb.discover.movie.svc.disney",
+                "baseType": "movie"
               }
             ],
             "hideTitle": false,
@@ -2053,16 +3099,18 @@
             "title": "Prime Video",
             "sources": [
               {
-                "name": "New on Prime Video",
+                "name": "Popular on Prime Video",
                 "type": "series",
                 "genre": "None",
-                "catalogId": "tmdb.discover.series.svc.prime"
+                "catalogId": "tmdb.discover.series.svc.prime",
+                "baseType": "series"
               },
               {
-                "name": "New on Prime Video",
+                "name": "Popular on Prime Video",
                 "type": "movie",
                 "genre": "None",
-                "catalogId": "tmdb.discover.movie.svc.prime"
+                "catalogId": "tmdb.discover.movie.svc.prime",
+                "baseType": "movie"
               }
             ],
             "hideTitle": false,
@@ -2075,16 +3123,18 @@
             "title": "Paramount+",
             "sources": [
               {
-                "name": "New on Paramount+",
+                "name": "Popular on Paramount+",
                 "type": "series",
                 "genre": "None",
-                "catalogId": "tmdb.discover.series.svc.paramount"
+                "catalogId": "tmdb.discover.series.svc.paramount",
+                "baseType": "series"
               },
               {
-                "name": "New on Paramount+",
+                "name": "Popular on Paramount+",
                 "type": "movie",
                 "genre": "None",
-                "catalogId": "tmdb.discover.movie.svc.paramount"
+                "catalogId": "tmdb.discover.movie.svc.paramount",
+                "baseType": "movie"
               }
             ],
             "hideTitle": false,
@@ -2097,16 +3147,18 @@
             "title": "Peacock",
             "sources": [
               {
-                "name": "New on Peacock",
+                "name": "Popular on Peacock",
                 "type": "series",
                 "genre": "None",
-                "catalogId": "tmdb.discover.series.svc.peacock"
+                "catalogId": "tmdb.discover.series.svc.peacock",
+                "baseType": "series"
               },
               {
-                "name": "New on Peacock",
+                "name": "Popular on Peacock",
                 "type": "movie",
                 "genre": "None",
-                "catalogId": "tmdb.discover.movie.svc.peacock"
+                "catalogId": "tmdb.discover.movie.svc.peacock",
+                "baseType": "movie"
               }
             ],
             "hideTitle": false,
@@ -2119,42 +3171,22 @@
             "title": "Hulu",
             "sources": [
               {
-                "name": "New on Hulu",
+                "name": "Popular on Hulu",
                 "type": "series",
                 "genre": "None",
-                "catalogId": "tmdb.discover.series.svc.hulu"
+                "catalogId": "tmdb.discover.series.svc.hulu",
+                "baseType": "series"
               },
               {
-                "name": "New on Hulu",
+                "name": "Popular on Hulu",
                 "type": "movie",
                 "genre": "None",
-                "catalogId": "tmdb.discover.movie.svc.hulu"
+                "catalogId": "tmdb.discover.movie.svc.hulu",
+                "baseType": "movie"
               }
             ],
             "hideTitle": false,
             "coverImageUrl": "https://raw.githubusercontent.com/Skardyy/stremio-configs/master/assets/hulu.png",
-            "focusGifEnabled": false
-          },
-          {
-            "id": "folder-svc-starz",
-            "shape": "SQUARE",
-            "title": "Starz",
-            "sources": [
-              {
-                "name": "New on Starz",
-                "type": "series",
-                "genre": "None",
-                "catalogId": "tmdb.discover.series.svc.starz"
-              },
-              {
-                "name": "New on Starz",
-                "type": "movie",
-                "genre": "None",
-                "catalogId": "tmdb.discover.movie.svc.starz"
-              }
-            ],
-            "hideTitle": false,
-            "coverImageUrl": "https://raw.githubusercontent.com/Skardyy/stremio-configs/master/assets/starz.png",
             "focusGifEnabled": false
           }
         ],
@@ -2168,26 +3200,26 @@
     ],
     "artProviders": {
       "anime": {
-        "logo": "tvdb",
-        "poster": "tvdb",
-        "background": "tvdb"
+        "poster": "imdb",
+        "background": "imdb",
+        "logo": "imdb"
       },
       "movie": {
-        "logo": "fanart",
-        "poster": "meta",
-        "background": "fanart"
+        "poster": "tmdb",
+        "background": "tmdb",
+        "logo": "tmdb"
       },
       "series": {
-        "logo": "fanart",
-        "poster": "meta",
-        "background": "fanart"
+        "poster": "tmdb",
+        "background": "tmdb",
+        "logo": "tmdb"
       },
       "englishArtOnly": false,
       "originalLangFallback": false
     },
     "includeAdult": false,
-    "lastModified": 1786720639298,
-    "configVersion": 1786720639299,
+    "lastModified": 1787740213846,
+    "configVersion": 1787740213847,
     "searchEnabled": true,
     "tvdbSeasonType": "default",
     "usePosterProxy": true,
@@ -2207,7 +3239,7 @@
     "posterRatingProvider": "custom",
     "showDisabledCatalogs": false,
     "hideUnreleasedDigital": false,
-    "customPosterUrlPattern": "https://btttr.cc/poster/imdb/poster-default/{imdb_id}.jpg",
+    "customPosterUrlPattern": "https://btttr.cc/poster/imdb/poster-default/{imdb_id}.jpg?rs=IM",
     "customThumbnailUrlPattern": "",
     "hideUnreleasedShowsSearch": false,
     "publicmetadbWatchTracking": false,
@@ -2218,7 +3250,7 @@
   },
   "metadata": {
     "apiKeysExcluded": true,
-    "totalCatalogs": 90,
-    "enabledCatalogs": 26
+    "totalCatalogs": 87,
+    "enabledCatalogs": 23
   }
 }
