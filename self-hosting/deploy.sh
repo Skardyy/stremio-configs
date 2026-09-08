@@ -6,6 +6,8 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 
 CONF=.deploy.conf
 LOCAL_ENV=env.local
+BOOTSTRAP=host/bootstrap.sh
+STACK_SRC=stack
 STACK_DIR=/opt/stack
 SKIP_UPGRADE=0
 
@@ -60,9 +62,17 @@ if [[ ${#missing_cmds[@]} -gt 0 ]]; then
 fi
 ok "required commands present"
 
-for f in bootstrap.sh compose.yaml "$LOCAL_ENV"; do
+for f in "$BOOTSTRAP" "$STACK_SRC/compose.yaml" "$LOCAL_ENV"; do
   [[ -f $f ]] || die "missing $f  (cp env.sample $LOCAL_ENV and edit it)"
 done
+
+# The proxy presents a cert for a hostname it does not own, so the CA has to
+# exist before the stack can start.
+CERTS="$STACK_SRC/anilist-cache/certs"
+if [[ ! -f $CERTS/ca.pem || ! -f $CERTS/server.pem ]]; then
+  die "AniList proxy certs missing. Run: $STACK_SRC/anilist-cache/scripts/gen-certs.sh"
+fi
+ok "AniList proxy certs present"
 
 for k in ACME_EMAIL AIOSTREAMS_HOST AIOMETADATA_HOST DOZZLE_HOST; do
   v=$(grep -E "^${k}=" "$LOCAL_ENV" | cut -d= -f2- || true)
@@ -188,11 +198,13 @@ fi
 
 # ------------------------------------------------------------------ run
 c "Bootstrapping host"
-ssh "$TARGET" "SKIP_UPGRADE=$SKIP_UPGRADE bash -s" < bootstrap.sh
+ssh "$TARGET" "SKIP_UPGRADE=$SKIP_UPGRADE bash -s" < "$BOOTSTRAP"
 
 c "Writing config"
 ssh "$TARGET" "mkdir -p $STACK_DIR"
-scp -q compose.yaml "$TARGET:$STACK_DIR/compose.yaml"
+# -r so anilist-cache/ (config + certs) travels with compose.yaml. Trailing
+# /. copies the contents rather than nesting a stack/ directory inside.
+scp -qr "$STACK_SRC/." "$TARGET:$STACK_DIR/"
 
 # Assemble the remote .env: non-secret config + secrets, piped over stdin so
 # it is never written to a local file.
@@ -212,6 +224,16 @@ ok "compose.yaml + .env written (.env is 600, server-only)"
 c "Starting containers"
 ssh "$TARGET" "cd $STACK_DIR && docker compose pull -q && docker compose up -d --remove-orphans"
 
+# The nginx config is a bind mount, so the file on disk is already current -
+# but compose does not recreate a container just because a mounted file
+# changed, so nginx would keep serving the old config. A reload re-reads it in
+# place; the recreate is the fallback for when the container was not running.
+ssh "$TARGET" "cd $STACK_DIR && docker compose exec -T anilist-cache nginx -s reload" >/dev/null 2>&1 \
+  && ok "anilist-cache config reloaded" \
+  || { ssh "$TARGET" "cd $STACK_DIR && docker compose up -d --force-recreate anilist-cache" >/dev/null 2>&1 \
+       && ok "anilist-cache recreated" \
+       || inf "anilist-cache reload failed - check: docker compose logs anilist-cache"; }
+
 c "Status"
 ssh "$TARGET" "cd $STACK_DIR && docker compose ps"
 
@@ -226,9 +248,6 @@ $(c "Done")
   AIOMetadata   https://$AIOMETADATA_HOST/configure
   Dozzle        https://$DOZZLE_HOST
 
-  Both addon configure pages now require the logins you just set.
-  Manifest URLs stay open so Nuvio can fetch them.
-
   Certs take ~30s on first boot. If a host fails:
       ssh $TARGET 'cd $STACK_DIR && docker compose logs -f traefik'
 
@@ -238,13 +257,6 @@ if [[ -z $CACHE_WARMUP_UUIDS ]]; then
   cat <<EOF
   Catalog warming is idle: no AIOMetadata configs exist yet. Create one,
   then re-run ./deploy.sh and it will pick up the UUID automatically.
-
-EOF
-else
-  cat <<EOF
-  Catalog warming is on. First pass starts ~5 min after boot, then every
-  24h, skipping 17:00-21:00 UTC. Watch it with:
-      ssh $TARGET 'cd $STACK_DIR && docker compose logs -f aiometadata | grep -i warm'
 
 EOF
 fi

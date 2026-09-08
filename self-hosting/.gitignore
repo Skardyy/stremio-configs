@@ -1,8 +1,11 @@
-.env
 env.local
 .deploy.conf
+
+.env
+*.pem
+*.key
+*.srl
+
 data/
 traefik/
 acme.json
-*.pem
-*.key
