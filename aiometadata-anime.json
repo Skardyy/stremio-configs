@@ -1,6 +1,6 @@
 {
-  "version": "2.15.0",
-  "exportedAt": "2026-09-04T15:29:34.897Z",
+  "version": "2.16.5",
+  "exportedAt": "2026-09-09T19:51:03.410Z",
   "config": {
     "mal": {
       "skipRecap": false,
@@ -714,7 +714,7 @@
         "enabled": true,
         "showInHome": true,
         "source": "anilist",
-        "cacheTTL": 86400,
+        "cacheTTL": 3600,
         "metadata": {
           "description": "ANILIST Discover (anime)",
           "url": "https://anilist.co/search/anime",
@@ -734,7 +734,7 @@
               "catalogName": "Popular Airing",
               "discoverSource": "anilist",
               "sortBy": "POPULARITY_DESC",
-              "cacheTTL": 86400,
+              "cacheTTL": 3600,
               "catalogType": "movie",
               "anilistFormats": [
                 "TV",
@@ -777,7 +777,7 @@
         "enabled": true,
         "showInHome": true,
         "source": "anilist",
-        "cacheTTL": 86400,
+        "cacheTTL": 3600,
         "metadata": {
           "description": "ANILIST Discover (anime)",
           "url": "https://anilist.co/search/anime",
@@ -797,7 +797,7 @@
               "catalogName": "Trending Airing",
               "discoverSource": "anilist",
               "sortBy": "TRENDING_DESC",
-              "cacheTTL": 86400,
+              "cacheTTL": 3600,
               "catalogType": "movie",
               "anilistFormats": [
                 "TV",
@@ -840,7 +840,7 @@
         "enabled": true,
         "showInHome": true,
         "source": "anilist",
-        "cacheTTL": 86400,
+        "cacheTTL": 3600,
         "metadata": {
           "description": "ANILIST Discover (anime)",
           "url": "https://anilist.co/search/anime",
@@ -860,7 +860,7 @@
               "catalogName": "Top Recently Ended",
               "discoverSource": "anilist",
               "sortBy": "START_DATE_DESC",
-              "cacheTTL": 86400,
+              "cacheTTL": 3600,
               "catalogType": "movie",
               "anilistFormats": [
                 "TV",
@@ -903,7 +903,7 @@
         "enabled": true,
         "showInHome": true,
         "source": "anilist",
-        "cacheTTL": 86400,
+        "cacheTTL": 3600,
         "metadata": {
           "description": "ANILIST Discover (anime)",
           "url": "https://anilist.co/search/anime",
@@ -921,7 +921,7 @@
               "catalogName": "Top Upcoming",
               "discoverSource": "anilist",
               "sortBy": "POPULARITY_DESC",
-              "cacheTTL": 86400,
+              "cacheTTL": 3600,
               "catalogType": "movie",
               "anilistFormats": [
                 "TV",
@@ -973,7 +973,7 @@
     "sessionId": "",
     "streaming": [],
     "blurThumbs": false,
-    "configHash": "70f75a300f78a778",
+    "configHash": "13920baa89ea2cef",
     "showPrefix": false,
     "artProviders": {
       "anime": {
@@ -995,8 +995,8 @@
       "originalLangFallback": false
     },
     "includeAdult": false,
-    "lastModified": 1788466527045,
-    "configVersion": 1788466527046,
+    "lastModified": 1788981983904,
+    "configVersion": 1788981983905,
     "searchEnabled": true,
     "tvdbSeasonType": "default",
     "usePosterProxy": false,

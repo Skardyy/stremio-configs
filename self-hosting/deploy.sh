@@ -156,7 +156,7 @@ if [[ -n $AIOSTREAMS_AUTH && -z $AIOMETADATA_AUTH ]]; then
 fi
 
 # Cloudflare token for the DNS-01 challenge. Needed because the domain is
-# proxied (orange cloud); HTTP-01 cannot reach the origin.
+# proxied; HTTP-01 cannot reach the origin.
 if [[ -n $CF_DNS_API_TOKEN && $ROTATE == 0 ]]; then
   inf "Cloudflare DNS token kept"
 else
@@ -260,10 +260,7 @@ ok "compose.yaml + .env written (.env is 600, server-only)"
 c "Starting containers"
 ssh "$TARGET" "cd $STACK_DIR && docker compose pull -q && docker compose up -d --remove-orphans"
 
-# The nginx config is a bind mount, so the file on disk is already current -
-# but compose does not recreate a container just because a mounted file
-# changed, so nginx would keep serving the old config. A reload re-reads it in
-# place; the recreate is the fallback for when the container was not running.
+# compose won't recreate the nginx when the conf changes, force reload instead.
 ssh "$TARGET" "cd $STACK_DIR && docker compose exec -T anilist-cache nginx -s reload" >/dev/null 2>&1 \
   && ok "anilist-cache config reloaded" \
   || { ssh "$TARGET" "cd $STACK_DIR && docker compose up -d --force-recreate anilist-cache" >/dev/null 2>&1 \

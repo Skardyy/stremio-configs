@@ -21,9 +21,7 @@ services:
       - "--entryPoints.web.http.redirections.entryPoint.to=websecure"
       - "--entryPoints.web.http.redirections.entryPoint.scheme=https"
       - "--entryPoints.websecure.address=:443"
-      # DNS-01 instead of HTTP-01: required when Cloudflare proxies (orange
-      # cloud), since Let's Encrypt can't reach the origin directly. Also
-      # allows a wildcard cert.
+      # DNS-01 instead of HTTP-01: required when Cloudflare proxies
       - "--certificatesresolvers.letsencrypt.acme.dnschallenge=true"
       - "--certificatesresolvers.letsencrypt.acme.dnschallenge.provider=cloudflare"
       - "--certificatesresolvers.letsencrypt.acme.dnschallenge.resolvers=1.1.1.1:53,8.8.8.8:53"
@@ -48,7 +46,7 @@ services:
       - BASE_URL=https://${AIOSTREAMS_HOST?}
       - SECRET_KEY=${SECRET_KEY?}
       # 0 = don't cache debrid failures. The default 3600 turns one TorBox
-      # timeout into an hour of instantly-replayed errors for that content.
+      # timeout into an hour of instantly replayed errors
       - BUILTIN_DEBRID_ERROR_CACHE_TTL=0
     volumes:
       - ./data/aiostreams:/app/data
@@ -83,29 +81,21 @@ services:
     init: true
     tty: true
     env_file: [.env]
-    # The addon hardcodes https://graphql.anilist.co (unlike Jikan, which
-    # honours JIKAN_API_BASE), so the hostname is pointed at the local cache.
-    # Port 443 is implied by that https URL, which is why nginx listens there.
+    # The addon hardcodes https://graphql.anilist.co, point it to local nginx
     extra_hosts:
       - "graphql.anilist.co:172.28.0.10"
     environment:
       # Node must trust the private CA that signed the proxy's certificate.
       - NODE_EXTRA_CA_CERTS=/certs/ca.pem
+
       - HOST_NAME=https://${AIOMETADATA_HOST?}
       - REDIS_URL=redis://aiometadata_redis:6379
       - DATABASE_URI=sqlite://addon/data/db.sqlite
 
       # --- Comprehensive catalog warming -----------------------------------
-      # Warms every enabled catalog for each listed config, using that
-      # config's own providers and API keys - so nothing global is needed.
-      # deploy.sh fills CACHE_WARMUP_UUIDS from the addon's own database;
-      # when it's empty (fresh install, no configs yet) warming stays off.
       - CACHE_WARMUP_MODE=comprehensive
       - CACHE_WARMUP_UUIDS=${CACHE_WARMUP_UUIDS:-}
       - CATALOG_WARMUP_INTERVAL_HOURS=12
-      # Default is 100 pages per catalog. With 20-40 catalogs enabled that's
-      # thousands of upstream requests and the fastest way to hit Jikan's
-      # rate limit. 3 pages covers roughly the first 60 items per row.
       - CATALOG_WARMUP_MAX_PAGES_PER_CATALOG=2
       - CATALOG_WARMUP_TASK_DELAY_MS=300
       - TZ=Asia/Jerusalem
