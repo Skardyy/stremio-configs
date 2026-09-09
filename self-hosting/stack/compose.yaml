@@ -106,7 +106,7 @@ services:
       # Default is 100 pages per catalog. With 20-40 catalogs enabled that's
       # thousands of upstream requests and the fastest way to hit Jikan's
       # rate limit. 3 pages covers roughly the first 60 items per row.
-      - CATALOG_WARMUP_MAX_PAGES_PER_CATALOG=3
+      - CATALOG_WARMUP_MAX_PAGES_PER_CATALOG=2
       - CATALOG_WARMUP_TASK_DELAY_MS=300
       - TZ=Asia/Jerusalem
       - CATALOG_WARMUP_QUIET_HOURS_ENABLED=true
@@ -245,6 +245,7 @@ services:
       - net.ipv6.conf.all.disable_ipv6=1
     volumes:
       - ./anilist-cache/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./anilist-cache/token.conf:/etc/nginx/token.conf:ro
       - ./anilist-cache/certs/server.pem:/etc/nginx/certs/server.pem:ro
       - ./anilist-cache/certs/server-key.pem:/etc/nginx/certs/server-key.pem:ro
       - ./data/anilist-cache:/var/cache/nginx/anilist

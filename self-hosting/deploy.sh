@@ -106,9 +106,9 @@ CF_DNS_API_TOKEN=$(get_remote CF_DNS_API_TOKEN)
 
 if [[ -z $SECRET_KEY ]]; then
   SECRET_KEY=$(openssl rand -hex 32)
-  ok "generated SECRET_KEY"
+  ok "generated AIOStreams SECRET_KEY"
 else
-  inf "SECRET_KEY kept (rotating it would orphan every saved config)"
+  inf "AIOStreams SECRET_KEY kept (rotating it would orphan every saved config)"
 fi
 
 # One login for the whole stack: AIOStreams' operator account and the Traefik
@@ -119,22 +119,27 @@ if [[ -n $AIOSTREAMS_AUTH && $ROTATE == 0 ]]; then
 else
   echo
   inf "One login for AIOStreams and AIOMetadata"
-  read -rp "  username: " _u
-  [[ -n $_u ]] || die "username cannot be empty"
-  read -rsp "  password: " _p; echo
-  read -rsp "  confirm:  " _p2; echo
-  [[ $_p == "$_p2" ]] || die "passwords do not match"
-  [[ -n $_p ]] || die "password cannot be empty"
+  read -rp "  username (enter to keep): " _u
+  if [[ -z $_u && -n $AIOSTREAMS_AUTH ]]; then
+    inf "kept"
+  else
+    [[ -n $_u ]] || die "username cannot be empty"
+    read -rsp "  password: " _p; echo
+    read -rsp "  confirm:  " _p2; echo
+    [[ $_p == "$_p2" ]] || die "passwords do not match"
+    [[ -n $_p ]] || die "password cannot be empty"
 
-  # apr1 for Traefik basic auth; $ doubled so compose does not eat it.
-  _h=$(openssl passwd -apr1 "$_p" | sed 's/\$/\$\$/g')
+    # apr1 for Traefik basic auth; $ doubled so compose does not eat it.
+    _h=$(openssl passwd -apr1 "$_p" | sed 's/\$/\$\$/g')
 
-  STACK_USER="$_u"
-  AIOSTREAMS_AUTH="$_u:$_p"        # app-level operator login (plaintext)
-  AIOSTREAMS_BASICAUTH="$_u:$_h"   # proxy gate
-  AIOMETADATA_AUTH="$_u:$_h"       # proxy gate
-  unset _u _p _p2 _h
-  ok "stack login set"
+    STACK_USER="$_u"
+    AIOSTREAMS_AUTH="$_u:$_p"        # app-level operator login (plaintext)
+    AIOSTREAMS_BASICAUTH="$_u:$_h"   # proxy gate
+    AIOMETADATA_AUTH="$_u:$_h"       # proxy gate
+    unset _p _p2 _h
+    ok "stack login set"
+  fi
+  unset _u
 fi
 
 # Older deployments stored only the AIOStreams login; backfill the rest.
@@ -157,11 +162,42 @@ if [[ -n $CF_DNS_API_TOKEN && $ROTATE == 0 ]]; then
 else
   echo
   inf "Cloudflare API token (Edit zone DNS, scoped to your zone)"
-  read -rsp "  CF_DNS_API_TOKEN: " in_cf; echo
-  [[ -n $in_cf ]] || die "token required for the DNS-01 challenge"
-  CF_DNS_API_TOKEN=$in_cf
+  read -rsp "  CF_DNS_API_TOKEN (enter to keep): " in_cf; echo
+  if [[ -n $in_cf ]]; then
+    CF_DNS_API_TOKEN=$in_cf
+    ok "Cloudflare token set"
+  elif [[ -z $CF_DNS_API_TOKEN ]]; then
+    die "token required for the DNS-01 challenge"
+  else
+    inf "kept"
+  fi
   unset in_cf
-  ok "Cloudflare token set"
+fi
+
+# get token for the anilist proxy
+TOKEN_CONF="$STACK_DIR/anilist-cache/token.conf"
+if ssh -n "$TARGET" "test -s $TOKEN_CONF" && [[ $ROTATE == 0 ]]; then
+  inf "AniList token kept"
+else
+  echo
+  inf "AniList token. Create a client at https://anilist.co/settings/developer"
+  inf "with redirect https://anilist.co/api/v2/oauth/pin, then open:"
+  inf "  https://anilist.co/api/v2/oauth/authorize?client_id=YOUR_CLIENT_ID&response_type=token"
+  read -rsp "  token (enter to keep): " _t; echo
+  if [[ -n $_t ]]; then
+    ssh -n "$TARGET" "mkdir -p $STACK_DIR/anilist-cache"
+    printf 'proxy_set_header Authorization "Bearer %s";\n' "$_t" \
+      | ssh "$TARGET" "umask 077 && cat > $TOKEN_CONF"
+    ok "AniList token written to the server"
+  elif ssh -n "$TARGET" "test -s $TOKEN_CONF"; then
+    inf "kept"
+  else
+    # nginx includes the snippet unconditionally, so an empty one still has
+    # to exist or the proxy will not start.
+    ssh -n "$TARGET" "mkdir -p $STACK_DIR/anilist-cache && : > $TOKEN_CONF"
+    inf "no token - requests will go out anonymous"
+  fi
+  unset _t
 fi
 
 # --------------------------------------------------------- warmup UUIDs
