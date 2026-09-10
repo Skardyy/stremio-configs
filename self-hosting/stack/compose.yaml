@@ -225,7 +225,7 @@ services:
     mem_limit: 128m
 
   anilist-cache:
-    image: nginx:alpine
+    build: ./anilist-cache
     container_name: anilist-cache
     restart: unless-stopped
     networks:

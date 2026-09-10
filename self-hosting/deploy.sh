@@ -258,7 +258,7 @@ scp -qr "$STACK_SRC/." "$TARGET:$STACK_DIR/"
 ok "compose.yaml + .env written (.env is 600, server-only)"
 
 c "Starting containers"
-ssh "$TARGET" "cd $STACK_DIR && docker compose pull -q && docker compose up -d --remove-orphans"
+ssh "$TARGET" "cd $STACK_DIR && docker compose pull -q && docker compose up -d --build --remove-orphans"
 
 # compose won't recreate the nginx when the conf changes, force reload instead.
 ssh "$TARGET" "cd $STACK_DIR && docker compose exec -T anilist-cache nginx -s reload" >/dev/null 2>&1 \
