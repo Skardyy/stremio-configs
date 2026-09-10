@@ -95,7 +95,7 @@ services:
       # --- Comprehensive catalog warming -----------------------------------
       - CACHE_WARMUP_MODE=comprehensive
       - CACHE_WARMUP_UUIDS=${CACHE_WARMUP_UUIDS:-}
-      - CATALOG_WARMUP_INTERVAL_HOURS=12
+      - CATALOG_WARMUP_INTERVAL_HOURS=23
       - CATALOG_WARMUP_MAX_PAGES_PER_CATALOG=2
       - CATALOG_WARMUP_TASK_DELAY_MS=300
       - TZ=Asia/Jerusalem
