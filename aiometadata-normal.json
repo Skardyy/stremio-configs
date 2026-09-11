@@ -75,7 +75,7 @@
         "cacheTTL": 86400,
         "metadata": {
           "description": "TMDB Discover (tv)",
-          "url": "https://www.themoviedb.org/discover/tv?sort_by=first_air_date.desc&include_adult=false&without_genres=16%7C10762%7C10766%7C10751&with_original_language=en&vote_average.gte=6&vote_count.gte=10&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=first_air_date.desc&include_adult=false&without_genres=16%7C10762%7C10766%7C10751&with_original_language=en%7Ces%7Cfr%7Cde%7Cit%7Cpt%7Cnl%7Csv%7Cda%7Cno%7Cnb%7Cnn%7Cfi%7Cis%7Cpl%7Ccs%7Csk%7Chu%7Cro%7Cel%7Cru%7Cuk%7Ctr%7Car%7Che%7Cfa%7Chi%7Cta%7Cte%7Cml%7Ckn%7Cbn%7Cmr%7Cpa%7Cur%7Cvi%7Cid%7Cms%7Ctl%7Cxx&vote_average.gte=6&vote_count.gte=10&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04",
           "discover": {
             "version": 2,
             "source": "tmdb",
@@ -84,7 +84,7 @@
               "sort_by": "first_air_date.desc",
               "include_adult": false,
               "without_genres": "16|10762|10766|10751",
-              "with_original_language": "en",
+              "with_original_language": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx",
               "vote_average.gte": 6,
               "vote_count.gte": 10,
               "first_air_date.gte": "__tmdb_date__:last_year:from",
@@ -116,7 +116,7 @@
                 }
               ],
               "genreJoinMode": "or",
-              "originalLanguage": "en",
+              "originalLanguage": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx",
               "originCountry": "",
               "certificationCountry": "",
               "certificationValue": "",
@@ -138,15 +138,9 @@
               "watchRegion": "",
               "watchProviders": [],
               "providerJoinMode": "or",
-              "voteAverageRange": [
-                6,
-                10
-              ],
+              "voteAverageRange": [6, 10],
               "voteCountMin": 10,
-              "runtimeRange": [
-                0,
-                400
-              ],
+              "runtimeRange": [0, 400],
               "primaryReleaseFrom": "",
               "primaryReleaseTo": "",
               "movieDatePreset": "clear",
@@ -171,7 +165,7 @@
         "cacheTTL": 86400,
         "metadata": {
           "description": "TMDB Discover (tv)",
-          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10762%7C10766%7C10751&vote_average.gte=6&vote_count.gte=10&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10762%7C10766%7C10751&vote_average.gte=6&vote_count.gte=10&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04&with_original_language=en%7Ces%7Cfr%7Cde%7Cit%7Cpt%7Cnl%7Csv%7Cda%7Cno%7Cnb%7Cnn%7Cfi%7Cis%7Cpl%7Ccs%7Csk%7Chu%7Cro%7Cel%7Cru%7Cuk%7Ctr%7Car%7Che%7Cfa%7Chi%7Cta%7Cte%7Cml%7Ckn%7Cbn%7Cmr%7Cpa%7Cur%7Cvi%7Cid%7Cms%7Ctl%7Cxx",
           "discover": {
             "version": 2,
             "source": "tmdb",
@@ -183,7 +177,8 @@
               "vote_average.gte": 6,
               "vote_count.gte": 10,
               "first_air_date.gte": "__tmdb_date__:last_year:from",
-              "first_air_date.lte": "__tmdb_date__:last_year:to"
+              "first_air_date.lte": "__tmdb_date__:last_year:to",
+              "with_original_language": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx"
             },
             "formState": {
               "catalogName": "Most Popular",
@@ -211,7 +206,7 @@
                 }
               ],
               "genreJoinMode": "or",
-              "originalLanguage": "",
+              "originalLanguage": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx",
               "originCountry": "",
               "certificationCountry": "",
               "certificationValue": "",
@@ -233,15 +228,9 @@
               "watchRegion": "",
               "watchProviders": [],
               "providerJoinMode": "or",
-              "voteAverageRange": [
-                6,
-                10
-              ],
+              "voteAverageRange": [6, 10],
               "voteCountMin": 10,
-              "runtimeRange": [
-                0,
-                400
-              ],
+              "runtimeRange": [0, 400],
               "primaryReleaseFrom": "",
               "primaryReleaseTo": "",
               "movieDatePreset": "clear",
@@ -266,7 +255,7 @@
         "cacheTTL": 86400,
         "metadata": {
           "description": "TMDB Discover (movie)",
-          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&vote_average.gte=6&vote_count.gte=10&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&vote_average.gte=6&vote_count.gte=10&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04&with_original_language=en%7Ces%7Cfr%7Cde%7Cit%7Cpt%7Cnl%7Csv%7Cda%7Cno%7Cnb%7Cnn%7Cfi%7Cis%7Cpl%7Ccs%7Csk%7Chu%7Cro%7Cel%7Cru%7Cuk%7Ctr%7Car%7Che%7Cfa%7Chi%7Cta%7Cte%7Cml%7Ckn%7Cbn%7Cmr%7Cpa%7Cur%7Cvi%7Cid%7Cms%7Ctl%7Cxx",
           "discover": {
             "version": 2,
             "source": "tmdb",
@@ -278,7 +267,8 @@
               "vote_average.gte": 6,
               "vote_count.gte": 10,
               "primary_release_date.gte": "__tmdb_date__:last_year:from",
-              "primary_release_date.lte": "__tmdb_date__:last_year:to"
+              "primary_release_date.lte": "__tmdb_date__:last_year:to",
+              "with_original_language": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx"
             },
             "formState": {
               "catalogName": "Most Popular",
@@ -298,7 +288,7 @@
                 }
               ],
               "genreJoinMode": "or",
-              "originalLanguage": "",
+              "originalLanguage": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx",
               "originCountry": "",
               "certificationCountry": "",
               "certificationValue": "",
@@ -320,15 +310,9 @@
               "watchRegion": "",
               "watchProviders": [],
               "providerJoinMode": "or",
-              "voteAverageRange": [
-                6,
-                10
-              ],
+              "voteAverageRange": [6, 10],
               "voteCountMin": 10,
-              "runtimeRange": [
-                0,
-                400
-              ],
+              "runtimeRange": [0, 400],
               "primaryReleaseFrom": "2025-09-04",
               "primaryReleaseTo": "2026-09-04",
               "movieDatePreset": "last_year",
@@ -353,7 +337,7 @@
         "cacheTTL": 86400,
         "metadata": {
           "description": "TMDB Discover (tv)",
-          "url": "https://www.themoviedb.org/discover/tv?sort_by=vote_average.desc&include_adult=false&without_genres=16%7C10762%7C10766%7C10751&vote_average.gte=6&vote_count.gte=100&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=vote_average.desc&include_adult=false&without_genres=16%7C10762%7C10766%7C10751&vote_average.gte=6&vote_count.gte=100&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04&with_original_language=en%7Ces%7Cfr%7Cde%7Cit%7Cpt%7Cnl%7Csv%7Cda%7Cno%7Cnb%7Cnn%7Cfi%7Cis%7Cpl%7Ccs%7Csk%7Chu%7Cro%7Cel%7Cru%7Cuk%7Ctr%7Car%7Che%7Cfa%7Chi%7Cta%7Cte%7Cml%7Ckn%7Cbn%7Cmr%7Cpa%7Cur%7Cvi%7Cid%7Cms%7Ctl%7Cxx",
           "discover": {
             "version": 2,
             "source": "tmdb",
@@ -365,7 +349,8 @@
               "vote_average.gte": 6,
               "vote_count.gte": 100,
               "first_air_date.gte": "__tmdb_date__:last_year:from",
-              "first_air_date.lte": "__tmdb_date__:last_year:to"
+              "first_air_date.lte": "__tmdb_date__:last_year:to",
+              "with_original_language": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx"
             },
             "formState": {
               "catalogName": "Most Liked",
@@ -393,7 +378,7 @@
                 }
               ],
               "genreJoinMode": "or",
-              "originalLanguage": "",
+              "originalLanguage": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx",
               "originCountry": "",
               "certificationCountry": "",
               "certificationValue": "",
@@ -415,15 +400,9 @@
               "watchRegion": "",
               "watchProviders": [],
               "providerJoinMode": "or",
-              "voteAverageRange": [
-                6,
-                10
-              ],
+              "voteAverageRange": [6, 10],
               "voteCountMin": 100,
-              "runtimeRange": [
-                0,
-                400
-              ],
+              "runtimeRange": [0, 400],
               "primaryReleaseFrom": "2025-09-04",
               "primaryReleaseTo": "2026-09-04",
               "movieDatePreset": "last_year",
@@ -448,7 +427,7 @@
         "cacheTTL": 86400,
         "metadata": {
           "description": "TMDB Discover (movie)",
-          "url": "https://www.themoviedb.org/discover/movie?sort_by=vote_average.desc&include_adult=false&without_genres=16%7C10751&vote_average.gte=6&vote_count.gte=100&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=vote_average.desc&include_adult=false&without_genres=16%7C10751&vote_average.gte=6&vote_count.gte=100&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04&with_original_language=en%7Ces%7Cfr%7Cde%7Cit%7Cpt%7Cnl%7Csv%7Cda%7Cno%7Cnb%7Cnn%7Cfi%7Cis%7Cpl%7Ccs%7Csk%7Chu%7Cro%7Cel%7Cru%7Cuk%7Ctr%7Car%7Che%7Cfa%7Chi%7Cta%7Cte%7Cml%7Ckn%7Cbn%7Cmr%7Cpa%7Cur%7Cvi%7Cid%7Cms%7Ctl%7Cxx",
           "discover": {
             "version": 2,
             "source": "tmdb",
@@ -460,7 +439,8 @@
               "vote_average.gte": 6,
               "vote_count.gte": 100,
               "primary_release_date.gte": "__tmdb_date__:last_year:from",
-              "primary_release_date.lte": "__tmdb_date__:last_year:to"
+              "primary_release_date.lte": "__tmdb_date__:last_year:to",
+              "with_original_language": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx"
             },
             "formState": {
               "catalogName": "Most Liked",
@@ -480,7 +460,7 @@
                 }
               ],
               "genreJoinMode": "or",
-              "originalLanguage": "",
+              "originalLanguage": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx",
               "originCountry": "",
               "certificationCountry": "",
               "certificationValue": "",
@@ -502,15 +482,9 @@
               "watchRegion": "",
               "watchProviders": [],
               "providerJoinMode": "or",
-              "voteAverageRange": [
-                6,
-                10
-              ],
+              "voteAverageRange": [6, 10],
               "voteCountMin": 100,
-              "runtimeRange": [
-                0,
-                400
-              ],
+              "runtimeRange": [0, 400],
               "primaryReleaseFrom": "2025-09-04",
               "primaryReleaseTo": "2026-09-04",
               "movieDatePreset": "last_year",
@@ -535,7 +509,7 @@
         "cacheTTL": 86400,
         "metadata": {
           "description": "TMDB Discover (movie)",
-          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&region=US&with_release_type=2%7C3&vote_average.gte=6&vote_count.gte=10&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04&release_date.gte=2025-09-04&release_date.lte=2026-09-04",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&region=US&with_release_type=2%7C3&vote_average.gte=6&vote_count.gte=10&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04&release_date.gte=2025-09-04&release_date.lte=2026-09-04&with_original_language=en%7Ces%7Cfr%7Cde%7Cit%7Cpt%7Cnl%7Csv%7Cda%7Cno%7Cnb%7Cnn%7Cfi%7Cis%7Cpl%7Ccs%7Csk%7Chu%7Cro%7Cel%7Cru%7Cuk%7Ctr%7Car%7Che%7Cfa%7Chi%7Cta%7Cte%7Cml%7Ckn%7Cbn%7Cmr%7Cpa%7Cur%7Cvi%7Cid%7Cms%7Ctl%7Cxx",
           "discover": {
             "version": 2,
             "source": "tmdb",
@@ -551,7 +525,8 @@
               "primary_release_date.gte": "__tmdb_date__:last_year:from",
               "primary_release_date.lte": "__tmdb_date__:last_year:to",
               "release_date.gte": "__tmdb_date__:last_year:from",
-              "release_date.lte": "__tmdb_date__:last_year:to"
+              "release_date.lte": "__tmdb_date__:last_year:to",
+              "with_original_language": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx"
             },
             "formState": {
               "catalogName": "In Cinemas",
@@ -571,7 +546,7 @@
                 }
               ],
               "genreJoinMode": "or",
-              "originalLanguage": "",
+              "originalLanguage": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx",
               "originCountry": "",
               "certificationCountry": "",
               "certificationValue": "",
@@ -579,10 +554,7 @@
               "includeAdult": false,
               "releasedOnly": false,
               "tmdbTvStatuses": [],
-              "tmdbMovieReleaseTypes": [
-                "3",
-                "2"
-              ],
+              "tmdbMovieReleaseTypes": ["3", "2"],
               "tmdbTvTypes": [],
               "selectedPeople": [],
               "peopleJoinMode": "or",
@@ -596,15 +568,9 @@
               "watchRegion": "",
               "watchProviders": [],
               "providerJoinMode": "or",
-              "voteAverageRange": [
-                6,
-                10
-              ],
+              "voteAverageRange": [6, 10],
               "voteCountMin": 10,
-              "runtimeRange": [
-                0,
-                400
-              ],
+              "runtimeRange": [0, 400],
               "primaryReleaseFrom": "2025-09-04",
               "primaryReleaseTo": "2026-09-04",
               "movieDatePreset": "last_year",
@@ -629,7 +595,7 @@
         "cacheTTL": 86400,
         "metadata": {
           "description": "TMDB Discover (tv)",
-          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&with_genres=80%7C9648&without_genres=16%7C10751%7C10762%7C10766&vote_average.gte=6&vote_count.gte=10&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&with_genres=80%7C9648&without_genres=16%7C10751%7C10762%7C10766&vote_average.gte=6&vote_count.gte=10&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04&with_original_language=en%7Ces%7Cfr%7Cde%7Cit%7Cpt%7Cnl%7Csv%7Cda%7Cno%7Cnb%7Cnn%7Cfi%7Cis%7Cpl%7Ccs%7Csk%7Chu%7Cro%7Cel%7Cru%7Cuk%7Ctr%7Car%7Che%7Cfa%7Chi%7Cta%7Cte%7Cml%7Ckn%7Cbn%7Cmr%7Cpa%7Cur%7Cvi%7Cid%7Cms%7Ctl%7Cxx",
           "discover": {
             "version": 2,
             "source": "tmdb",
@@ -642,7 +608,8 @@
               "vote_average.gte": 6,
               "vote_count.gte": 10,
               "first_air_date.gte": "__tmdb_date__:last_year:from",
-              "first_air_date.lte": "__tmdb_date__:last_year:to"
+              "first_air_date.lte": "__tmdb_date__:last_year:to",
+              "with_original_language": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx"
             },
             "formState": {
               "catalogName": "Crime & Mystery",
@@ -679,7 +646,7 @@
                 }
               ],
               "genreJoinMode": "or",
-              "originalLanguage": "",
+              "originalLanguage": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx",
               "originCountry": "",
               "certificationCountry": "",
               "certificationValue": "",
@@ -687,10 +654,7 @@
               "includeAdult": false,
               "releasedOnly": false,
               "tmdbTvStatuses": [],
-              "tmdbMovieReleaseTypes": [
-                "3",
-                "2"
-              ],
+              "tmdbMovieReleaseTypes": ["3", "2"],
               "tmdbTvTypes": [],
               "selectedPeople": [],
               "peopleJoinMode": "or",
@@ -704,15 +668,9 @@
               "watchRegion": "",
               "watchProviders": [],
               "providerJoinMode": "or",
-              "voteAverageRange": [
-                6,
-                10
-              ],
+              "voteAverageRange": [6, 10],
               "voteCountMin": 10,
-              "runtimeRange": [
-                0,
-                400
-              ],
+              "runtimeRange": [0, 400],
               "primaryReleaseFrom": "",
               "primaryReleaseTo": "",
               "movieDatePreset": "clear",
@@ -737,7 +695,7 @@
         "cacheTTL": 86400,
         "metadata": {
           "description": "TMDB Discover (tv)",
-          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=10762%7C16%7C10766%7C10751&watch_region=US&with_watch_providers=8%7C1796&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=10762%7C16%7C10766%7C10751&watch_region=US&with_watch_providers=8%7C1796&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04&with_original_language=en%7Ces%7Cfr%7Cde%7Cit%7Cpt%7Cnl%7Csv%7Cda%7Cno%7Cnb%7Cnn%7Cfi%7Cis%7Cpl%7Ccs%7Csk%7Chu%7Cro%7Cel%7Cru%7Cuk%7Ctr%7Car%7Che%7Cfa%7Chi%7Cta%7Cte%7Cml%7Ckn%7Cbn%7Cmr%7Cpa%7Cur%7Cvi%7Cid%7Cms%7Ctl%7Cxx",
           "discover": {
             "version": 2,
             "source": "tmdb",
@@ -750,7 +708,8 @@
               "with_watch_providers": "8|1796",
               "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
               "first_air_date.gte": "__tmdb_date__:last_year:from",
-              "first_air_date.lte": "__tmdb_date__:last_year:to"
+              "first_air_date.lte": "__tmdb_date__:last_year:to",
+              "with_original_language": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx"
             },
             "formState": {
               "catalogName": "Popular on Netflix",
@@ -778,7 +737,7 @@
                 }
               ],
               "genreJoinMode": "or",
-              "originalLanguage": "",
+              "originalLanguage": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx",
               "originCountry": "",
               "certificationCountry": "",
               "certificationValue": "",
@@ -786,10 +745,7 @@
               "includeAdult": false,
               "releasedOnly": false,
               "tmdbTvStatuses": [],
-              "tmdbMovieReleaseTypes": [
-                "3",
-                "2"
-              ],
+              "tmdbMovieReleaseTypes": ["3", "2"],
               "tmdbTvTypes": [],
               "selectedPeople": [],
               "peopleJoinMode": "or",
@@ -812,15 +768,9 @@
                 }
               ],
               "providerJoinMode": "or",
-              "voteAverageRange": [
-                0,
-                10
-              ],
+              "voteAverageRange": [0, 10],
               "voteCountMin": 0,
-              "runtimeRange": [
-                0,
-                400
-              ],
+              "runtimeRange": [0, 400],
               "primaryReleaseFrom": "",
               "primaryReleaseTo": "",
               "movieDatePreset": "clear",
@@ -845,7 +795,7 @@
         "cacheTTL": 86400,
         "metadata": {
           "description": "TMDB Discover (movie)",
-          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&watch_region=US&with_watch_providers=8%7C1796&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&watch_region=US&with_watch_providers=8%7C1796&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04&with_original_language=en%7Ces%7Cfr%7Cde%7Cit%7Cpt%7Cnl%7Csv%7Cda%7Cno%7Cnb%7Cnn%7Cfi%7Cis%7Cpl%7Ccs%7Csk%7Chu%7Cro%7Cel%7Cru%7Cuk%7Ctr%7Car%7Che%7Cfa%7Chi%7Cta%7Cte%7Cml%7Ckn%7Cbn%7Cmr%7Cpa%7Cur%7Cvi%7Cid%7Cms%7Ctl%7Cxx",
           "discover": {
             "version": 2,
             "source": "tmdb",
@@ -858,7 +808,8 @@
               "with_watch_providers": "8|1796",
               "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
               "primary_release_date.gte": "__tmdb_date__:last_year:from",
-              "primary_release_date.lte": "__tmdb_date__:last_year:to"
+              "primary_release_date.lte": "__tmdb_date__:last_year:to",
+              "with_original_language": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx"
             },
             "formState": {
               "catalogName": "Popular on Netflix",
@@ -878,7 +829,7 @@
                 }
               ],
               "genreJoinMode": "or",
-              "originalLanguage": "",
+              "originalLanguage": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx",
               "originCountry": "",
               "certificationCountry": "",
               "certificationValue": "",
@@ -909,15 +860,9 @@
                 }
               ],
               "providerJoinMode": "or",
-              "voteAverageRange": [
-                0,
-                10
-              ],
+              "voteAverageRange": [0, 10],
               "voteCountMin": 0,
-              "runtimeRange": [
-                0,
-                400
-              ],
+              "runtimeRange": [0, 400],
               "primaryReleaseFrom": "2025-09-04",
               "primaryReleaseTo": "2026-09-04",
               "movieDatePreset": "last_year",
@@ -942,7 +887,7 @@
         "cacheTTL": 86400,
         "metadata": {
           "description": "TMDB Discover (tv)",
-          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10762%7C10766%7C10751&watch_region=US&with_watch_providers=350%7C2&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10762%7C10766%7C10751&watch_region=US&with_watch_providers=350%7C2&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04&with_original_language=en%7Ces%7Cfr%7Cde%7Cit%7Cpt%7Cnl%7Csv%7Cda%7Cno%7Cnb%7Cnn%7Cfi%7Cis%7Cpl%7Ccs%7Csk%7Chu%7Cro%7Cel%7Cru%7Cuk%7Ctr%7Car%7Che%7Cfa%7Chi%7Cta%7Cte%7Cml%7Ckn%7Cbn%7Cmr%7Cpa%7Cur%7Cvi%7Cid%7Cms%7Ctl%7Cxx",
           "discover": {
             "version": 2,
             "source": "tmdb",
@@ -955,7 +900,8 @@
               "with_watch_providers": "350|2",
               "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
               "first_air_date.gte": "__tmdb_date__:last_year:from",
-              "first_air_date.lte": "__tmdb_date__:last_year:to"
+              "first_air_date.lte": "__tmdb_date__:last_year:to",
+              "with_original_language": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx"
             },
             "formState": {
               "catalogName": "Popular on Apple TV+",
@@ -983,7 +929,7 @@
                 }
               ],
               "genreJoinMode": "or",
-              "originalLanguage": "",
+              "originalLanguage": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx",
               "originCountry": "",
               "certificationCountry": "",
               "certificationValue": "",
@@ -991,10 +937,7 @@
               "includeAdult": false,
               "releasedOnly": false,
               "tmdbTvStatuses": [],
-              "tmdbMovieReleaseTypes": [
-                "3",
-                "2"
-              ],
+              "tmdbMovieReleaseTypes": ["3", "2"],
               "tmdbTvTypes": [],
               "selectedPeople": [],
               "peopleJoinMode": "or",
@@ -1017,15 +960,9 @@
                 }
               ],
               "providerJoinMode": "or",
-              "voteAverageRange": [
-                0,
-                10
-              ],
+              "voteAverageRange": [0, 10],
               "voteCountMin": 0,
-              "runtimeRange": [
-                0,
-                400
-              ],
+              "runtimeRange": [0, 400],
               "primaryReleaseFrom": "",
               "primaryReleaseTo": "",
               "movieDatePreset": "clear",
@@ -1050,7 +987,7 @@
         "cacheTTL": 86400,
         "metadata": {
           "description": "TMDB Discover (movie)",
-          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&watch_region=US&with_watch_providers=350%7C2&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&watch_region=US&with_watch_providers=350%7C2&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04&with_original_language=en%7Ces%7Cfr%7Cde%7Cit%7Cpt%7Cnl%7Csv%7Cda%7Cno%7Cnb%7Cnn%7Cfi%7Cis%7Cpl%7Ccs%7Csk%7Chu%7Cro%7Cel%7Cru%7Cuk%7Ctr%7Car%7Che%7Cfa%7Chi%7Cta%7Cte%7Cml%7Ckn%7Cbn%7Cmr%7Cpa%7Cur%7Cvi%7Cid%7Cms%7Ctl%7Cxx",
           "discover": {
             "version": 2,
             "source": "tmdb",
@@ -1063,7 +1000,8 @@
               "with_watch_providers": "350|2",
               "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
               "primary_release_date.gte": "__tmdb_date__:last_year:from",
-              "primary_release_date.lte": "__tmdb_date__:last_year:to"
+              "primary_release_date.lte": "__tmdb_date__:last_year:to",
+              "with_original_language": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx"
             },
             "formState": {
               "catalogName": "Popular on Apple TV+",
@@ -1083,7 +1021,7 @@
                 }
               ],
               "genreJoinMode": "or",
-              "originalLanguage": "",
+              "originalLanguage": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx",
               "originCountry": "",
               "certificationCountry": "",
               "certificationValue": "",
@@ -1114,15 +1052,9 @@
                 }
               ],
               "providerJoinMode": "or",
-              "voteAverageRange": [
-                0,
-                10
-              ],
+              "voteAverageRange": [0, 10],
               "voteCountMin": 0,
-              "runtimeRange": [
-                0,
-                400
-              ],
+              "runtimeRange": [0, 400],
               "primaryReleaseFrom": "2025-09-04",
               "primaryReleaseTo": "2026-09-04",
               "movieDatePreset": "last_year",
@@ -1147,7 +1079,7 @@
         "cacheTTL": 86400,
         "metadata": {
           "description": "TMDB Discover (tv)",
-          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10762%7C10751%7C10766&watch_region=US&with_watch_providers=1899&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10762%7C10751%7C10766&watch_region=US&with_watch_providers=1899&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04&with_original_language=en%7Ces%7Cfr%7Cde%7Cit%7Cpt%7Cnl%7Csv%7Cda%7Cno%7Cnb%7Cnn%7Cfi%7Cis%7Cpl%7Ccs%7Csk%7Chu%7Cro%7Cel%7Cru%7Cuk%7Ctr%7Car%7Che%7Cfa%7Chi%7Cta%7Cte%7Cml%7Ckn%7Cbn%7Cmr%7Cpa%7Cur%7Cvi%7Cid%7Cms%7Ctl%7Cxx",
           "discover": {
             "version": 2,
             "source": "tmdb",
@@ -1160,7 +1092,8 @@
               "with_watch_providers": "1899",
               "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
               "first_air_date.gte": "__tmdb_date__:last_year:from",
-              "first_air_date.lte": "__tmdb_date__:last_year:to"
+              "first_air_date.lte": "__tmdb_date__:last_year:to",
+              "with_original_language": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx"
             },
             "formState": {
               "catalogName": "Popular on HBO Max",
@@ -1188,7 +1121,7 @@
                 }
               ],
               "genreJoinMode": "or",
-              "originalLanguage": "",
+              "originalLanguage": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx",
               "originCountry": "",
               "certificationCountry": "",
               "certificationValue": "",
@@ -1215,15 +1148,9 @@
                 }
               ],
               "providerJoinMode": "or",
-              "voteAverageRange": [
-                0,
-                10
-              ],
+              "voteAverageRange": [0, 10],
               "voteCountMin": 0,
-              "runtimeRange": [
-                0,
-                400
-              ],
+              "runtimeRange": [0, 400],
               "primaryReleaseFrom": "",
               "primaryReleaseTo": "",
               "movieDatePreset": "clear",
@@ -1248,7 +1175,7 @@
         "cacheTTL": 86400,
         "metadata": {
           "description": "TMDB Discover (movie)",
-          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&watch_region=US&with_watch_providers=1899&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&watch_region=US&with_watch_providers=1899&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04&with_original_language=en%7Ces%7Cfr%7Cde%7Cit%7Cpt%7Cnl%7Csv%7Cda%7Cno%7Cnb%7Cnn%7Cfi%7Cis%7Cpl%7Ccs%7Csk%7Chu%7Cro%7Cel%7Cru%7Cuk%7Ctr%7Car%7Che%7Cfa%7Chi%7Cta%7Cte%7Cml%7Ckn%7Cbn%7Cmr%7Cpa%7Cur%7Cvi%7Cid%7Cms%7Ctl%7Cxx",
           "discover": {
             "version": 2,
             "source": "tmdb",
@@ -1261,7 +1188,8 @@
               "with_watch_providers": "1899",
               "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
               "primary_release_date.gte": "__tmdb_date__:last_year:from",
-              "primary_release_date.lte": "__tmdb_date__:last_year:to"
+              "primary_release_date.lte": "__tmdb_date__:last_year:to",
+              "with_original_language": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx"
             },
             "formState": {
               "catalogName": "Popular on HBO Max",
@@ -1281,7 +1209,7 @@
                 }
               ],
               "genreJoinMode": "or",
-              "originalLanguage": "",
+              "originalLanguage": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx",
               "originCountry": "",
               "certificationCountry": "",
               "certificationValue": "",
@@ -1308,15 +1236,9 @@
                 }
               ],
               "providerJoinMode": "or",
-              "voteAverageRange": [
-                0,
-                10
-              ],
+              "voteAverageRange": [0, 10],
               "voteCountMin": 0,
-              "runtimeRange": [
-                0,
-                400
-              ],
+              "runtimeRange": [0, 400],
               "primaryReleaseFrom": "2025-09-04",
               "primaryReleaseTo": "2026-09-04",
               "movieDatePreset": "last_year",
@@ -1341,7 +1263,7 @@
         "cacheTTL": 86400,
         "metadata": {
           "description": "TMDB Discover (tv)",
-          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751%7C10762%7C10766&watch_region=US&with_watch_providers=337&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751%7C10762%7C10766&watch_region=US&with_watch_providers=337&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04&with_original_language=en%7Ces%7Cfr%7Cde%7Cit%7Cpt%7Cnl%7Csv%7Cda%7Cno%7Cnb%7Cnn%7Cfi%7Cis%7Cpl%7Ccs%7Csk%7Chu%7Cro%7Cel%7Cru%7Cuk%7Ctr%7Car%7Che%7Cfa%7Chi%7Cta%7Cte%7Cml%7Ckn%7Cbn%7Cmr%7Cpa%7Cur%7Cvi%7Cid%7Cms%7Ctl%7Cxx",
           "discover": {
             "version": 2,
             "source": "tmdb",
@@ -1354,7 +1276,8 @@
               "with_watch_providers": "337",
               "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
               "first_air_date.gte": "__tmdb_date__:last_year:from",
-              "first_air_date.lte": "__tmdb_date__:last_year:to"
+              "first_air_date.lte": "__tmdb_date__:last_year:to",
+              "with_original_language": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx"
             },
             "formState": {
               "catalogName": "Popular on Disney+",
@@ -1382,7 +1305,7 @@
                 }
               ],
               "genreJoinMode": "or",
-              "originalLanguage": "",
+              "originalLanguage": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx",
               "originCountry": "",
               "certificationCountry": "",
               "certificationValue": "",
@@ -1409,15 +1332,9 @@
                 }
               ],
               "providerJoinMode": "or",
-              "voteAverageRange": [
-                0,
-                10
-              ],
+              "voteAverageRange": [0, 10],
               "voteCountMin": 0,
-              "runtimeRange": [
-                0,
-                400
-              ],
+              "runtimeRange": [0, 400],
               "primaryReleaseFrom": "",
               "primaryReleaseTo": "",
               "movieDatePreset": "clear",
@@ -1442,7 +1359,7 @@
         "cacheTTL": 86400,
         "metadata": {
           "description": "TMDB Discover (movie)",
-          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&watch_region=US&with_watch_providers=337&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&watch_region=US&with_watch_providers=337&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04&with_original_language=en%7Ces%7Cfr%7Cde%7Cit%7Cpt%7Cnl%7Csv%7Cda%7Cno%7Cnb%7Cnn%7Cfi%7Cis%7Cpl%7Ccs%7Csk%7Chu%7Cro%7Cel%7Cru%7Cuk%7Ctr%7Car%7Che%7Cfa%7Chi%7Cta%7Cte%7Cml%7Ckn%7Cbn%7Cmr%7Cpa%7Cur%7Cvi%7Cid%7Cms%7Ctl%7Cxx",
           "discover": {
             "version": 2,
             "source": "tmdb",
@@ -1455,7 +1372,8 @@
               "with_watch_providers": "337",
               "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
               "primary_release_date.gte": "__tmdb_date__:last_year:from",
-              "primary_release_date.lte": "__tmdb_date__:last_year:to"
+              "primary_release_date.lte": "__tmdb_date__:last_year:to",
+              "with_original_language": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx"
             },
             "formState": {
               "catalogName": "Popular on Disney+",
@@ -1475,7 +1393,7 @@
                 }
               ],
               "genreJoinMode": "or",
-              "originalLanguage": "",
+              "originalLanguage": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx",
               "originCountry": "",
               "certificationCountry": "",
               "certificationValue": "",
@@ -1502,15 +1420,9 @@
                 }
               ],
               "providerJoinMode": "or",
-              "voteAverageRange": [
-                0,
-                10
-              ],
+              "voteAverageRange": [0, 10],
               "voteCountMin": 0,
-              "runtimeRange": [
-                0,
-                400
-              ],
+              "runtimeRange": [0, 400],
               "primaryReleaseFrom": "2025-09-04",
               "primaryReleaseTo": "2026-09-04",
               "movieDatePreset": "last_year",
@@ -1535,7 +1447,7 @@
         "cacheTTL": 86400,
         "metadata": {
           "description": "TMDB Discover (tv)",
-          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751%7C10762%7C10766&watch_region=US&with_watch_providers=9%7C613%7C2100&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751%7C10762%7C10766&watch_region=US&with_watch_providers=9%7C613%7C2100&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04&with_original_language=en%7Ces%7Cfr%7Cde%7Cit%7Cpt%7Cnl%7Csv%7Cda%7Cno%7Cnb%7Cnn%7Cfi%7Cis%7Cpl%7Ccs%7Csk%7Chu%7Cro%7Cel%7Cru%7Cuk%7Ctr%7Car%7Che%7Cfa%7Chi%7Cta%7Cte%7Cml%7Ckn%7Cbn%7Cmr%7Cpa%7Cur%7Cvi%7Cid%7Cms%7Ctl%7Cxx",
           "discover": {
             "version": 2,
             "source": "tmdb",
@@ -1548,7 +1460,8 @@
               "with_watch_providers": "9|613|2100",
               "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
               "first_air_date.gte": "__tmdb_date__:last_year:from",
-              "first_air_date.lte": "__tmdb_date__:last_year:to"
+              "first_air_date.lte": "__tmdb_date__:last_year:to",
+              "with_original_language": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx"
             },
             "formState": {
               "catalogName": "Popular on Prime Video",
@@ -1576,7 +1489,7 @@
                 }
               ],
               "genreJoinMode": "or",
-              "originalLanguage": "",
+              "originalLanguage": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx",
               "originCountry": "",
               "certificationCountry": "",
               "certificationValue": "",
@@ -1611,15 +1524,9 @@
                 }
               ],
               "providerJoinMode": "or",
-              "voteAverageRange": [
-                0,
-                10
-              ],
+              "voteAverageRange": [0, 10],
               "voteCountMin": 0,
-              "runtimeRange": [
-                0,
-                400
-              ],
+              "runtimeRange": [0, 400],
               "primaryReleaseFrom": "",
               "primaryReleaseTo": "",
               "movieDatePreset": "clear",
@@ -1644,7 +1551,7 @@
         "cacheTTL": 86400,
         "metadata": {
           "description": "TMDB Discover (movie)",
-          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&watch_region=US&with_watch_providers=9%7C613%7C2100&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&watch_region=US&with_watch_providers=9%7C613%7C2100&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04&with_original_language=en%7Ces%7Cfr%7Cde%7Cit%7Cpt%7Cnl%7Csv%7Cda%7Cno%7Cnb%7Cnn%7Cfi%7Cis%7Cpl%7Ccs%7Csk%7Chu%7Cro%7Cel%7Cru%7Cuk%7Ctr%7Car%7Che%7Cfa%7Chi%7Cta%7Cte%7Cml%7Ckn%7Cbn%7Cmr%7Cpa%7Cur%7Cvi%7Cid%7Cms%7Ctl%7Cxx",
           "discover": {
             "version": 2,
             "source": "tmdb",
@@ -1657,7 +1564,8 @@
               "with_watch_providers": "9|613|2100",
               "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
               "primary_release_date.gte": "__tmdb_date__:last_year:from",
-              "primary_release_date.lte": "__tmdb_date__:last_year:to"
+              "primary_release_date.lte": "__tmdb_date__:last_year:to",
+              "with_original_language": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx"
             },
             "formState": {
               "catalogName": "Popular on Prime Video",
@@ -1677,7 +1585,7 @@
                 }
               ],
               "genreJoinMode": "or",
-              "originalLanguage": "",
+              "originalLanguage": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx",
               "originCountry": "",
               "certificationCountry": "",
               "certificationValue": "",
@@ -1712,15 +1620,9 @@
                 }
               ],
               "providerJoinMode": "or",
-              "voteAverageRange": [
-                0,
-                10
-              ],
+              "voteAverageRange": [0, 10],
               "voteCountMin": 0,
-              "runtimeRange": [
-                0,
-                400
-              ],
+              "runtimeRange": [0, 400],
               "primaryReleaseFrom": "2025-09-04",
               "primaryReleaseTo": "2026-09-04",
               "movieDatePreset": "last_year",
@@ -1745,7 +1647,7 @@
         "cacheTTL": 86400,
         "metadata": {
           "description": "TMDB Discover (tv)",
-          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10762%7C10751%7C10766&watch_region=US&with_watch_providers=2303%7C2616&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10762%7C10751%7C10766&watch_region=US&with_watch_providers=2303%7C2616&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04&with_original_language=en%7Ces%7Cfr%7Cde%7Cit%7Cpt%7Cnl%7Csv%7Cda%7Cno%7Cnb%7Cnn%7Cfi%7Cis%7Cpl%7Ccs%7Csk%7Chu%7Cro%7Cel%7Cru%7Cuk%7Ctr%7Car%7Che%7Cfa%7Chi%7Cta%7Cte%7Cml%7Ckn%7Cbn%7Cmr%7Cpa%7Cur%7Cvi%7Cid%7Cms%7Ctl%7Cxx",
           "discover": {
             "version": 2,
             "source": "tmdb",
@@ -1758,7 +1660,8 @@
               "with_watch_providers": "2303|2616",
               "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
               "first_air_date.gte": "__tmdb_date__:last_year:from",
-              "first_air_date.lte": "__tmdb_date__:last_year:to"
+              "first_air_date.lte": "__tmdb_date__:last_year:to",
+              "with_original_language": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx"
             },
             "formState": {
               "catalogName": "Popular on Paramount+",
@@ -1786,7 +1689,7 @@
                 }
               ],
               "genreJoinMode": "or",
-              "originalLanguage": "",
+              "originalLanguage": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx",
               "originCountry": "",
               "certificationCountry": "",
               "certificationValue": "",
@@ -1817,15 +1720,9 @@
                 }
               ],
               "providerJoinMode": "or",
-              "voteAverageRange": [
-                0,
-                10
-              ],
+              "voteAverageRange": [0, 10],
               "voteCountMin": 0,
-              "runtimeRange": [
-                0,
-                400
-              ],
+              "runtimeRange": [0, 400],
               "primaryReleaseFrom": "",
               "primaryReleaseTo": "",
               "movieDatePreset": "clear",
@@ -1850,7 +1747,7 @@
         "cacheTTL": 86400,
         "metadata": {
           "description": "TMDB Discover (movie)",
-          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&watch_region=US&with_watch_providers=2303%7C2616&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&watch_region=US&with_watch_providers=2303%7C2616&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04&with_original_language=en%7Ces%7Cfr%7Cde%7Cit%7Cpt%7Cnl%7Csv%7Cda%7Cno%7Cnb%7Cnn%7Cfi%7Cis%7Cpl%7Ccs%7Csk%7Chu%7Cro%7Cel%7Cru%7Cuk%7Ctr%7Car%7Che%7Cfa%7Chi%7Cta%7Cte%7Cml%7Ckn%7Cbn%7Cmr%7Cpa%7Cur%7Cvi%7Cid%7Cms%7Ctl%7Cxx",
           "discover": {
             "version": 2,
             "source": "tmdb",
@@ -1863,7 +1760,8 @@
               "with_watch_providers": "2303|2616",
               "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
               "primary_release_date.gte": "__tmdb_date__:last_year:from",
-              "primary_release_date.lte": "__tmdb_date__:last_year:to"
+              "primary_release_date.lte": "__tmdb_date__:last_year:to",
+              "with_original_language": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx"
             },
             "formState": {
               "catalogName": "Popular on Paramount+",
@@ -1883,7 +1781,7 @@
                 }
               ],
               "genreJoinMode": "or",
-              "originalLanguage": "",
+              "originalLanguage": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx",
               "originCountry": "",
               "certificationCountry": "",
               "certificationValue": "",
@@ -1914,15 +1812,9 @@
                 }
               ],
               "providerJoinMode": "or",
-              "voteAverageRange": [
-                0,
-                10
-              ],
+              "voteAverageRange": [0, 10],
               "voteCountMin": 0,
-              "runtimeRange": [
-                0,
-                400
-              ],
+              "runtimeRange": [0, 400],
               "primaryReleaseFrom": "2025-09-04",
               "primaryReleaseTo": "2026-09-04",
               "movieDatePreset": "last_year",
@@ -1947,7 +1839,7 @@
         "cacheTTL": 86400,
         "metadata": {
           "description": "TMDB Discover (tv)",
-          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751%7C10762%7C10766&watch_region=US&with_watch_providers=386%7C387&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751%7C10762%7C10766&watch_region=US&with_watch_providers=386%7C387&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04&with_original_language=en%7Ces%7Cfr%7Cde%7Cit%7Cpt%7Cnl%7Csv%7Cda%7Cno%7Cnb%7Cnn%7Cfi%7Cis%7Cpl%7Ccs%7Csk%7Chu%7Cro%7Cel%7Cru%7Cuk%7Ctr%7Car%7Che%7Cfa%7Chi%7Cta%7Cte%7Cml%7Ckn%7Cbn%7Cmr%7Cpa%7Cur%7Cvi%7Cid%7Cms%7Ctl%7Cxx",
           "discover": {
             "version": 2,
             "source": "tmdb",
@@ -1960,7 +1852,8 @@
               "with_watch_providers": "386|387",
               "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
               "first_air_date.gte": "__tmdb_date__:last_year:from",
-              "first_air_date.lte": "__tmdb_date__:last_year:to"
+              "first_air_date.lte": "__tmdb_date__:last_year:to",
+              "with_original_language": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx"
             },
             "formState": {
               "catalogName": "Popular on Peacock",
@@ -1988,7 +1881,7 @@
                 }
               ],
               "genreJoinMode": "or",
-              "originalLanguage": "",
+              "originalLanguage": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx",
               "originCountry": "",
               "certificationCountry": "",
               "certificationValue": "",
@@ -2019,15 +1912,9 @@
                 }
               ],
               "providerJoinMode": "or",
-              "voteAverageRange": [
-                0,
-                10
-              ],
+              "voteAverageRange": [0, 10],
               "voteCountMin": 0,
-              "runtimeRange": [
-                0,
-                400
-              ],
+              "runtimeRange": [0, 400],
               "primaryReleaseFrom": "",
               "primaryReleaseTo": "",
               "movieDatePreset": "clear",
@@ -2052,7 +1939,7 @@
         "cacheTTL": 86400,
         "metadata": {
           "description": "TMDB Discover (movie)",
-          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&watch_region=US&with_watch_providers=386%7C387&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&watch_region=US&with_watch_providers=386%7C387&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04&with_original_language=en%7Ces%7Cfr%7Cde%7Cit%7Cpt%7Cnl%7Csv%7Cda%7Cno%7Cnb%7Cnn%7Cfi%7Cis%7Cpl%7Ccs%7Csk%7Chu%7Cro%7Cel%7Cru%7Cuk%7Ctr%7Car%7Che%7Cfa%7Chi%7Cta%7Cte%7Cml%7Ckn%7Cbn%7Cmr%7Cpa%7Cur%7Cvi%7Cid%7Cms%7Ctl%7Cxx",
           "discover": {
             "version": 2,
             "source": "tmdb",
@@ -2065,7 +1952,8 @@
               "with_watch_providers": "386|387",
               "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
               "primary_release_date.gte": "__tmdb_date__:last_year:from",
-              "primary_release_date.lte": "__tmdb_date__:last_year:to"
+              "primary_release_date.lte": "__tmdb_date__:last_year:to",
+              "with_original_language": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx"
             },
             "formState": {
               "catalogName": "Popular on Peacock",
@@ -2085,7 +1973,7 @@
                 }
               ],
               "genreJoinMode": "or",
-              "originalLanguage": "",
+              "originalLanguage": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx",
               "originCountry": "",
               "certificationCountry": "",
               "certificationValue": "",
@@ -2116,15 +2004,9 @@
                 }
               ],
               "providerJoinMode": "or",
-              "voteAverageRange": [
-                0,
-                10
-              ],
+              "voteAverageRange": [0, 10],
               "voteCountMin": 0,
-              "runtimeRange": [
-                0,
-                400
-              ],
+              "runtimeRange": [0, 400],
               "primaryReleaseFrom": "2025-09-04",
               "primaryReleaseTo": "2026-09-04",
               "movieDatePreset": "last_year",
@@ -2149,7 +2031,7 @@
         "cacheTTL": 86400,
         "metadata": {
           "description": "TMDB Discover (tv)",
-          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751%7C10762%7C10766&watch_region=US&with_watch_providers=15&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04",
+          "url": "https://www.themoviedb.org/discover/tv?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751%7C10762%7C10766&watch_region=US&with_watch_providers=15&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&first_air_date.gte=2025-09-04&first_air_date.lte=2026-09-04&with_original_language=en%7Ces%7Cfr%7Cde%7Cit%7Cpt%7Cnl%7Csv%7Cda%7Cno%7Cnb%7Cnn%7Cfi%7Cis%7Cpl%7Ccs%7Csk%7Chu%7Cro%7Cel%7Cru%7Cuk%7Ctr%7Car%7Che%7Cfa%7Chi%7Cta%7Cte%7Cml%7Ckn%7Cbn%7Cmr%7Cpa%7Cur%7Cvi%7Cid%7Cms%7Ctl%7Cxx",
           "discover": {
             "version": 2,
             "source": "tmdb",
@@ -2162,7 +2044,8 @@
               "with_watch_providers": "15",
               "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
               "first_air_date.gte": "__tmdb_date__:last_year:from",
-              "first_air_date.lte": "__tmdb_date__:last_year:to"
+              "first_air_date.lte": "__tmdb_date__:last_year:to",
+              "with_original_language": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx"
             },
             "formState": {
               "catalogName": "Popular on Hulu",
@@ -2190,7 +2073,7 @@
                 }
               ],
               "genreJoinMode": "or",
-              "originalLanguage": "",
+              "originalLanguage": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx",
               "originCountry": "",
               "certificationCountry": "",
               "certificationValue": "",
@@ -2217,15 +2100,9 @@
                 }
               ],
               "providerJoinMode": "or",
-              "voteAverageRange": [
-                0,
-                10
-              ],
+              "voteAverageRange": [0, 10],
               "voteCountMin": 0,
-              "runtimeRange": [
-                0,
-                400
-              ],
+              "runtimeRange": [0, 400],
               "primaryReleaseFrom": "",
               "primaryReleaseTo": "",
               "movieDatePreset": "clear",
@@ -2250,7 +2127,7 @@
         "cacheTTL": 86400,
         "metadata": {
           "description": "TMDB Discover (movie)",
-          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&watch_region=US&with_watch_providers=15&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04",
+          "url": "https://www.themoviedb.org/discover/movie?sort_by=popularity.desc&include_adult=false&without_genres=16%7C10751&watch_region=US&with_watch_providers=15&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy&primary_release_date.gte=2025-09-04&primary_release_date.lte=2026-09-04&with_original_language=en%7Ces%7Cfr%7Cde%7Cit%7Cpt%7Cnl%7Csv%7Cda%7Cno%7Cnb%7Cnn%7Cfi%7Cis%7Cpl%7Ccs%7Csk%7Chu%7Cro%7Cel%7Cru%7Cuk%7Ctr%7Car%7Che%7Cfa%7Chi%7Cta%7Cte%7Cml%7Ckn%7Cbn%7Cmr%7Cpa%7Cur%7Cvi%7Cid%7Cms%7Ctl%7Cxx",
           "discover": {
             "version": 2,
             "source": "tmdb",
@@ -2263,7 +2140,8 @@
               "with_watch_providers": "15",
               "with_watch_monetization_types": "flatrate|free|ads|rent|buy",
               "primary_release_date.gte": "__tmdb_date__:last_year:from",
-              "primary_release_date.lte": "__tmdb_date__:last_year:to"
+              "primary_release_date.lte": "__tmdb_date__:last_year:to",
+              "with_original_language": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx"
             },
             "formState": {
               "catalogName": "Popular on Hulu",
@@ -2283,7 +2161,7 @@
                 }
               ],
               "genreJoinMode": "or",
-              "originalLanguage": "",
+              "originalLanguage": "en|es|fr|de|it|pt|nl|sv|da|no|nb|nn|fi|is|pl|cs|sk|hu|ro|el|ru|uk|tr|ar|he|fa|hi|ta|te|ml|kn|bn|mr|pa|ur|vi|id|ms|tl|xx",
               "originCountry": "",
               "certificationCountry": "",
               "certificationValue": "",
@@ -2310,15 +2188,9 @@
                 }
               ],
               "providerJoinMode": "or",
-              "voteAverageRange": [
-                0,
-                10
-              ],
+              "voteAverageRange": [0, 10],
               "voteCountMin": 0,
-              "runtimeRange": [
-                0,
-                400
-              ],
+              "runtimeRange": [0, 400],
               "primaryReleaseFrom": "2025-09-04",
               "primaryReleaseTo": "2026-09-04",
               "movieDatePreset": "last_year",
