@@ -1,6 +1,6 @@
 {
   "version": "2.16.5",
-  "exportedAt": "2026-09-10T18:28:09.913Z",
+  "exportedAt": "2026-09-13T15:39:56.929Z",
   "config": {
     "mal": {
       "skipRecap": false,
@@ -969,7 +969,7 @@
     "sessionId": "",
     "streaming": [],
     "blurThumbs": false,
-    "configHash": "6264664838c0dfc4",
+    "configHash": "e5aa3ce516ca46c6",
     "showPrefix": false,
     "artProviders": {
       "anime": {
@@ -991,8 +991,8 @@
       "originalLangFallback": false
     },
     "includeAdult": false,
-    "lastModified": 1788983456156,
-    "configVersion": 1788983456157,
+    "lastModified": 1789304439527,
+    "configVersion": 1789304439528,
     "searchEnabled": true,
     "tvdbSeasonType": "default",
     "usePosterProxy": false,
@@ -1011,14 +1011,14 @@
     "posterRatingProvider": "custom",
     "showDisabledCatalogs": false,
     "hideUnreleasedDigital": false,
-    "customPosterUrlPattern": "",
+    "customPosterUrlPattern": "https://btttr.cc/poster-n/imdb/poster-default/{imdb_id}.jpg?tag=none",
     "customThumbnailUrlPattern": "",
     "hideUnreleasedShowsSearch": false,
     "publicmetadbWatchTracking": false,
     "customBackgroundUrlPattern": "",
     "hideUnreleasedDigitalSearch": false,
     "showMetaProviderAttribution": false,
-    "enableRatingPostersForLibrary": true
+    "enableRatingPostersForLibrary": false
   },
   "metadata": {
     "apiKeysExcluded": true,
